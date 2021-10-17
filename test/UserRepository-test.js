@@ -1,15 +1,11 @@
 const expect = require('chai').expect;
 const UserRepository = require('../src/UserRepository.js');
-const dataFile = require('../src/data/users.js')
-const data = dataFile.userData;
-console.log(data)
-
 
 describe('User Repository', () => {
   let data;
   let userRepo;
   beforeEach(function() {
-    data = {
+    data = [{
       id: 1,
       name: 'Brian Peterson',
       address: '1 North Pole',
@@ -17,7 +13,16 @@ describe('User Repository', () => {
       strideLength: 5,
       dailyStepGoal: 11,
       friends: [4, 9, 11],
-    }
+    },
+    {
+      id: 2,
+      name: 'Carly Collums',
+      address: '4 North Pole',
+      email: 'carly@northpole.com',
+      strideLength: 4,
+      dailyStepGoal: 4,
+      friends: [1, 9, 11],
+    }]
     userRepo = new UserRepository(data);
   })
 
@@ -30,16 +35,7 @@ describe('User Repository', () => {
   });
 
   it('should retrieve user data', function () {
-    expect(userRepo.).to.be.an.instanceOf(UserRepository);
+    expect(userRepo.retrieveUserData(1)).to.deep.equal(data[0]);
   });
-
-
-
-
-
-
-
-
-
 
 });
