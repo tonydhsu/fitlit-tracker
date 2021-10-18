@@ -1,13 +1,94 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet' href='src/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>Activity Tracker</title>
+    <title>FitLit Tracker</title>
   </head>
   <body>
-    <h1>Activity Tracker</h1>
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
+    <main>
+      <section class="side-bar">
+        <h1>FITLIT</h1>
+        <!-- <div class="line"</div> -->
+        <h2>Hi Carly!</h2>
+        <!-- <div class="line"</div> -->
+        <h3>User Information</h3>
+        <h4>Name:</h4>
+        <p>Carly Collums</p>
+        <h4>Email:</h4>
+        <p>carlycollums@gmail.com</p>
+        <h4>Address:</h4>
+        <p>4 North Pole</p>
+        <h4>Stride Length</h4>
+        <p>4</p>
+        <h4>Daily Step Goal</h4>
+        <p>10,000</p>
+        <!-- <div class="line"></div> -->
+        <h2>Friends</h2>
+        <!-- <div class="line"></div> -->
+        <section class="friends">
+          <img src= "https://www.pinclipart.com/picdir/big/226-2265707_drama-pictures-clip-art.png" alt="friend-icon"/>
+          <p>friend1</p>
+        </section>
+        <section class="friends">
+          <img src= "https://www.pinclipart.com/picdir/big/226-2265707_drama-pictures-clip-art.png" alt="friend-icon"/>
+          <p>friend2</p>
+        </section>
+        <section class="friends">
+          <img src= "https://www.pinclipart.com/picdir/big/226-2265707_drama-pictures-clip-art.png" alt="friend-icon"/>
+          <p>friend3</p>
+        </section>
+        <section class="friends">
+          <img src= "https://www.pinclipart.com/picdir/big/226-2265707_drama-pictures-clip-art.png" alt="friend-icon"/>
+          <p>friend4</p>
+        </section>
+        <section class="friends">
+          <img src= "https://www.pinclipart.com/picdir/big/226-2265707_drama-pictures-clip-art.png" alt="friend-icon"/>
+          <p>friend5</p>
+        </section>
+      </section>
+      <!-- <div class="line"></div> -->
+      <section class="right-side">
+        <section class="circles">
+          <section class="steps-today">
+            <h1>6,785</h1>
+            <h4>Steps Today</h4>
+          </section>
+          <section class="water-today">
+            <h1>40 oz</h1>
+            <h4>Water Today</h4>
+          </section>
+          <section class="hours-of-sleep">
+            <h1>7.5</h1>
+            <h4>Hours of Sleep</h4>
+          </section>
+          <section class="quality-of-sleep">
+            <h1>8</h1>
+            <h4>Quality of Sleep</h4>
+          </section>
+        </section>
+        <section class="first-two-graphs">
+          <section class="first graph">
+            <h1 class="graph-labels">Water this Week</h1>
+            <img class="graph" src="https://chartio.com/assets/dfd59f/tutorials/charts/grouped-bar-charts/c1fde6017511bbef7ba9bb245a113c07f8ff32173a7c0d742a4e1eac1930a3c5/grouped-bar-example-1.png" alt="graph"/>
+          </section>
+          <section class="second-graph">
+            <h1 class="graph-labels">Sleep Quality this Week</h1>
+            <img class="graph" src="https://chartio.com/assets/dfd59f/tutorials/charts/grouped-bar-charts/c1fde6017511bbef7ba9bb245a113c07f8ff32173a7c0d742a4e1eac1930a3c5/grouped-bar-example-1.png" alt="graph"/>
+          </section>
+        </section>
+        <section class="second-two-graphs">
+          <section class="last-graph">
+            <h1 class="graph-labels">Sleep Hours this Week</h1>
+            <img class="graph" src="https://chartio.com/assets/dfd59f/tutorials/charts/grouped-bar-charts/c1fde6017511bbef7ba9bb245a113c07f8ff32173a7c0d742a4e1eac1930a3c5/grouped-bar-example-1.png" alt="graph"/>
+          </section>
+          <section class="runner-circle">
+            <img src="https://w7.pngwing.com/pngs/895/121/png-transparent-computer-icons-runner-icon-sport-hand-logo-thumbnail.png" alt="running-person"/>
+          </section>
+        </section>
+      </section>
+    </main>
 <!-- Do not include the scripts.js file here - it is done automatically by the webpack server -->
     <script src="bundle.js"></script>
   </body>
