@@ -9,18 +9,18 @@ import './images/turing-logo.png'
 
 // An example of how you tell webpack to use a JS file
 
-import userData from './data/users';
+// import userData from './data/users';
 import UserRepository from './UserRepository';
 import User from './User';
 
-let users = userData;
+let users;
 
 const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
 
-let user = new User(userData[0]);
-
 const onPageLoad = () => {
+  getData();
+  let user = new User(users.userData[0]);
   infoCard.innerHTML += `
   <h2>Hi ${user.returnFirstName()}!</h2>
   <h3>User Information</h3>
@@ -35,6 +35,13 @@ const onPageLoad = () => {
   <h4>Daily Step Goal</h4>
   <p>${user.dailyStepGoal}</p>`
   compareSteps();
+}
+
+const getData = () => {
+  return fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/users")
+  .then(response => response.json());
+  .then(data => users = new UserRepository(data))
+  console.log(users);
 }
 
 const compareSteps = () => {
