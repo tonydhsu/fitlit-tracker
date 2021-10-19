@@ -3,7 +3,7 @@ const data = require('../src/data/users.js');
 
 class UserRepository {
   constructor(data) {
-    this.data = data;
+    this.data = data.userData;
   }
 
   retrieveUserData(id) {
