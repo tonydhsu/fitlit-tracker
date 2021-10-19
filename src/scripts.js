@@ -6,7 +6,7 @@ import './images/turing-logo.png'
 // import userData from './data/users';
 import UserRepository from './UserRepository';
 import User from './User';
-import getData from './api';
+import {getUserData, getSleepData, getActivityData,getHydrationData} from './api'
 
 let users;
 
@@ -40,7 +40,7 @@ const compareSteps = (user, totalUsers) => {
 }
 
 const onPageLoad = () => {
-  getData();
+  getUserData();
 }
 
 window.addEventListener('load', onPageLoad);
