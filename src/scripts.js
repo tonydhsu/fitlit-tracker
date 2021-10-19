@@ -1,18 +1,12 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
 
-// An example of how you tell webpack to use a CSS file
 import './css/styles.css';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
-
-// An example of how you tell webpack to use a JS file
 
 // import userData from './data/users';
 import UserRepository from './UserRepository';
 import User from './User';
-// import './src/api.js';
+import getData from './api';
 
 let users;
 
@@ -20,11 +14,7 @@ const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
 
 
-const getData = () => {
-  fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/users")
-  .then(response => response.json())
-  .then((data) => {renderInfoCard(data)})
-}
+
 
 const renderInfoCard = (data) => {
   console.log('hi')
@@ -56,3 +46,5 @@ const onPageLoad = () => {
 }
 
 window.addEventListener('load', onPageLoad);
+
+export default renderInfoCard;

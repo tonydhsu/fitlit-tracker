@@ -12,11 +12,11 @@ class UserRepository {
     })
   }
 
-  retrieveUsersAvgStepGoals(){
+  retrieveUsersAvgStepGoals() {
     let steps = this.data.reduce((avg, user) => {
       avg += user.dailyStepGoal
       return avg
-    },0)
+    }, 0)
     return steps/this.data.length
   }
 
