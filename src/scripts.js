@@ -17,8 +17,8 @@ const stepComparison = document.getElementById('stepComparison');
 
 
 const renderInfoCard = (data) => {
-  console.log('hi')
-  let user = new User(data.userData[0]);
+  let users = new UserRepository(data);
+  let user = new User(data[users.retrieveRandomUser()]);
   infoCard.innerHTML += `
   <h2>Hi ${user.returnFirstName()}!</h2>
   <h3>User Information</h3>
@@ -32,13 +32,11 @@ const renderInfoCard = (data) => {
   <p>${user.strideLength}</p>
   <h4>Daily Step Goal</h4>
   <p>${user.dailyStepGoal}</p>`
-  compareSteps(data);
+  compareSteps(user, users);
 }
 
-const compareSteps = (data) => {
-  let users = new UserRepository(data);
-  let user = new User(data.userData[0])
-  stepComparison.innerText = `The average step goal amoungst all users is: ${users.retrieveUsersAvgStepGoals()}. Your step goal is ${user.dailyStepGoal}.`;
+const compareSteps = (user, totalUsers) => {
+  stepComparison.innerText = `The average step goal amoungst all users is: ${totalUsers.retrieveUsersAvgStepGoals()}. Your step goal is ${user.dailyStepGoal}.`;
 }
 
 const onPageLoad = () => {
