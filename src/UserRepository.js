@@ -1,9 +1,9 @@
-const data = require('../src/data/users.js');
+// const data = require('../src/data/users.js');
 
 
 class UserRepository {
   constructor(data) {
-    this.data = data.userData;
+    this.data = data;
   }
 
   retrieveUserData(id) {
@@ -12,12 +12,16 @@ class UserRepository {
     })
   }
 
-  retrieveUsersAvgStepGoals(){
+  retrieveUsersAvgStepGoals() {
     let steps = this.data.reduce((avg, user) => {
       avg += user.dailyStepGoal
       return avg
-    },0)
-    return steps/this.data.length
+    }, 0)
+    return steps / this.data.length
+  }
+
+  retrieveRandomUser() {
+    return Math.floor(Math.random() * this.data.length)
   }
 
 }

@@ -42,5 +42,9 @@ describe('User Repository', () => {
     expect(userRepo.retrieveUsersAvgStepGoals()).to.deep.equal(7.5);
   });
 
+  it('should retrieve a random user', function () {
+    expect(userRepo.retrieveRandomUser()).to.equal(1 || 2)
+  })
+
 
 });
