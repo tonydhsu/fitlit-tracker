@@ -2,8 +2,8 @@
 
 
 class UserRepository {
-  constructor(data) {
-    this.data = data;
+  constructor(userData) {
+    this.data = userData;
   }
 
   retrieveUserData(id) {
