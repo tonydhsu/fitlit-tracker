@@ -45,8 +45,8 @@ const compareSteps = (user, totalUsers) => {
 
 const renderWaterInfo = (waterData) => {
   let waterInfo = new Hydration(waterData);
-  user.hydrationData.push(waterInfo.retrieveWaterData(user.id));
-  console.log(Math.floor(waterInfo.averageWaterDrank(user.id)));
+  user.hydrationData = waterInfo.retrieveWaterData(user.id);
+  console.log(Math.floor(user.returnAverageWaterPerDay()))
 }
 
 const renderActivityInfo = (activityData) => {

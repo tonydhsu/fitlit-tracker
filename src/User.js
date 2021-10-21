@@ -7,7 +7,7 @@ class User {
     this.strideLength = userData.strideLength;
     this.dailyStepGoal = userData.dailyStepGoal;
     this.friends = userData.friends;
-    this.hydrationData = [];
+    this.hydrationData;
   }
 
   returnFirstName () {
