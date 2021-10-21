@@ -1,6 +1,3 @@
-// const data = require('../src/data/users.js');
-
-
 class UserRepository {
   constructor(userData) {
     this.data = userData;

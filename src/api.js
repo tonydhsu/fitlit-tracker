@@ -1,9 +1,9 @@
-import {renderInfoCard, renderWaterInfo, renderActivityInfo, renderSleepInfo} from "./scripts";
+import {renderInfoCard, renderWaterInfo, renderActivityInfo, renderSleepInfo, createInitialCard} from "./scripts";
 
 const getUserData = () => {
   fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/users")
     .then(response => response.json())
-    .then((data) => {renderInfoCard(data.userData)})
+    .then((data) => {createInitialCard(data.userData)})
 }
 
 const getSleepData = () => {
