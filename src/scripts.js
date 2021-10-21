@@ -6,15 +6,13 @@ import './images/turing-logo.png'
 // import userData from './data/users';
 import UserRepository from './UserRepository';
 import User from './User';
-import {getUserData, getSleepData, getActivityData,getHydrationData} from './api'
+import {getUserData, getSleepData, getActivityData, getHydrationData} from './api'
 
 let users;
+let user;
 
 const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
-
-
-
 
 const renderInfoCard = (data) => {
   let users = new UserRepository(data);
@@ -39,10 +37,32 @@ const compareSteps = (user, totalUsers) => {
   stepComparison.innerText = `The average step goal amoungst all users is: ${totalUsers.retrieveUsersAvgStepGoals()}. Your step goal is ${user.dailyStepGoal}.`;
 }
 
+const renderWaterInfo = (waterData) => {
+  let waterInfo = new UserRepository(waterData);
+  console.log(waterInfo);
+  return waterInfo;
+}
+
+const renderActivityInfo = (activityData) => {
+  console.log(activityData);
+}
+
+const renderSleepInfo = (sleepData) => {
+  console.log(sleepData);
+}
+
 const onPageLoad = () => {
   getUserData();
+  getHydrationData();
+  // getActivityData()
+  // getSleepData();
 }
 
 window.addEventListener('load', onPageLoad);
 
-export default renderInfoCard;
+export {
+  renderInfoCard,
+  renderSleepInfo,
+  renderActivityInfo,
+  renderWaterInfo
+};
