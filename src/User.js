@@ -7,7 +7,7 @@ class User {
     this.strideLength = userData.strideLength;
     this.dailyStepGoal = userData.dailyStepGoal;
     this.friends = userData.friends;
-    this.hydrationData;
+    this.hydrationData = userData.hydrationData
   }
 
   returnFirstName () {
@@ -15,6 +15,7 @@ class User {
   }
 
   returnAverageWaterPerDay() {
+    console.log(this.hydrationData, 'hydrationdata')
     let avgWater = this.hydrationData.reduce((avg, day) => {
       avg += day.numOunces
       return avg
