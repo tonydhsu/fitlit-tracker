@@ -2,6 +2,29 @@ class Hydration {
   constructor(waterData) {
     this.data = waterData;
   }
+
+  // assignInfoToUser() {
+  //   this.data.map((element) => {
+  //     if(user.id === element.userID) {
+  //       return user.hydrationData.push(element);
+  //     }
+  //   })
+  // }
+
+  retrieveWaterData(id) {
+    return this.data.filter((user) => {
+      return user.userID === id;
+    })
+  }
+
+  averageWaterDrank(id) {
+    let water = this.retrieveWaterData(id);
+    let average = water.reduce((sum, day) => {
+      sum += day.numOunces;
+      return sum;
+    }, 0)
+    return average/water.length
+  }
 }
 
 module.exports = Hydration;

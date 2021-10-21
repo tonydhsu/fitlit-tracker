@@ -9,15 +9,20 @@ import User from './User';
 import Hydration from './Hydration';
 import {getUserData, getSleepData, getActivityData, getHydrationData} from './api'
 
-let users;
-let user;
-
 const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
 
-const renderInfoCard = (data) => {
+let users;
+let user;
+
+const createInitialCard = (data) => {
   users = new UserRepository(data);
   user = new User(data[users.retrieveRandomUser()]);
+  getHydrationData();
+  renderInfoCard()
+}
+
+const renderInfoCard = () => {
   infoCard.innerHTML += `
   <h2>Hi ${user.returnFirstName()}!</h2>
   <h3>User Information</h3>
@@ -40,12 +45,8 @@ const compareSteps = (user, totalUsers) => {
 
 const renderWaterInfo = (waterData) => {
   let waterInfo = new Hydration(waterData);
-  waterInfo.data.map((element) => {
-    if(user.id === element.userID) {
-      return user.hydrationData.push(element);
-    }
-  })
-  console.log(user.returnAverageWaterPerDay());
+  user.hydrationData.push(waterInfo.retrieveWaterData(user.id));
+  console.log(Math.floor(waterInfo.averageWaterDrank(user.id)));
 }
 
 const renderActivityInfo = (activityData) => {
@@ -58,7 +59,6 @@ const renderSleepInfo = (sleepData) => {
 
 const onPageLoad = () => {
   getUserData();
-  getHydrationData();
   // getActivityData()
   // getSleepData();
 }
@@ -69,5 +69,6 @@ export {
   renderInfoCard,
   renderSleepInfo,
   renderActivityInfo,
-  renderWaterInfo
+  renderWaterInfo,
+  createInitialCard,
 };
