@@ -1,5 +1,3 @@
-// const { WebpackError } = require("webpack")
-
 class Hydration {
   constructor(waterData) {
     this.data = waterData;
