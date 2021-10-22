@@ -11,6 +11,7 @@ import {getUserData, getSleepData, getActivityData, getHydrationData} from './ap
 
 const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
+const waterWidget = document.getElementById('waterWidget')
 
 let users;
 let user;
@@ -19,7 +20,7 @@ const createInitialCard = (data) => {
   users = new UserRepository(data);
   user = new User(data[users.retrieveRandomUser()]);
   getHydrationData();
-  renderInfoCard()
+  renderInfoCard();
 }
 
 const renderInfoCard = () => {
@@ -47,6 +48,13 @@ const renderWaterInfo = (waterData) => {
   let waterInfo = new Hydration(waterData);
   user.hydrationData = waterInfo.retrieveWaterData(user.id);
   console.log(Math.floor(user.returnAverageWaterPerDay()))
+  console.log(user.hydrationData)
+  renderWaterWidget();
+
+}
+
+const renderWaterWidget = () => {
+  waterWidget.innerText = `${user.returnTotalWaterConsumption(user.hydrationData[user.hydrationData.length-1].date)} oz`
 }
 
 const renderActivityInfo = (activityData) => {

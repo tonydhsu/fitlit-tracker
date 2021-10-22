@@ -32,6 +32,7 @@ class User {
   returnWeeklyConsumption(){
     const waterWeeklyData = this.hydrationData.slice(this.hydrationData.length-7)
     const weeklyWater = waterWeeklyData.map((day) => {
+      console.log(weeklyWater)
       return {date: day.date, numOunces: day.numOunces}
     })
     return weeklyWater;
