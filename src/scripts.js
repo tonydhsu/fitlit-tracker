@@ -7,6 +7,7 @@ import './images/turing-logo.png'
 import UserRepository from './UserRepository';
 import User from './User';
 import Hydration from './Hydration';
+import Sleep from './Sleep';
 import {getUserData, getSleepData, getActivityData, getHydrationData} from './api'
 
 const infoCard = document.getElementById('cardInfo');
@@ -22,6 +23,7 @@ const createInitialCard = (data) => {
   users = new UserRepository(data);
   user = new User(data[users.retrieveRandomUser()]);
   getHydrationData();
+  getSleepData();
   renderInfoCard();
 }
 
@@ -70,7 +72,6 @@ const renderWeeklyWater = () => {
   <h4>${weeklyWaterArray[4].date}: ${weeklyWaterArray[4].numOunces} oz</h4>
   <h4>${weeklyWaterArray[5].date}: ${weeklyWaterArray[5].numOunces} oz</h4>
   <h4>${weeklyWaterArray[6].date}: ${weeklyWaterArray[6].numOunces} oz</h4>`
-
 }
 
 const renderActivityInfo = (activityData) => {
@@ -78,7 +79,9 @@ const renderActivityInfo = (activityData) => {
 }
 
 const renderSleepInfo = (sleepData) => {
-  console.log(sleepData);
+  let sleepInfo = new Sleep(sleepData);
+  user.sleepData = sleepInfo.retrieveSleepData(user.id);
+  console.log('sleep', Math.floor(user.returnAverageSleepPerDay()))
 }
 
 const onPageLoad = () => {
