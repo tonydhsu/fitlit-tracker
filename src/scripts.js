@@ -12,6 +12,8 @@ import {getUserData, getSleepData, getActivityData, getHydrationData} from './ap
 const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
 const waterWidget = document.getElementById('waterWidget')
+const weeklyWater =
+document.getElementById('weeklyWater')
 
 let users;
 let user;
@@ -50,11 +52,25 @@ const renderWaterInfo = (waterData) => {
   console.log(Math.floor(user.returnAverageWaterPerDay()))
   console.log(user.hydrationData)
   renderWaterWidget();
+  renderWeeklyWater();
 
 }
 
 const renderWaterWidget = () => {
   waterWidget.innerText = `${user.returnTotalWaterConsumption(user.hydrationData[user.hydrationData.length-1].date)} oz`
+}
+
+const renderWeeklyWater = () => {
+  const weeklyWaterArray = user.returnWeeklyConsumption()
+  console.log(weeklyWaterArray)
+  weeklyWater.innerHTML += `<h4>${weeklyWaterArray[0].date}: ${weeklyWaterArray[0].numOunces} oz</h4>
+  <h4>${weeklyWaterArray[1].date}: ${weeklyWaterArray[1].numOunces} oz</h4>
+  <h4>${weeklyWaterArray[2].date}: ${weeklyWaterArray[2].numOunces} oz</h4>
+  <h4>${weeklyWaterArray[3].date}: ${weeklyWaterArray[3].numOunces} oz</h4>
+  <h4>${weeklyWaterArray[4].date}: ${weeklyWaterArray[4].numOunces} oz</h4>
+  <h4>${weeklyWaterArray[5].date}: ${weeklyWaterArray[5].numOunces} oz</h4>
+  <h4>${weeklyWaterArray[6].date}: ${weeklyWaterArray[6].numOunces} oz</h4>`
+
 }
 
 const renderActivityInfo = (activityData) => {
