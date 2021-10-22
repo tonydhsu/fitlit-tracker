@@ -13,7 +13,8 @@ describe('User', () => {
       strideLength: 5,
       dailyStepGoal: 11,
       friends: [4, 9, 11],
-      hydrationData: [{
+      hydrationData: [
+      {
         "userID": 1,
         "date": "2019/06/16",
         "numOunces": 95
@@ -27,6 +28,31 @@ describe('User', () => {
         "userID": 1,
         "date": "2019/06/18",
         "numOunces": 57
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/19",
+        "numOunces": 90
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/20",
+        "numOunces": 70
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/21",
+        "numOunces": 59
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/22",
+        "numOunces": 70
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/23",
+        "numOunces": 66
       },
       ]
     })
@@ -73,11 +99,44 @@ describe('User', () => {
   });
 
   it('should return the average water', function() {
-    expect(user.returnAverageWaterPerDay()).to.equal(77)
+    expect(user.returnAverageWaterPerDay()).to.equal(73.25)
   })
 
   it('should return the total water of a specific day', function() {
     expect(user.returnTotalWaterConsumption('2019/06/16')).to.equal(95)
+  })
+
+  it('should return the total water consumed in a week', function() {
+    expect(user.returnWeeklyConsumption()).to.deep.equal(
+      [{
+        date: '2019/06/17',
+        numOunces: 79
+      },
+      {
+        date: '2019/06/18',
+        numOunces: 57
+      },
+      {
+        date: '2019/06/19',
+        numOunces: 90
+      },
+      {
+        date: '2019/06/20',
+        numOunces: 70
+      },
+      {
+        date: '2019/06/21',
+        numOunces: 59
+      },
+      {
+        date: '2019/06/22',
+        numOunces: 70
+      },
+      {
+        date: '2019/06/23',
+        numOunces: 66
+      },
+    ])
   })
 
 });

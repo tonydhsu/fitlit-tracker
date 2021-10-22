@@ -28,6 +28,14 @@ class User {
     })
     return waterPerDay.numOunces
   }
+
+  returnWeeklyConsumption(){
+    const waterWeeklyData = this.hydrationData.slice(this.hydrationData.length-7)
+    const weeklyWater = waterWeeklyData.map((day) => {
+      return {date: day.date, numOunces: day.numOunces}
+    })
+    return weeklyWater;
+  }
 }
 
 module.exports = User;
