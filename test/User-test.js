@@ -76,4 +76,8 @@ describe('User', () => {
     expect(user.returnAverageWaterPerDay()).to.equal(77)
   })
 
+  it('should return the total water of a specific day', function() {
+    expect(user.returnTotalWaterConsumption('2019/06/16')).to.equal(95)
+  })
+
 });

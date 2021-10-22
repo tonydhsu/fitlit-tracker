@@ -15,12 +15,18 @@ class User {
   }
 
   returnAverageWaterPerDay() {
-    console.log(this.hydrationData, 'hydrationdata')
     let avgWater = this.hydrationData.reduce((avg, day) => {
       avg += day.numOunces
       return avg
     }, 0)
     return avgWater / this.hydrationData.length;
+  }
+
+  returnTotalWaterConsumption(date) {
+     const waterPerDay = this.hydrationData.find((day) => {
+       return day.date === date;
+    })
+    return waterPerDay.numOunces
   }
 }
 
