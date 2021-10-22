@@ -3,6 +3,7 @@ const User = require('../src/User.js');
 
 describe('User', () => {
   let user;
+
   beforeEach(function() {
     user = new User({
       id: 1,
@@ -12,6 +13,22 @@ describe('User', () => {
       strideLength: 5,
       dailyStepGoal: 11,
       friends: [4, 9, 11],
+      hydrationData: [{
+        "userID": 1,
+        "date": "2019/06/16",
+        "numOunces": 95
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/17",
+        "numOunces": 79
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/18",
+        "numOunces": 57
+      },
+      ]
     })
   })
 
@@ -54,5 +71,9 @@ describe('User', () => {
   it('should return first name of user', function() {
     expect(user.returnFirstName()).to.equal('Brian');
   });
+
+  it('should return the average water', function() {
+    expect(user.returnAverageWaterPerDay()).to.equal(77)
+  })
 
 });
