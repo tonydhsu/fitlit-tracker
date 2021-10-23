@@ -1,6 +1,6 @@
 # FitLit Tracker
 
-### Mod3 2108 Group Project
+### Mod2 2108 Group Project
 
 ## Table of Contents
 - [Abstract](#Abstract)
