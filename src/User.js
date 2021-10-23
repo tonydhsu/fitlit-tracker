@@ -67,6 +67,14 @@ class User {
     })
     return sleepQualityPerDay.sleepQuality
   }
+  // 
+  // returnWeeklySleepHours(){
+  //   const sleepHoursWeeklyData = this.sleepData.slice(this.sleep.length-7)
+  //   const weeklySleepHours = sleepHoursWeeklyData.map((day) => {
+  //     return {date: day.date, HoursSlept: day.hoursSlept}
+  //   })
+  //   return weeklySleepHours;
+  // }
 
   // returnWeeklySleepQuality(){
   //   const sleepWeeklyData = this.sleepData.slice(this.sleepData.length-7)

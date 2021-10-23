@@ -111,6 +111,7 @@ const renderSleepInfo = (sleepData) => {
   renderAverageSleepHours();
   renderAverageSleepQuality();
   // console.log('sleep', Math.floor(user.returnAverageSleepPerDay()))
+  // console.log('avg hours', users.retrieveUsersAvgSleepQuality(sleepData))
 }
 
 const onPageLoad = () => {
