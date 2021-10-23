@@ -33,7 +33,7 @@ const createInitialDashboard = (data) => {
 
 const renderInfoCard = () => {
   infoCard.innerHTML += `
-  <h2>Hi ${user.returnFirstName()}!</h2>
+  <h1>Hi ${user.returnFirstName()}!</h1>
   <h3>User Information</h3>
   <h4>Name:</h4>
   <p>${user.name}</p>
