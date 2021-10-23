@@ -20,7 +20,7 @@ class User {
       avg += day.numOunces
       return avg
     }, 0)
-    return avgWater / this.hydrationData.length;
+    return Math.floor(avgWater / this.hydrationData.length);
   }
 
   returnTotalWaterConsumption(date) {
@@ -43,23 +43,46 @@ class User {
       avg += day.hoursSlept
       return avg
     }, 0)
-    return avgSleep / this.sleepData.length;
+    return Math.floor(avgSleep / this.sleepData.length);
   }
 
-  returnTotalSleep(date) {
+  returnAverageSleepQualityPerDay() {
+    let avgSleep = this.sleepData.reduce((avg, day) => {
+      avg += day.sleepQuality
+      return avg
+    }, 0)
+    return Math.floor(avgSleep / this.sleepData.length);
+  }
+
+  returnSleepHoursThatDay(date) {
      const sleepPerDay = this.sleepData.find((day) => {
        return day.date === date;
     })
     return sleepPerDay.hoursSlept
   }
 
-  returnWeeklySleepQuality(){
-    const sleepWeeklyData = this.sleepData.slice(this.sleepData.length-7)
-    const weeklySleep = sleepWeeklyData.map((day) => {
-      return {date: day.date, sleepHours: day.sleepHours}
+  returnSleepQualityThatDay(date) {
+     const sleepQualityPerDay = this.sleepData.find((day) => {
+       return day.date === date;
     })
-    return weeklySleep;
+    return sleepQualityPerDay.sleepQuality
   }
+  // 
+  // returnWeeklySleepHours(){
+  //   const sleepHoursWeeklyData = this.sleepData.slice(this.sleep.length-7)
+  //   const weeklySleepHours = sleepHoursWeeklyData.map((day) => {
+  //     return {date: day.date, HoursSlept: day.hoursSlept}
+  //   })
+  //   return weeklySleepHours;
+  // }
+
+  // returnWeeklySleepQuality(){
+  //   const sleepWeeklyData = this.sleepData.slice(this.sleepData.length-7)
+  //   const weeklySleep = sleepWeeklyData.map((day) => {
+  //     return {date: day.date, sleepHours: day.sleepQuality}
+  //   })
+  //   return weeklySleep;
+  // }
 
 }
 
