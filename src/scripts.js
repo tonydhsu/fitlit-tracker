@@ -7,10 +7,14 @@ import './images/turing-logo.png'
 import UserRepository from './UserRepository';
 import User from './User';
 import Hydration from './Hydration';
+import Sleep from './Sleep';
 import {getUserData, getSleepData, getActivityData, getHydrationData} from './api'
 
 const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
+const waterWidget = document.getElementById('waterWidget')
+const weeklyWater =
+document.getElementById('weeklyWater')
 
 let users;
 let user;
@@ -19,7 +23,8 @@ const createInitialCard = (data) => {
   users = new UserRepository(data);
   user = new User(data[users.retrieveRandomUser()]);
   getHydrationData();
-  renderInfoCard()
+  getSleepData();
+  renderInfoCard();
 }
 
 const renderInfoCard = () => {
@@ -47,6 +52,26 @@ const renderWaterInfo = (waterData) => {
   let waterInfo = new Hydration(waterData);
   user.hydrationData = waterInfo.retrieveWaterData(user.id);
   console.log(Math.floor(user.returnAverageWaterPerDay()))
+  console.log(user.hydrationData)
+  renderWaterWidget();
+  renderWeeklyWater();
+
+}
+
+const renderWaterWidget = () => {
+  waterWidget.innerText = `${user.returnTotalWaterConsumption(user.hydrationData[user.hydrationData.length-1].date)} oz`
+}
+
+const renderWeeklyWater = () => {
+  const weeklyWaterArray = user.returnWeeklyConsumption()
+  console.log(weeklyWaterArray)
+  weeklyWater.innerHTML += `<h4>${weeklyWaterArray[0].date}: ${weeklyWaterArray[0].numOunces} oz</h4>
+  <h4>${weeklyWaterArray[1].date}: ${weeklyWaterArray[1].numOunces} oz</h4>
+  <h4>${weeklyWaterArray[2].date}: ${weeklyWaterArray[2].numOunces} oz</h4>
+  <h4>${weeklyWaterArray[3].date}: ${weeklyWaterArray[3].numOunces} oz</h4>
+  <h4>${weeklyWaterArray[4].date}: ${weeklyWaterArray[4].numOunces} oz</h4>
+  <h4>${weeklyWaterArray[5].date}: ${weeklyWaterArray[5].numOunces} oz</h4>
+  <h4>${weeklyWaterArray[6].date}: ${weeklyWaterArray[6].numOunces} oz</h4>`
 }
 
 const renderActivityInfo = (activityData) => {
@@ -54,7 +79,9 @@ const renderActivityInfo = (activityData) => {
 }
 
 const renderSleepInfo = (sleepData) => {
-  console.log(sleepData);
+  let sleepInfo = new Sleep(sleepData);
+  user.sleepData = sleepInfo.retrieveSleepData(user.id);
+  console.log('sleep', Math.floor(user.returnAverageSleepPerDay()))
 }
 
 const onPageLoad = () => {
