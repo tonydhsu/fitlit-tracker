@@ -16,6 +16,9 @@ const waterWidget = document.getElementById('waterWidget');
 const weeklyWater = document.getElementById('weeklyWater');
 const hoursOfSleepWidget = document.getElementById('hoursOfSleepWidget');
 const sleepQualityWidget = document.getElementById('sleepQualityWidget');
+const averageSleepHours = document.getElementById('averageSleepHours');
+const averageSleepQuality = document.getElementById('averageSleepQuality');
+
 
 let users;
 let user;
@@ -49,6 +52,14 @@ const compareSteps = (user, totalUsers) => {
   stepComparison.innerText = `The average step goal amoungst all users is: ${totalUsers.retrieveUsersAvgStepGoals()}. Your step goal is ${user.dailyStepGoal}.`;
 }
 
+const renderAverageSleepHours = () => {
+  averageSleepHours.innerText = `You sleep an average of ${user.returnAverageSleepPerDay()} hours a day`;
+}
+
+const renderAverageSleepQuality = () => {
+  averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnAverageSleepQualityPerDay()}`
+}
+
 const renderWaterInfo = (waterData) => {
   let waterInfo = new Hydration(waterData);
   user.hydrationData = waterInfo.retrieveWaterData(user.id);
@@ -71,7 +82,6 @@ const renderQualityOfSleepWidget = () => {
 
 const renderWeeklyWater = () => {
   const weeklyWaterArray = user.returnWeeklyConsumption()
-  console.log(weeklyWaterArray)
   weeklyWater.innerHTML += `<h4>${weeklyWaterArray[0].date}: ${weeklyWaterArray[0].numOunces} oz</h4>
   <h4>${weeklyWaterArray[1].date}: ${weeklyWaterArray[1].numOunces} oz</h4>
   <h4>${weeklyWaterArray[2].date}: ${weeklyWaterArray[2].numOunces} oz</h4>
@@ -79,6 +89,14 @@ const renderWeeklyWater = () => {
   <h4>${weeklyWaterArray[4].date}: ${weeklyWaterArray[4].numOunces} oz</h4>
   <h4>${weeklyWaterArray[5].date}: ${weeklyWaterArray[5].numOunces} oz</h4>
   <h4>${weeklyWaterArray[6].date}: ${weeklyWaterArray[6].numOunces} oz</h4>`
+}
+
+const renderWeeklySleepHours = () => {
+
+}
+
+const renderWeeklyQualityOfSleep = () => {
+
 }
 
 const renderActivityInfo = (activityData) => {
@@ -90,6 +108,8 @@ const renderSleepInfo = (sleepData) => {
   user.sleepData = sleepInfo.retrieveSleepData(user.id);
   renderHoursOfSleepWidget();
   renderQualityOfSleepWidget();
+  renderAverageSleepHours();
+  renderAverageSleepQuality();
   // console.log('sleep', Math.floor(user.returnAverageSleepPerDay()))
 }
 

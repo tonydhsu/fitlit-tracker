@@ -20,7 +20,7 @@ class User {
       avg += day.numOunces
       return avg
     }, 0)
-    return avgWater / this.hydrationData.length;
+    return Math.floor(avgWater / this.hydrationData.length);
   }
 
   returnTotalWaterConsumption(date) {
@@ -43,7 +43,7 @@ class User {
       avg += day.hoursSlept
       return avg
     }, 0)
-    return avgSleep / this.sleepData.length;
+    return Math.floor(avgSleep / this.sleepData.length);
   }
 
   returnAverageSleepQualityPerDay() {
@@ -51,7 +51,7 @@ class User {
       avg += day.sleepQuality
       return avg
     }, 0)
-    return avgSleep / this.sleepData.length;
+    return Math.floor(avgSleep / this.sleepData.length);
   }
 
   returnSleepHoursThatDay(date) {
