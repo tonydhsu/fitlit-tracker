@@ -12,14 +12,15 @@ import {getUserData, getSleepData, getActivityData, getHydrationData} from './ap
 
 const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
-const waterWidget = document.getElementById('waterWidget')
-const weeklyWater =
-document.getElementById('weeklyWater')
+const waterWidget = document.getElementById('waterWidget');
+const weeklyWater = document.getElementById('weeklyWater');
+const hoursOfSleepWidget = document.getElementById('hoursOfSleepWidget');
+const sleepQualityWidget = document.getElementById('sleepQualityWidget');
 
 let users;
 let user;
 
-const createInitialCard = (data) => {
+const createInitialDashboard = (data) => {
   users = new UserRepository(data);
   user = new User(data[users.retrieveRandomUser()]);
   getHydrationData();
@@ -51,15 +52,21 @@ const compareSteps = (user, totalUsers) => {
 const renderWaterInfo = (waterData) => {
   let waterInfo = new Hydration(waterData);
   user.hydrationData = waterInfo.retrieveWaterData(user.id);
-  console.log(Math.floor(user.returnAverageWaterPerDay()))
-  console.log(user.hydrationData)
+  // console.log(Math.floor(user.returnAverageWaterPerDay()))
   renderWaterWidget();
   renderWeeklyWater();
-
 }
 
 const renderWaterWidget = () => {
-  waterWidget.innerText = `${user.returnTotalWaterConsumption(user.hydrationData[user.hydrationData.length-1].date)} oz`
+  waterWidget.innerText = `${user.returnTotalWaterConsumption(user.hydrationData[user.hydrationData.length-1].date)}`
+}
+
+const renderHoursOfSleepWidget = () => {
+  hoursOfSleepWidget.innerText = `${user.returnSleepHoursThatDay(user.sleepData[user.sleepData.length-1].date)}`
+}
+
+const renderQualityOfSleepWidget = () => {
+  sleepQualityWidget.innerText = `${user.returnSleepQualityThatDay(user.sleepData[user.sleepData.length-1].date)}`
 }
 
 const renderWeeklyWater = () => {
@@ -81,7 +88,9 @@ const renderActivityInfo = (activityData) => {
 const renderSleepInfo = (sleepData) => {
   let sleepInfo = new Sleep(sleepData);
   user.sleepData = sleepInfo.retrieveSleepData(user.id);
-  console.log('sleep', Math.floor(user.returnAverageSleepPerDay()))
+  renderHoursOfSleepWidget();
+  renderQualityOfSleepWidget();
+  // console.log('sleep', Math.floor(user.returnAverageSleepPerDay()))
 }
 
 const onPageLoad = () => {
@@ -97,5 +106,5 @@ export {
   renderSleepInfo,
   renderActivityInfo,
   renderWaterInfo,
-  createInitialCard,
+  createInitialDashboard,
 };

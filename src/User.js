@@ -46,20 +46,35 @@ class User {
     return avgSleep / this.sleepData.length;
   }
 
-  returnTotalSleep(date) {
+  returnAverageSleepQualityPerDay() {
+    let avgSleep = this.sleepData.reduce((avg, day) => {
+      avg += day.sleepQuality
+      return avg
+    }, 0)
+    return avgSleep / this.sleepData.length;
+  }
+
+  returnSleepHoursThatDay(date) {
      const sleepPerDay = this.sleepData.find((day) => {
        return day.date === date;
     })
     return sleepPerDay.hoursSlept
   }
 
-  returnWeeklySleepQuality(){
-    const sleepWeeklyData = this.sleepData.slice(this.sleepData.length-7)
-    const weeklySleep = sleepWeeklyData.map((day) => {
-      return {date: day.date, sleepHours: day.sleepHours}
+  returnSleepQualityThatDay(date) {
+     const sleepQualityPerDay = this.sleepData.find((day) => {
+       return day.date === date;
     })
-    return weeklySleep;
+    return sleepQualityPerDay.sleepQuality
   }
+
+  // returnWeeklySleepQuality(){
+  //   const sleepWeeklyData = this.sleepData.slice(this.sleepData.length-7)
+  //   const weeklySleep = sleepWeeklyData.map((day) => {
+  //     return {date: day.date, sleepHours: day.sleepQuality}
+  //   })
+  //   return weeklySleep;
+  // }
 
 }
 
