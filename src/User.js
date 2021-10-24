@@ -67,14 +67,20 @@ class User {
     })
     return sleepQualityPerDay.sleepQuality
   }
-  // 
-  // returnWeeklySleepHours(){
-  //   const sleepHoursWeeklyData = this.sleepData.slice(this.sleep.length-7)
-  //   const weeklySleepHours = sleepHoursWeeklyData.map((day) => {
-  //     return {date: day.date, HoursSlept: day.hoursSlept}
-  //   })
-  //   return weeklySleepHours;
-  // }
+
+  returnWeeklySleepHours(dateEntered) {
+    const dateEnteredIndex = this.sleepData.indexOf(this.sleepData.find(dateSlept => {
+      return dateSlept.date === dateEntered;
+    }))
+
+    const sleepHoursWeeklyData = this.sleepData.slice(dateEnteredIndex, dateEnteredIndex + 7);
+
+    const weeklySleepHours = sleepHoursWeeklyData.map((day) => {
+      return {date: day.date, hoursSlept: day.hoursSlept}
+    })
+    return weeklySleepHours;
+  }
+// need index of dateEntered, then put dateEnteredIndex + 7 in the slice
 
   // returnWeeklySleepQuality(){
   //   const sleepWeeklyData = this.sleepData.slice(this.sleepData.length-7)

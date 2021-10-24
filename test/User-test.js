@@ -54,7 +54,55 @@ describe('User', () => {
         "date": "2019/06/23",
         "numOunces": 66
       },
-      ]
+    ],
+      sleepData: [{
+        userID: 1,
+        date: "2019/06/16",
+        hoursSlept: 9.6,
+        sleepQuality: 4.7
+      },
+      {
+        userID: 1,
+        date: "2019/06/17",
+        hoursSlept: 9,
+        sleepQuality: 5
+      },
+      {
+        userID: 1,
+        date: "2019/06/18",
+        hoursSlept: 8.3,
+        sleepQuality: 6
+      },
+      {
+        userID: 1,
+        date: "2019/06/19",
+        hoursSlept: 10,
+        sleepQuality: 4.7
+      },
+      {
+        userID: 1,
+        date: "2019/06/20",
+        hoursSlept: 9.5,
+        sleepQuality: 5
+      },
+      {
+        userID: 1,
+        date: "2019/06/21",
+        hoursSlept: 8.3,
+        sleepQuality: 4.2
+      },
+      {
+        userID: 1,
+        date: "2019/06/22",
+        hoursSlept: 6,
+        sleepQuality: 3
+      },
+      {
+        userID: 1,
+        date: "2019/06/23",
+        hoursSlept: 7,
+        sleepQuality: 4
+      }]
     })
   })
 
@@ -99,7 +147,7 @@ describe('User', () => {
   });
 
   it('should return the average water', function() {
-    expect(user.returnAverageWaterPerDay()).to.equal(73.25)
+    expect(user.returnAverageWaterPerDay()).to.equal(73)
   })
 
   it('should return the total water of a specific day', function() {
@@ -136,6 +184,55 @@ describe('User', () => {
         date: '2019/06/23',
         numOunces: 66
       },
+    ]);
+  });
+
+  it('should return the average sleep per day', function() {
+    expect(user.returnAverageSleepPerDay()).to.equal(8);
+  });
+
+  it('should return the average sleep quality per day', function() {
+    expect(user.returnAverageSleepQualityPerDay()).to.equal(4);
+  });
+
+  it('should return the hours slept on a given date', function() {
+    expect(user.returnSleepHoursThatDay("2019/06/20")).to.equal(9.5);
+  });
+
+  it('should return the sleep quality on a given date', function() {
+    expect(user.returnSleepQualityThatDay("2019/06/20")).to.equal(5);
+  });
+
+  it('should return the hours slept over a 7 day period given a specific date', function() {
+    expect(user.returnWeeklySleepHours("2019/06/17")).to.deep.equal([
+      {
+        date: "2019/06/16",
+        hoursSlept: 9.6,
+      },
+      {
+        date: "2019/06/17",
+        hoursSlept: 9,
+      },
+      {
+        date: "2019/06/18",
+        hoursSlept: 8.3,
+      },
+      {
+        date: "2019/06/19",
+        hoursSlept: 10,
+      },
+      {
+        date: "2019/06/20",
+        hoursSlept: 9.5,
+      },
+      {
+        date: "2019/06/21",
+        hoursSlept: 8.3,
+      },
+      {
+        date: "2019/06/22",
+        hoursSlept: 6,
+      }
     ])
   })
 
