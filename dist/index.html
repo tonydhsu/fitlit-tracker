@@ -4,6 +4,8 @@
     <link rel="stylesheet' href='src/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>FitLit Tracker</title>
   </head>
   <body>
@@ -57,18 +59,17 @@
         <section class="first-two-graphs">
           <section class="first graph">
             <h1 class="graph-labels">Water this Week</h1>
-            <section id="weeklyWater"></section>
-            <!-- <img class="graph" src="https://chartio.com/assets/dfd59f/tutorials/charts/grouped-bar-charts/c1fde6017511bbef7ba9bb245a113c07f8ff32173a7c0d742a4e1eac1930a3c5/grouped-bar-example-1.png" alt="graph"/> -->
+            <canvas id="weeklyWater"></canvas>
           </section>
           <section class="second-graph">
             <h1 class="graph-labels">Sleep Quality this Week</h1>
-            <img class="graph" src="https://chartio.com/assets/dfd59f/tutorials/charts/grouped-bar-charts/c1fde6017511bbef7ba9bb245a113c07f8ff32173a7c0d742a4e1eac1930a3c5/grouped-bar-example-1.png" alt="graph"/>
+            <canvas id="weeklySleepQuality"></canvas>
           </section>
         </section>
         <section class="second-two-graphs">
           <section class="last-graph">
             <h1 class="graph-labels">Sleep Hours this Week</h1>
-            <img class="graph" src="https://chartio.com/assets/dfd59f/tutorials/charts/grouped-bar-charts/c1fde6017511bbef7ba9bb245a113c07f8ff32173a7c0d742a4e1eac1930a3c5/grouped-bar-example-1.png" alt="graph"/>
+            <canvas id="weeklySleepHours"></canvas>
           </section>
           <section class="runner-circle">
             <section class="average-data">

@@ -13,7 +13,9 @@ import {getUserData, getSleepData, getActivityData, getHydrationData} from './ap
 const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
 const waterWidget = document.getElementById('waterWidget');
-const weeklyWater = document.getElementById('weeklyWater');
+const weeklyWater = document.getElementById('weeklyWater').getContext('2d');
+const weeklySleepQuality = document.getElementById('weeklySleepQuality').getContext('2d');
+const weeklySleepHours = document.getElementById('weeklySleepHours').getContext('2d');
 const hoursOfSleepWidget = document.getElementById('hoursOfSleepWidget');
 const sleepQualityWidget = document.getElementById('sleepQualityWidget');
 const averageSleepHours = document.getElementById('averageSleepHours');
@@ -63,7 +65,6 @@ const renderAverageSleepQuality = () => {
 const renderWaterInfo = (waterData) => {
   let waterInfo = new Hydration(waterData);
   user.hydrationData = waterInfo.retrieveWaterData(user.id);
-  // console.log(Math.floor(user.returnAverageWaterPerDay()))
   renderWaterWidget();
   renderWeeklyWater();
 }
@@ -81,22 +82,75 @@ const renderQualityOfSleepWidget = () => {
 }
 
 const renderWeeklyWater = () => {
-  const weeklyWaterArray = user.returnWeeklyConsumption()
-  weeklyWater.innerHTML += `<h4>${weeklyWaterArray[0].date}: ${weeklyWaterArray[0].numOunces} oz</h4>
-  <h4>${weeklyWaterArray[1].date}: ${weeklyWaterArray[1].numOunces} oz</h4>
-  <h4>${weeklyWaterArray[2].date}: ${weeklyWaterArray[2].numOunces} oz</h4>
-  <h4>${weeklyWaterArray[3].date}: ${weeklyWaterArray[3].numOunces} oz</h4>
-  <h4>${weeklyWaterArray[4].date}: ${weeklyWaterArray[4].numOunces} oz</h4>
-  <h4>${weeklyWaterArray[5].date}: ${weeklyWaterArray[5].numOunces} oz</h4>
-  <h4>${weeklyWaterArray[6].date}: ${weeklyWaterArray[6].numOunces} oz</h4>`
-}
+  const weeklyWaterArray = user.returnWeeklyConsumption();
+  const myWeeklyWaterChart = new Chart(weeklyWater, {
+    type: 'bar',
+    data: {
+      labels: [weeklyWaterArray[0].date, weeklyWaterArray[1].date, weeklyWaterArray[2].date, weeklyWaterArray[3].date, weeklyWaterArray[4].date, weeklyWaterArray[5].date, weeklyWaterArray[6].date],
+      datasets: [{
+        label: 'Ounces',
+        data: [weeklyWaterArray[0].numOunces, weeklyWaterArray[1].numOunces, weeklyWaterArray[2].numOunces,
+        weeklyWaterArray[3].numOunces,
+        weeklyWaterArray[4].numOunces, weeklyWaterArray[5].numOunces, weeklyWaterArray[6].numOunces],
+        backgroundColor: 'rgba(160, 193, 233, 0.65)',
+      }],
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Weekly Water Consumed',
+        fontSize: 25,
+      },
+    }
+  })
+};
 
 const renderWeeklySleepHours = () => {
-
+  const weeklySleepArray = user.returnWeeklySleepHours("2019/06/15");
+  const myWeeklySleepChart = new Chart(weeklySleepHours, {
+    type: 'bar',
+    data: {
+      labels: [weeklySleepArray[0].date, weeklySleepArray[1].date, weeklySleepArray[2].date, weeklySleepArray[3].date, weeklySleepArray[4].date, weeklySleepArray[5].date, weeklySleepArray[6].date],
+      datasets: [{
+        label: 'Hours',
+        data: [weeklySleepArray[0].hoursSlept, weeklySleepArray[1].hoursSlept, weeklySleepArray[2].hoursSlept,
+        weeklySleepArray[3].hoursSlept,
+        weeklySleepArray[4].hoursSlept, weeklySleepArray[5].hoursSlept, weeklySleepArray[6].hoursSlept],
+        backgroundColor: 'rgba(209, 233, 160, 0.65)',
+      }],
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Weekly Sleep Consumed',
+        fontSize: 25,
+      },
+    }
+  })
 }
 
 const renderWeeklyQualityOfSleep = () => {
-
+  const weeklySleepQualityArray = user.returnWeeklySleepQuality("2019/06/15");
+  const myWeeklySleepQualityChart = new Chart(weeklySleepQuality, {
+    type: 'bar',
+    data: {
+      labels: [weeklySleepQualityArray[0].date, weeklySleepQualityArray[1].date, weeklySleepQualityArray[2].date, weeklySleepQualityArray[3].date, weeklySleepQualityArray[4].date, weeklySleepQualityArray[5].date, weeklySleepQualityArray[6].date],
+      datasets: [{
+        label: 'Sleep Quality',
+        data: [weeklySleepQualityArray[0].sleepQuality, weeklySleepQualityArray[1].sleepQuality, weeklySleepQualityArray[2].sleepQuality,
+        weeklySleepQualityArray[3].sleepQuality,
+        weeklySleepQualityArray[4].sleepQuality, weeklySleepQualityArray[5].sleepQuality, weeklySleepQualityArray[6].sleepQuality],
+        backgroundColor: 'rgba(160, 233, 198, 0.65)',
+      }],
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Weekly Sleep Consumed',
+        fontSize: 25,
+      },
+    }
+  })
 }
 
 const renderActivityInfo = (activityData) => {
@@ -110,6 +164,9 @@ const renderSleepInfo = (sleepData) => {
   renderQualityOfSleepWidget();
   renderAverageSleepHours();
   renderAverageSleepQuality();
+  renderWeeklySleepHours();
+  renderWeeklyQualityOfSleep();
+  console.log('renderSleepInfo', user.returnWeeklySleepHours('2019/06/15'));
   // console.log('sleep', Math.floor(user.returnAverageSleepPerDay()))
   // console.log('avg hours', users.retrieveUsersAvgSleepQuality(sleepData))
 }
