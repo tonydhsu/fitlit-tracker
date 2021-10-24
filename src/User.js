@@ -80,16 +80,19 @@ class User {
     })
     return weeklySleepHours;
   }
-// need index of dateEntered, then put dateEnteredIndex + 7 in the slice
 
-  // returnWeeklySleepQuality(){
-  //   const sleepWeeklyData = this.sleepData.slice(this.sleepData.length-7)
-  //   const weeklySleep = sleepWeeklyData.map((day) => {
-  //     return {date: day.date, sleepHours: day.sleepQuality}
-  //   })
-  //   return weeklySleep;
-  // }
+  returnWeeklySleepQuality(dateEntered) {
+    const dateEnteredIndex = this.sleepData.indexOf(this.sleepData.find(dateSlept => {
+      return dateSlept.date === dateEntered;
+    }))
 
+    const sleepQualityWeeklyData = this.sleepData.slice(dateEnteredIndex, dateEnteredIndex + 7);
+
+    const weeklySleep = sleepQualityWeeklyData.map((day) => {
+      return {date: day.date, sleepQuality: day.sleepQuality}
+    })
+    return weeklySleep;
+  }
 }
 
 module.exports = User;

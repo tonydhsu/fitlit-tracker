@@ -204,7 +204,7 @@ describe('User', () => {
   });
 
   it('should return the hours slept over a 7 day period given a specific date', function() {
-    expect(user.returnWeeklySleepHours("2019/06/17")).to.deep.equal([
+    expect(user.returnWeeklySleepHours("2019/06/16")).to.deep.equal([
       {
         date: "2019/06/16",
         hoursSlept: 9.6,
@@ -232,6 +232,39 @@ describe('User', () => {
       {
         date: "2019/06/22",
         hoursSlept: 6,
+      }
+    ])
+  });
+
+  it('should return the sleep quality of each day over a 7 day period given a specific date', function() {
+    expect(user.returnWeeklySleepQuality("2019/06/16")).to.deep.equal([
+      {
+        date: "2019/06/16",
+        sleepQuality: 4.7,
+      },
+      {
+        date: "2019/06/17",
+        sleepQuality: 5,
+      },
+      {
+        date: "2019/06/18",
+        sleepQuality: 6,
+      },
+      {
+        date: "2019/06/19",
+        sleepQuality: 4.7,
+      },
+      {
+        date: "2019/06/20",
+        sleepQuality: 5,
+      },
+      {
+        date: "2019/06/21",
+        sleepQuality: 4.2,
+      },
+      {
+        date: "2019/06/22",
+        sleepQuality: 3,
       }
     ])
   })
