@@ -44,8 +44,8 @@ FitLit Tracker is an app that allows the user to track their health statistics. 
 
 ## Contributors
 - [Carly Collums](https://github.com/ccollums)
-- [Tanya Z]()
-- [Brian Peterson]()
+- [Tanya Z](https://github.com/tanyazhuge)
+- [Brian Peterson](https://github.com/bpeterson2579)
 - [Tony Hsu](https://github.com/tonydhsu)
 
 ## Specs
