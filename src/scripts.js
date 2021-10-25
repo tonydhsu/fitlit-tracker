@@ -55,12 +55,20 @@ const compareSteps = (user, totalUsers) => {
 }
 
 const renderAverageSleepHours = () => {
-  averageSleepHours.innerText = `You sleep an average of ${user.returnAverageSleepPerDay()} hours a day`;
+  averageSleepHours.innerText = `You sleep an average of ${user.returnUserAverageDataPerDay('sleepData', 'hoursSlept')} hours a day`;
 }
 
 const renderAverageSleepQuality = () => {
-  averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnAverageSleepQualityPerDay()}`
+  averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnUserAverageDataPerDay('sleepData', 'sleepQuality')}`
 }
+
+// const renderAverageSleepHours = () => {
+//   averageSleepHours.innerText = `You sleep an average of ${user.returnAverageSleepPerDay()} hours a day`;
+// }
+//
+// const renderAverageSleepQuality = () => {
+//   averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnAverageSleepQualityPerDay()}`
+// }
 
 const renderWaterInfo = (waterData) => {
   let waterInfo = new Hydration(waterData);
@@ -70,15 +78,15 @@ const renderWaterInfo = (waterData) => {
 }
 
 const renderWaterWidget = () => {
-  waterWidget.innerText = `${user.returnTotalWaterConsumption(user.hydrationData[user.hydrationData.length-1].date)}`
+  waterWidget.innerText = `${user.returnUserTotalDataPerDay("hydrationData", user.hydrationData[user.hydrationData.length-1].date, "numOunces")}`
 }
 
 const renderHoursOfSleepWidget = () => {
-  hoursOfSleepWidget.innerText = `${user.returnSleepHoursThatDay(user.sleepData[user.sleepData.length-1].date)}`
+  hoursOfSleepWidget.innerText = `${user.returnUserTotalDataPerDay("sleepData",user.sleepData[user.sleepData.length-1].date, "hoursSlept")}`
 }
 
 const renderQualityOfSleepWidget = () => {
-  sleepQualityWidget.innerText = `${user.returnSleepQualityThatDay(user.sleepData[user.sleepData.length-1].date)}`
+  sleepQualityWidget.innerText = `${user.returnUserTotalDataPerDay("sleepData", user.sleepData[user.sleepData.length-1].date, "sleepQuality")}`
 }
 
 const renderWeeklyWater = () => {
@@ -108,7 +116,7 @@ const renderWeeklyWater = () => {
 };
 
 const renderWeeklySleepHours = () => {
-  const weeklySleepArray = user.returnWeeklySleepHours("2019/06/15");
+  const weeklySleepArray = user.returnWeeklySleepData("2019/06/15", "hoursSlept");
   const myWeeklySleepChart = new Chart(weeklySleepHours, {
     type: 'bar',
     data: {
@@ -134,7 +142,7 @@ const renderWeeklySleepHours = () => {
 }
 
 const renderWeeklyQualityOfSleep = () => {
-  const weeklySleepQualityArray = user.returnWeeklySleepQuality("2019/06/15");
+  const weeklySleepQualityArray = user.returnWeeklySleepData("2019/06/15", "sleepQuality");
   const myWeeklySleepQualityChart = new Chart(weeklySleepQuality, {
     type: 'bar',
     data: {
