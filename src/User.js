@@ -15,12 +15,14 @@ class User {
     return this.name.split(' ')[0]
   }
 
-  returnAverageWaterPerDay() {
-    let avgWater = this.hydrationData.reduce((avg, day) => {
-      avg += day.numOunces
+  returnUserAverageDataPerDay(data, property) {
+    let totalData = this[data].reduce((avg, day) => {
+      avg += day[property]
+      console.log(avg, "avg")
       return avg
     }, 0)
-    return Math.floor(avgWater / this.hydrationData.length);
+    console.log(totalData)
+    return Math.floor(totalData / this[data].length);
   }
 
   returnTotalWaterConsumption(date) {
@@ -38,21 +40,21 @@ class User {
     return weeklyWater;
   }
 
-  returnAverageSleepPerDay() {
-    let avgSleep = this.sleepData.reduce((avg, day) => {
-      avg += day.hoursSlept
-      return avg
-    }, 0)
-    return Math.floor(avgSleep / this.sleepData.length);
-  }
-
-  returnAverageSleepQualityPerDay() {
-    let avgSleep = this.sleepData.reduce((avg, day) => {
-      avg += day.sleepQuality
-      return avg
-    }, 0)
-    return Math.floor(avgSleep / this.sleepData.length);
-  }
+  // returnAverageSleepPerDay() {
+  //   let avgSleep = this.sleepData.reduce((avg, day) => {
+  //     avg += day.hoursSlept
+  //     return avg
+  //   }, 0)
+  //   return Math.floor(avgSleep / this.sleepData.length);
+  // }
+  //
+  // returnAverageSleepQualityPerDay() {
+  //   let avgSleep = this.sleepData.reduce((avg, day) => {
+  //     avg += day.sleepQuality
+  //     return avg
+  //   }, 0)
+  //   return Math.floor(avgSleep / this.sleepData.length);
+  // }
 
   returnSleepHoursThatDay(date) {
      const sleepPerDay = this.sleepData.find((day) => {

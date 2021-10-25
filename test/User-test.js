@@ -147,7 +147,7 @@ describe('User', () => {
   });
 
   it('should return the average water', function() {
-    expect(user.returnAverageWaterPerDay()).to.equal(73)
+    expect(user.returnUserAverageDataPerDay('hydrationData','numOunces')).to.equal(73)
   })
 
   it('should return the total water of a specific day', function() {
@@ -188,11 +188,11 @@ describe('User', () => {
   });
 
   it('should return the average sleep per day', function() {
-    expect(user.returnAverageSleepPerDay()).to.equal(8);
+    expect(user.returnUserAverageDataPerDay('sleepData', 'hoursSlept')).to.equal(8);
   });
 
   it('should return the average sleep quality per day', function() {
-    expect(user.returnAverageSleepQualityPerDay()).to.equal(4);
+    expect(user.returnUserAverageDataPerDay('sleepData', 'sleepQuality')).to.equal(4);
   });
 
   it('should return the hours slept on a given date', function() {

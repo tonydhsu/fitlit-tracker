@@ -55,12 +55,20 @@ const compareSteps = (user, totalUsers) => {
 }
 
 const renderAverageSleepHours = () => {
-  averageSleepHours.innerText = `You sleep an average of ${user.returnAverageSleepPerDay()} hours a day`;
+  averageSleepHours.innerText = `You sleep an average of ${user.returnUserAverageDataPerDay('sleepData', 'hoursSlept')} hours a day`;
 }
 
 const renderAverageSleepQuality = () => {
-  averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnAverageSleepQualityPerDay()}`
+  averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnUserAverageDataPerDay('sleepData', 'sleepQuality')}`
 }
+
+// const renderAverageSleepHours = () => {
+//   averageSleepHours.innerText = `You sleep an average of ${user.returnAverageSleepPerDay()} hours a day`;
+// }
+//
+// const renderAverageSleepQuality = () => {
+//   averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnAverageSleepQualityPerDay()}`
+// }
 
 const renderWaterInfo = (waterData) => {
   let waterInfo = new Hydration(waterData);
