@@ -266,7 +266,6 @@ describe('User', () => {
         date: "2019/06/22",
         sleepQuality: 3,
       }
-    ])
-  })
-
+    ]);
+  });
 });

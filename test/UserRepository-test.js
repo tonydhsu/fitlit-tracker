@@ -83,5 +83,5 @@ describe('User Repository', () => {
     userRepo = new UserRepository(data);
 
     expect(userRepo.retrieveUsersAvgData('sleepQuality')).to.equal(3.38);
-  })
+  });
 });
