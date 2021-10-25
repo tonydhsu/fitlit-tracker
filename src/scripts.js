@@ -154,6 +154,7 @@ const renderWeeklyQualityOfSleep = () => {
           text: 'Sleep Quality this Week',
           fontSize: 25,
         },
+
       }
     }
   })
