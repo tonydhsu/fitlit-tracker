@@ -49,7 +49,8 @@ FitLit Tracker is an app that allows the user to track their health statistics. 
 ## Additions
 ### Future Iterations
 - Add user's friends
-- Steps today functionality
+- Today's steps functionality
+- Ability to create a new user
 
 ## Contributors
 - [Carly Collums](https://github.com/ccollums)
