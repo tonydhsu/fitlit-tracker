@@ -44,7 +44,7 @@ describe('User Repository', () => {
   });
 
   it('should retrieve average step goals of all users', function () {
-    expect(userRepo.retrieveUsersAvgStepGoals()).to.deep.equal(7.5);
+    expect(userRepo.retrieveUsersAvgData('dailyStepGoal')).to.deep.equal(7.5);
   });
 
   it('should return the average sleep quality of all users', function() {
@@ -82,6 +82,6 @@ describe('User Repository', () => {
     ];
     userRepo = new UserRepository(data);
 
-    expect(userRepo.retrieveUsersAvgSleepQuality()).to.equal(3.38);
+    expect(userRepo.retrieveUsersAvgData('sleepQuality')).to.equal(3.38);
   })
 });

@@ -51,7 +51,7 @@ const renderInfoCard = () => {
 }
 
 const compareSteps = (user, totalUsers) => {
-  stepComparison.innerText = `The average step goal amoungst all users is: ${totalUsers.retrieveUsersAvgStepGoals()}. Your step goal is ${user.dailyStepGoal}.`;
+  stepComparison.innerText = `The average step goal amoungst all users is: ${totalUsers.retrieveUsersAvgData('dailyStepGoal')}. Your step goal is ${user.dailyStepGoal}.`;
 }
 
 const renderAverageSleepHours = () => {

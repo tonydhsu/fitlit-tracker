@@ -129,6 +129,12 @@ p {
   padding: 2%;
 }
 
+.water-graph, .sleep-quality-graph,
+.sleep-hours-graph {
+  width: 37.5vw;
+  height: 33;
+}
+
 .runner-circle {
   display: flex;
   align-items: center;
