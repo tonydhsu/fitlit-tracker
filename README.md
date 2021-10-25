@@ -9,6 +9,7 @@
 - [Install](#Install)
 - [Wins](#Wins)
 - [Challenges](#Challenges)
+- [Additions](#Additions)
 - [Contributors](#Contributors)
 - [Specs](#Specs)
 
