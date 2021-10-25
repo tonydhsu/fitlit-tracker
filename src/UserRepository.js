@@ -17,14 +17,6 @@ class UserRepository {
     return totalAmount/ this.data.length
   }
 
-  // retrieveUsersAvgSleepQuality() {
-  //   let sleepQuality = this.data.reduce((avg, user) => {
-  //     avg += user.sleepQuality
-  //     return avg
-  //   }, 0)
-  //   return sleepQuality / this.data.length
-  // }
-
   retrieveRandomUser() {
     return Math.floor(Math.random() * this.data.length)
   }
