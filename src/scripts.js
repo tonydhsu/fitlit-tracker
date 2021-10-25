@@ -1,9 +1,5 @@
-
 import './css/styles.css';
-
 import './images/turing-logo.png'
-
-// import userData from './data/users';
 import UserRepository from './UserRepository';
 import User from './User';
 import Hydration from './Hydration';
@@ -20,7 +16,6 @@ const hoursOfSleepWidget = document.getElementById('hoursOfSleepWidget');
 const sleepQualityWidget = document.getElementById('sleepQualityWidget');
 const averageSleepHours = document.getElementById('averageSleepHours');
 const averageSleepQuality = document.getElementById('averageSleepQuality');
-
 
 let users;
 let user;
@@ -51,7 +46,7 @@ const renderInfoCard = () => {
 }
 
 const compareSteps = (user, totalUsers) => {
-  stepComparison.innerText = `The average step goal amoungst all users is: ${totalUsers.retrieveUsersAvgData('dailyStepGoal')}. Your step goal is ${user.dailyStepGoal}.`;
+  stepComparison.innerText = `The average step goal amongst all users is: ${totalUsers.retrieveUsersAvgData('dailyStepGoal')}. Your step goal is ${user.dailyStepGoal}.`;
 }
 
 const renderAverageSleepHours = () => {
@@ -61,14 +56,6 @@ const renderAverageSleepHours = () => {
 const renderAverageSleepQuality = () => {
   averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnUserAverageDataPerDay('sleepData', 'sleepQuality')}`
 }
-
-// const renderAverageSleepHours = () => {
-//   averageSleepHours.innerText = `You sleep an average of ${user.returnAverageSleepPerDay()} hours a day`;
-// }
-//
-// const renderAverageSleepQuality = () => {
-//   averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnAverageSleepQualityPerDay()}`
-// }
 
 const renderWaterInfo = (waterData) => {
   let waterInfo = new Hydration(waterData);
@@ -182,14 +169,10 @@ const renderSleepInfo = (sleepData) => {
   renderWeeklySleepHours();
   renderWeeklyQualityOfSleep();
   console.log('renderSleepInfo', user.returnWeeklySleepHours('2019/06/15'));
-  // console.log('sleep', Math.floor(user.returnAverageSleepPerDay()))
-  // console.log('avg hours', users.retrieveUsersAvgSleepQuality(sleepData))
 }
 
 const onPageLoad = () => {
   getUserData();
-  // getActivityData()
-  // getSleepData();
 }
 
 window.addEventListener('load', onPageLoad);
