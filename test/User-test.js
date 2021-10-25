@@ -151,7 +151,7 @@ describe('User', () => {
   })
 
   it('should return the total water of a specific day', function() {
-    expect(user.returnTotalWaterConsumption('2019/06/16')).to.equal(95)
+    expect(user.returnUserTotalDataPerDay('hydrationData','2019/06/16','numOunces')).to.equal(95)
   })
 
   it('should return the total water consumed in a week', function() {
@@ -196,15 +196,15 @@ describe('User', () => {
   });
 
   it('should return the hours slept on a given date', function() {
-    expect(user.returnSleepHoursThatDay("2019/06/20")).to.equal(9.5);
+    expect(user.returnUserTotalDataPerDay("sleepData","2019/06/20","hoursSlept")).to.equal(9.5);
   });
 
   it('should return the sleep quality on a given date', function() {
-    expect(user.returnSleepQualityThatDay("2019/06/20")).to.equal(5);
+    expect(user.returnUserTotalDataPerDay("sleepData","2019/06/20","sleepQuality")).to.equal(5);
   });
 
   it('should return the hours slept over a 7 day period given a specific date', function() {
-    expect(user.returnWeeklySleepHours("2019/06/16")).to.deep.equal([
+    expect(user.returnWeeklySleepData("2019/06/16", "hoursSlept")).to.deep.equal([
       {
         date: "2019/06/16",
         hoursSlept: 9.6,
@@ -237,7 +237,7 @@ describe('User', () => {
   });
 
   it('should return the sleep quality of each day over a 7 day period given a specific date', function() {
-    expect(user.returnWeeklySleepQuality("2019/06/16")).to.deep.equal([
+    expect(user.returnWeeklySleepData("2019/06/16", "sleepQuality")).to.deep.equal([
       {
         date: "2019/06/16",
         sleepQuality: 4.7,
