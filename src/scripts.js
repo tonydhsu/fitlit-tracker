@@ -96,11 +96,13 @@ const renderWeeklyWater = () => {
       }],
     },
     options: {
-      title: {
-        display: true,
-        text: 'Weekly Water Consumed',
-        fontSize: 25,
-      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Water Consumed this Week',
+          fontSize: 90,
+        },
+      }
     }
   })
 };
@@ -120,11 +122,13 @@ const renderWeeklySleepHours = () => {
       }],
     },
     options: {
-      title: {
-        display: true,
-        text: 'Weekly Sleep Consumed',
-        fontSize: 25,
-      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Hours Slept this Week',
+          fontSize: 25,
+        },
+      }
     }
   })
 }
@@ -144,11 +148,14 @@ const renderWeeklyQualityOfSleep = () => {
       }],
     },
     options: {
-      title: {
-        display: true,
-        text: 'Weekly Sleep Consumed',
-        fontSize: 25,
-      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Sleep Quality this Week',
+          fontSize: 25,
+        },
+
+      }
     }
   })
 }
