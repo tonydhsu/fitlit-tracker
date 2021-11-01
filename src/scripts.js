@@ -20,6 +20,13 @@ const averageSleepQuality = document.getElementById('averageSleepQuality');
 let users;
 let user;
 
+
+const allPromise = Promise.all([getUserData(), getSleepData(), getActivityData(), getHydrationData()])
+.then(values => {return values})
+
+
+console.log(allPromise)
+
 const createInitialDashboard = (data) => {
   users = new UserRepository(data);
   user = new User(data[users.retrieveRandomUser()]);
@@ -177,10 +184,10 @@ const onPageLoad = () => {
 
 window.addEventListener('load', onPageLoad);
 
-export {
-  renderInfoCard,
-  renderSleepInfo,
-  renderActivityInfo,
-  renderWaterInfo,
-  createInitialDashboard,
-};
+// export {
+//   renderInfoCard,
+//   renderSleepInfo,
+//   renderActivityInfo,
+//   renderWaterInfo,
+//   createInitialDashboard,
+// };
