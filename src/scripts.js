@@ -29,7 +29,6 @@ const getData = () => {
     .then(data => {createInitialDashboard(data)})
 }
 
-
 const createInitialDashboard = (data) => {
   users = new UserRepository(data[0].userData);
   user = new User(data[0].userData[users.retrieveRandomUser()]);

@@ -24,7 +24,6 @@ const getHydrationData = () => {
     .then((data) => {return data})
 };
 
-
 // const addSleepData = () => {
 //   fetch("http://localhost:3001/api/v1/sleep", {
 //     method: 'POST',
@@ -64,11 +63,7 @@ const getHydrationData = () => {
 //   .catch(err => console.log(error, "error"))
 // }
 
-// const fetchData = (param) => {
-//     return fetch(`https://pacific-badlands-43237.herokuapp.com/api/v1/${param}`)
-//       .then(response => response.json())
-//       .then((data) => {return data})
-// }
+
 
 export {
   getUserData,
