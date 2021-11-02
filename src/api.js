@@ -1,32 +1,76 @@
 // import {renderInfoCard, renderWaterInfo, renderActivityInfo, renderSleepInfo, createInitialDashboard} from "./scripts";
 
 const getUserData = () => {
-  return fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/users")
+  return fetch("http://localhost:3001/api/v1/users")
     .then(response => response.json())
     .then((data) => {return data})
 };
 
 const getSleepData = () => {
-  return fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/sleep")
+  return fetch("http://localhost:3001/api/v1/sleep")
     .then(response => response.json())
     .then((data) => {return data})
 };
 
 const getActivityData = () => {
-  return fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/activity")
+  return fetch("http://localhost:3001/api/v1/activity")
     .then(response => response.json())
     .then((data) => {return data})
 };
 
 const getHydrationData = () => {
-  return fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/hydration")
+  return fetch("http://localhost:3001/api/v1/hydration")
     .then(response => response.json())
     .then((data) => {return data})
 };
+
+// const addSleepData = () => {
+//   fetch("http://localhost:3001/api/v1/sleep", {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({ userID: <number>, date: <string> , hoursSlept: <number> , sleepQuality:<number> })
+//   })
+//   .then(response => response.json())
+//   .then(data => WHATEVERFUNCTIONWEMAKEFORTHIS(data))
+//   .catch(err => console.log(error, "error"))
+// }
+//
+// const addHydrationData = () => {
+//   fetch("http://localhost:3001/api/v1/hydration", {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({ userID: <number>, date: <string> , numOunces: <number> })
+//   })
+//   .then(response => response.json())
+//   .then(data => WHATEVERFUNCTIONWEMAKEFORTHIS(data))
+//   .catch(err => console.log(error, "error"))
+// }
+//
+// const addActivityData = () => {
+//   fetch("http://localhost:3001/api/v1/activity", {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({ userID: <number>, date: <string>, flightsOfStairs: <number>, minutesActive: <number>, numSteps: <number>)
+//   })
+//   .then(response => response.json())
+//   .then(data => WHATEVERFUNCTIONWEMAKEFORTHIS(data))
+//   .catch(err => console.log(error, "error"))
+// }
+
+
 
 export {
   getUserData,
   getSleepData,
   getActivityData,
   getHydrationData
+  // addSleepData,
+  // addHydrationData,
+  // addActivityData
 };

@@ -19,21 +19,35 @@ const averageSleepQuality = document.getElementById('averageSleepQuality');
 
 let users;
 let user;
+let hydration;
+let sleep;
+let activity;
 
 
-const allPromise = Promise.all([getUserData(), getSleepData(), getActivityData(), getHydrationData()])
-.then(values => {return values})
-
-
-console.log(allPromise)
+const getData = () => {
+  const allPromise = Promise.all([getUserData(), getSleepData(), getActivityData(), getHydrationData()])
+    .then(data => {createInitialDashboard(data)})
+}
 
 const createInitialDashboard = (data) => {
-  users = new UserRepository(data);
-  user = new User(data[users.retrieveRandomUser()]);
-  getHydrationData();
-  getSleepData();
+  users = new UserRepository(data[0].userData);
+  user = new User(data[0].userData[users.retrieveRandomUser()]);
+  sleep = new Sleep(data[1].sleepData);
+  // activity = new Activity(data[2].activityData);
+  hydration = new Hydration(data[3].hydrationData)
   renderInfoCard();
+  renderWaterInfo();
+  renderSleepInfo();
+  // renderActivityInfo()
 }
+
+// const createInitialDashboard = (data) => {
+//   users = new UserRepository(data);
+//   user = new User(data[users.retrieveRandomUser()]);
+//   getHydrationData();
+//   getSleepData();
+//   renderInfoCard();
+// }
 
 const renderInfoCard = () => {
   infoCard.innerHTML += `
@@ -64,9 +78,9 @@ const renderAverageSleepQuality = () => {
   averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnUserAverageDataPerDay('sleepData', 'sleepQuality')}`
 }
 
-const renderWaterInfo = (waterData) => {
-  let waterInfo = new Hydration(waterData);
-  user.hydrationData = waterInfo.retrieveWaterData(user.id);
+const renderWaterInfo = () => {
+  // let waterInfo = new Hydration(waterData);
+  user.hydrationData = hydration.retrieveWaterData(user.id);
   renderWaterWidget();
   renderWeeklyWater();
 }
@@ -162,24 +176,24 @@ const renderWeeklyQualityOfSleep = () => {
   })
 }
 
-const renderActivityInfo = (activityData) => {
-  console.log(activityData);
+const renderActivityInfo = () => {
+
 }
 
-const renderSleepInfo = (sleepData) => {
-  let sleepInfo = new Sleep(sleepData);
-  user.sleepData = sleepInfo.retrieveSleepData(user.id);
+const renderSleepInfo = () => {
+  // let sleepInfo = new Sleep(sleepData);
+  user.sleepData = sleep.retrieveSleepData(user.id);
   renderHoursOfSleepWidget();
   renderQualityOfSleepWidget();
   renderAverageSleepHours();
   renderAverageSleepQuality();
   renderWeeklySleepHours();
   renderWeeklyQualityOfSleep();
-  console.log('renderSleepInfo', user.returnWeeklySleepHours('2019/06/15'));
 }
 
 const onPageLoad = () => {
   getUserData();
+  getData();
 }
 
 window.addEventListener('load', onPageLoad);
