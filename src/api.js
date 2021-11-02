@@ -1,27 +1,27 @@
-import {renderInfoCard, renderWaterInfo, renderActivityInfo, renderSleepInfo, createInitialDashboard} from "./scripts";
+// import {renderInfoCard, renderWaterInfo, renderActivityInfo, renderSleepInfo, createInitialDashboard} from "./scripts";
 
 const getUserData = () => {
-  fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/users")
+  return fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/users")
     .then(response => response.json())
-    .then((data) => {createInitialDashboard(data.userData)})
+    .then((data) => {return data})
 };
 
 const getSleepData = () => {
-  fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/sleep")
+  return fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/sleep")
     .then(response => response.json())
-    .then((data) => {renderSleepInfo(data.sleepData)})
+    .then((data) => {return data})
 };
 
 const getActivityData = () => {
-  fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/activity")
+  return fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/activity")
     .then(response => response.json())
-    .then((data) => {renderActivityInfo(data.activityData)})
+    .then((data) => {return data})
 };
 
 const getHydrationData = () => {
-  fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/hydration")
+  return fetch("https://pacific-badlands-43237.herokuapp.com/api/v1/hydration")
     .then(response => response.json())
-    .then((data) => {renderWaterInfo(data.hydrationData)})
+    .then((data) => {return data})
 };
 
 export {
