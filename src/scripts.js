@@ -24,8 +24,10 @@ let sleep;
 let activity;
 
 
-const allPromise = Promise.all([getUserData(), getSleepData(), getActivityData(), getHydrationData()])
-  .then(data => {createInitialDashboard(data)})
+const getData = () => {
+  const allPromise = Promise.all([getUserData(), getSleepData(), getActivityData(), getHydrationData()])
+    .then(data => {createInitialDashboard(data)})
+}
 
 
 const createInitialDashboard = (data) => {
@@ -192,6 +194,7 @@ const renderSleepInfo = () => {
 
 const onPageLoad = () => {
   getUserData();
+  getData();
 }
 
 window.addEventListener('load', onPageLoad);

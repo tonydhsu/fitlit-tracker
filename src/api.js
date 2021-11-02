@@ -25,7 +25,44 @@ const getHydrationData = () => {
 };
 
 
-
+// const addSleepData = () => {
+//   fetch("http://localhost:3001/api/v1/sleep", {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({ userID: <number>, date: <string> , hoursSlept: <number> , sleepQuality:<number> })
+//   })
+//   .then(response => response.json())
+//   .then(data => WHATEVERFUNCTIONWEMAKEFORTHIS(data))
+//   .catch(err => console.log(error, "error"))
+// }
+//
+// const addHydrationData = () => {
+//   fetch("http://localhost:3001/api/v1/hydration", {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({ userID: <number>, date: <string> , numOunces: <number> })
+//   })
+//   .then(response => response.json())
+//   .then(data => WHATEVERFUNCTIONWEMAKEFORTHIS(data))
+//   .catch(err => console.log(error, "error"))
+// }
+//
+// const addActivityData = () => {
+//   fetch("http://localhost:3001/api/v1/activity", {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({ userID: <number>, date: <string>, flightsOfStairs: <number>, minutesActive: <number>, numSteps: <number>)
+//   })
+//   .then(response => response.json())
+//   .then(data => WHATEVERFUNCTIONWEMAKEFORTHIS(data))
+//   .catch(err => console.log(error, "error"))
+// }
 
 // const fetchData = (param) => {
 //     return fetch(`https://pacific-badlands-43237.herokuapp.com/api/v1/${param}`)
@@ -33,16 +70,12 @@ const getHydrationData = () => {
 //       .then((data) => {return data})
 // }
 
-// const allData = () => {
-//   Promise.all([fetchData(users), fetchData(sleep), fetchData(activity), fetchData(hydration)])
-//     .then(values => {return values})
-// };
-//
-// console.log(allData())
-
 export {
   getUserData,
   getSleepData,
   getActivityData,
   getHydrationData
+  // addSleepData,
+  // addHydrationData,
+  // addActivityData
 };
