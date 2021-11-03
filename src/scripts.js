@@ -5,16 +5,17 @@ import User from './User';
 import Hydration from './Hydration';
 import Sleep from './Sleep';
 import {fetchData} from './api'
+import domUpdates from './domUpdates';
 
-const infoCard = document.getElementById('cardInfo');
-const stepComparison = document.getElementById('stepComparison');
+// const infoCard = document.getElementById('cardInfo');
+// const stepComparison = document.getElementById('stepComparison');
 const waterWidget = document.getElementById('waterWidget');
 const weeklyWater = document.getElementById('weeklyWater').getContext('2d');
 const weeklySleepQuality = document.getElementById('weeklySleepQuality').getContext('2d');
 const weeklySleepHours = document.getElementById('weeklySleepHours').getContext('2d');
 const hoursOfSleepWidget = document.getElementById('hoursOfSleepWidget');
 const sleepQualityWidget = document.getElementById('sleepQualityWidget');
-const averageSleepHours = document.getElementById('averageSleepHours');
+// const averageSleepHours = document.getElementById('averageSleepHours');
 const averageSleepQuality = document.getElementById('averageSleepQuality');
 const getUserNewData = document.getElementById("data-button").onclick = function () {location.href = "https://www.youtube.com"};
 
@@ -37,11 +38,13 @@ const createInitialDashboard = (data) => {
   sleep = new Sleep(data[1].sleepData);
   // activity = new Activity(data[2].activityData);
   hydration = new Hydration(data[3].hydrationData)
-  renderInfoCard();
+  domUpdates.renderInfoCard(user, user.returnFirstName());
   renderWaterInfo();
   renderSleepInfo();
+  domUpdates.compareSteps(user, users.retrieveUsersAvgData('dailyStepGoal'));
   // renderActivityInfo()
 }
+
 
 // const createInitialDashboard = (data) => {
 //   users = new UserRepository(data);
@@ -51,30 +54,31 @@ const createInitialDashboard = (data) => {
 //   renderInfoCard();
 // }
 
-const renderInfoCard = () => {
-  infoCard.innerHTML += `
-  <h1>Hi ${user.returnFirstName()}!</h1>
-  <h3>User Information</h3>
-  <h4>Name:</h4>
-  <p>${user.name}</p>
-  <h4>Email:</h4>
-  <p>${user.email}</p>
-  <h4>Address:</h4>
-  <p>${user.address}</p>
-  <h4>Stride Length</h4>
-  <p>${user.strideLength}</p>
-  <h4>Daily Step Goal</h4>
-  <p>${user.dailyStepGoal}</p>`
-  compareSteps(user, users);
-}
 
-const compareSteps = (user, totalUsers) => {
-  stepComparison.innerText = `The average step goal amongst all users is: ${totalUsers.retrieveUsersAvgData('dailyStepGoal')}. Your step goal is ${user.dailyStepGoal}.`;
-}
+// const renderInfoCard = () => {
+//   infoCard.innerHTML += `
+//   <h1>Hi ${user.returnFirstName()}!</h1>
+//   <h3>User Information</h3>
+//   <h4>Name:</h4>
+//   <p>${user.name}</p>
+//   <h4>Email:</h4>
+//   <p>${user.email}</p>
+//   <h4>Address:</h4>
+//   <p>${user.address}</p>
+//   <h4>Stride Length</h4>
+//   <p>${user.strideLength}</p>
+//   <h4>Daily Step Goal</h4>
+//   <p>${user.dailyStepGoal}</p>`
+//   compareSteps(user, users);
+// }
 
-const renderAverageSleepHours = () => {
-  averageSleepHours.innerText = `You sleep an average of ${user.returnUserAverageDataPerDay('sleepData', 'hoursSlept')} hours a day`;
-}
+// const compareSteps = (user, totalUsers) => {
+//   stepComparison.innerText = `The average step goal amongst all users is: ${totalUsers.retrieveUsersAvgData('dailyStepGoal')}. Your step goal is ${user.dailyStepGoal}.`;
+// }
+
+// const renderAverageSleepHours = () => {
+//   averageSleepHours.innerText = `You sleep an average of ${user.returnUserAverageDataPerDay('sleepData', 'hoursSlept')} hours a day`;
+// }
 
 const renderAverageSleepQuality = () => {
   averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnUserAverageDataPerDay('sleepData', 'sleepQuality')}`
@@ -82,7 +86,7 @@ const renderAverageSleepQuality = () => {
 
 const renderWaterInfo = () => {
 //   let waterInfo = new Hydration(waterData);
-  user.hydrationData = waterInfo.retrieveWaterData(user.id);
+  user.hydrationData = hydration.retrieveWaterData(user.id);
   renderWaterWidget();
   renderWeeklyWater();
 }
@@ -185,14 +189,13 @@ const renderActivityInfo = () => {
 
 const renderSleepInfo = () => {
 //   let sleepInfo = new Sleep(sleepData);
-  user.sleepData = sleepInfo.retrieveSleepData(user.id);
+  user.sleepData = sleep.retrieveSleepData(user.id);
   renderHoursOfSleepWidget();
   renderQualityOfSleepWidget();
-  renderAverageSleepHours();
+  domUpdates.renderAverageSleepHours(user.returnUserAverageDataPerDay('sleepData', 'hoursSlept'));
   renderAverageSleepQuality();
   renderWeeklySleepHours();
   renderWeeklyQualityOfSleep();
-  console.log('renderSleepInfo', user.returnWeeklySleepHours('2019/06/15'));
 }
 
 const onPageLoad = () => {
@@ -202,3 +205,4 @@ const onPageLoad = () => {
 
 window.addEventListener('load', onPageLoad);
 
+export default user;
