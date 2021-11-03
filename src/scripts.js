@@ -16,16 +16,10 @@ const hoursOfSleepWidget = document.getElementById('hoursOfSleepWidget');
 const sleepQualityWidget = document.getElementById('sleepQualityWidget');
 const averageSleepHours = document.getElementById('averageSleepHours');
 const averageSleepQuality = document.getElementById('averageSleepQuality');
+const getUserNewData = document.getElementById("data-button").onclick = function () {location.href = "https://www.youtube.com"};
 
 let users;
 let user;
-
-
-const allPromise = Promise.all([getUserData(), getSleepData(), getActivityData(), getHydrationData()])
-.then(values => {return values})
-
-
-console.log(allPromise)
 
 const createInitialDashboard = (data) => {
   users = new UserRepository(data);
@@ -162,6 +156,7 @@ const renderWeeklyQualityOfSleep = () => {
   })
 }
 
+
 const renderActivityInfo = (activityData) => {
   console.log(activityData);
 }
@@ -184,10 +179,10 @@ const onPageLoad = () => {
 
 window.addEventListener('load', onPageLoad);
 
-// export {
-//   renderInfoCard,
-//   renderSleepInfo,
-//   renderActivityInfo,
-//   renderWaterInfo,
-//   createInitialDashboard,
-// };
+export {
+  renderInfoCard,
+  renderSleepInfo,
+  renderActivityInfo,
+  renderWaterInfo,
+  createInitialDashboard,
+};

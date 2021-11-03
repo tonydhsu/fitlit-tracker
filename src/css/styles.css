@@ -83,7 +83,8 @@ p {
   height: 27vh;
 }
 
-.steps-today, .water-today,
+.steps-today, .miles-walked,
+.mins-active, .water-today,
 .hours-of-sleep,
 .quality-of-sleep {
   display: flex;
@@ -95,24 +96,35 @@ p {
   border-radius: 50%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.steps-today {
+
+.miles-walked {
   background: rgba(233, 217, 160, 0.65);
   border: 3px solid #E9D9A0;
 }
 
-.water-today {
+.mins-active {
   background: rgba(160, 193, 233, 0.65);
   border: 3px solid #A0C1E9;
 }
 
-.hours-of-sleep {
+.steps-today {
   background: rgba(209, 233, 160, 0.65);
   border: 3px solid #D1E9A0;
 }
 
-.quality-of-sleep {
+.water-today {
   background: rgba(160, 233, 198, 0.65);
   border: 3px solid #A0E9C6;
+}
+
+.hours-of-sleep {
+  background: rgba(233, 217, 160, 0.65);
+  border: 3px solid #E9D9A0;
+}
+
+.quality-of-sleep {
+  background: rgba(160, 193, 233, 0.65);
+  border: 3px solid #A0C1E9;
 }
 
 .friends {
@@ -130,7 +142,8 @@ p {
 }
 
 .water-graph, .sleep-quality-graph,
-.sleep-hours-graph {
+.sleep-hours-graph, .steps-graph,
+.stairs-graph, .active-mins-graph {
   width: 37.5vw;
   height: 33;
 }
