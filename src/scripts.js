@@ -4,7 +4,7 @@ import UserRepository from './UserRepository';
 import User from './User';
 import Hydration from './Hydration';
 import Sleep from './Sleep';
-import {getUserData, getSleepData, getActivityData, getHydrationData} from './api'
+import {fetchData} from './api'
 
 const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
@@ -20,14 +20,36 @@ const getUserNewData = document.getElementById("data-button").onclick = function
 
 let users;
 let user;
+let hydration;
+let sleep;
+let activity;
+
+
+const getData = () => {
+  const allPromise = Promise.all([fetchData('users'), fetchData('sleep'), fetchData('activity'), fetchData('hydration')])
+    .then(data => {createInitialDashboard(data)})
+}
+
 
 const createInitialDashboard = (data) => {
-  users = new UserRepository(data);
-  user = new User(data[users.retrieveRandomUser()]);
-  getHydrationData();
-  getSleepData();
+  users = new UserRepository(data[0].userData);
+  user = new User(data[0].userData[users.retrieveRandomUser()]);
+  sleep = new Sleep(data[1].sleepData);
+  // activity = new Activity(data[2].activityData);
+  hydration = new Hydration(data[3].hydrationData)
   renderInfoCard();
+  renderWaterInfo();
+  renderSleepInfo();
+  // renderActivityInfo()
 }
+
+// const createInitialDashboard = (data) => {
+//   users = new UserRepository(data);
+//   user = new User(data[users.retrieveRandomUser()]);
+//   getHydrationData();
+//   getSleepData();
+//   renderInfoCard();
+// }
 
 const renderInfoCard = () => {
   infoCard.innerHTML += `
@@ -58,8 +80,8 @@ const renderAverageSleepQuality = () => {
   averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnUserAverageDataPerDay('sleepData', 'sleepQuality')}`
 }
 
-const renderWaterInfo = (waterData) => {
-  let waterInfo = new Hydration(waterData);
+const renderWaterInfo = () => {
+//   let waterInfo = new Hydration(waterData);
   user.hydrationData = waterInfo.retrieveWaterData(user.id);
   renderWaterWidget();
   renderWeeklyWater();
@@ -157,12 +179,12 @@ const renderWeeklyQualityOfSleep = () => {
 }
 
 
-const renderActivityInfo = (activityData) => {
-  console.log(activityData);
+const renderActivityInfo = () => {
+
 }
 
-const renderSleepInfo = (sleepData) => {
-  let sleepInfo = new Sleep(sleepData);
+const renderSleepInfo = () => {
+//   let sleepInfo = new Sleep(sleepData);
   user.sleepData = sleepInfo.retrieveSleepData(user.id);
   renderHoursOfSleepWidget();
   renderQualityOfSleepWidget();
@@ -174,15 +196,9 @@ const renderSleepInfo = (sleepData) => {
 }
 
 const onPageLoad = () => {
-  getUserData();
+  // getUserData();
+  getData();
 }
 
 window.addEventListener('load', onPageLoad);
 
-export {
-  renderInfoCard,
-  renderSleepInfo,
-  renderActivityInfo,
-  renderWaterInfo,
-  createInitialDashboard,
-};
