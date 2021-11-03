@@ -41,4 +41,8 @@ describe('Hydration', () => {
       "numOunces": 95
     }])
   })
+
+  it('should return an empty array if no data is found', function() {
+    expect(hydration.retrieveWaterData(100)).to.deep.equal([])
+  })
 });

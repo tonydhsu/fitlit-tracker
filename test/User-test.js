@@ -14,47 +14,47 @@ describe('User', () => {
       dailyStepGoal: 11,
       friends: [4, 9, 11],
       hydrationData: [
-      {
-        "userID": 1,
-        "date": "2019/06/16",
-        "numOunces": 95
-      },
-      {
-        "userID": 1,
-        "date": "2019/06/17",
-        "numOunces": 79
-      },
-      {
-        "userID": 1,
-        "date": "2019/06/18",
-        "numOunces": 57
-      },
-      {
-        "userID": 1,
-        "date": "2019/06/19",
-        "numOunces": 90
-      },
-      {
-        "userID": 1,
-        "date": "2019/06/20",
-        "numOunces": 70
-      },
-      {
-        "userID": 1,
-        "date": "2019/06/21",
-        "numOunces": 59
-      },
-      {
-        "userID": 1,
-        "date": "2019/06/22",
-        "numOunces": 70
-      },
-      {
-        "userID": 1,
-        "date": "2019/06/23",
-        "numOunces": 66
-      },
-    ],
+        {
+          "userID": 1,
+          "date": "2019/06/16",
+          "numOunces": 95
+        },
+        {
+          "userID": 1,
+          "date": "2019/06/17",
+          "numOunces": 79
+        },
+        {
+          "userID": 1,
+          "date": "2019/06/18",
+          "numOunces": 57
+        },
+        {
+          "userID": 1,
+          "date": "2019/06/19",
+          "numOunces": 90
+        },
+        {
+          "userID": 1,
+          "date": "2019/06/20",
+          "numOunces": 70
+        },
+        {
+          "userID": 1,
+          "date": "2019/06/21",
+          "numOunces": 59
+        },
+        {
+          "userID": 1,
+          "date": "2019/06/22",
+          "numOunces": 70
+        },
+        {
+          "userID": 1,
+          "date": "2019/06/23",
+          "numOunces": 66
+        },
+      ],
       sleepData: [{
         userID: 1,
         date: "2019/06/16",
@@ -184,7 +184,7 @@ describe('User', () => {
         date: '2019/06/23',
         numOunces: 66
       },
-    ]);
+      ]);
   });
 
   it('should return the average sleep per day', function() {
