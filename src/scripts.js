@@ -4,7 +4,7 @@ import UserRepository from './UserRepository';
 import User from './User';
 import Hydration from './Hydration';
 import Sleep from './Sleep';
-import {getUserData, getSleepData, getActivityData, getHydrationData} from './api'
+import {fetchData} from './api'
 
 const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
@@ -25,7 +25,7 @@ let activity;
 
 
 const getData = () => {
-  const allPromise = Promise.all([getUserData(), getSleepData(), getActivityData(), getHydrationData()])
+  const allPromise = Promise.all([fetchData('users'), fetchData('sleep'), fetchData('activity'), fetchData('hydration')])
     .then(data => {createInitialDashboard(data)})
 }
 
@@ -192,7 +192,7 @@ const renderSleepInfo = () => {
 }
 
 const onPageLoad = () => {
-  getUserData();
+  // getUserData();
   getData();
 }
 
