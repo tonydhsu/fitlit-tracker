@@ -9,14 +9,14 @@ import domUpdates from './domUpdates';
 
 // const infoCard = document.getElementById('cardInfo');
 // const stepComparison = document.getElementById('stepComparison');
-const waterWidget = document.getElementById('waterWidget');
+// const waterWidget = document.getElementById('waterWidget');
 const weeklyWater = document.getElementById('weeklyWater').getContext('2d');
 const weeklySleepQuality = document.getElementById('weeklySleepQuality').getContext('2d');
 const weeklySleepHours = document.getElementById('weeklySleepHours').getContext('2d');
-const hoursOfSleepWidget = document.getElementById('hoursOfSleepWidget');
-const sleepQualityWidget = document.getElementById('sleepQualityWidget');
+// const hoursOfSleepWidget = document.getElementById('hoursOfSleepWidget');
+// const sleepQualityWidget = document.getElementById('sleepQualityWidget');
 // const averageSleepHours = document.getElementById('averageSleepHours');
-const averageSleepQuality = document.getElementById('averageSleepQuality');
+// const averageSleepQuality = document.getElementById('averageSleepQuality');
 const getUserNewData = document.getElementById("data-button").onclick = function () {location.href = "https://www.youtube.com"};
 
 let users;
@@ -80,28 +80,27 @@ const createInitialDashboard = (data) => {
 //   averageSleepHours.innerText = `You sleep an average of ${user.returnUserAverageDataPerDay('sleepData', 'hoursSlept')} hours a day`;
 // }
 
-const renderAverageSleepQuality = () => {
-  averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnUserAverageDataPerDay('sleepData', 'sleepQuality')}`
-}
+// const renderAverageSleepQuality = () => {
+//   averageSleepQuality.innerText = `Your sleep quality is an average of ${user.returnUserAverageDataPerDay('sleepData', 'sleepQuality')}`
+// }
 
 const renderWaterInfo = () => {
-//   let waterInfo = new Hydration(waterData);
   user.hydrationData = hydration.retrieveWaterData(user.id);
-  renderWaterWidget();
+  domUpdates.renderWaterWidget(user.returnUserTotalDataPerDay("hydrationData", user.hydrationData[user.hydrationData.length-1].date, "numOunces"));
   renderWeeklyWater();
 }
 
-const renderWaterWidget = () => {
-  waterWidget.innerText = `${user.returnUserTotalDataPerDay("hydrationData", user.hydrationData[user.hydrationData.length-1].date, "numOunces")}`
-}
+// const renderWaterWidget = () => {
+//   waterWidget.innerText = `${user.returnUserTotalDataPerDay("hydrationData", user.hydrationData[user.hydrationData.length-1].date, "numOunces")}`
+// }
 
-const renderHoursOfSleepWidget = () => {
-  hoursOfSleepWidget.innerText = `${user.returnUserTotalDataPerDay("sleepData",user.sleepData[user.sleepData.length-1].date, "hoursSlept")}`
-}
+// const renderHoursOfSleepWidget = () => {
+//   hoursOfSleepWidget.innerText = `${user.returnUserTotalDataPerDay("sleepData",user.sleepData[user.sleepData.length-1].date, "hoursSlept")}`
+// }
 
-const renderQualityOfSleepWidget = () => {
-  sleepQualityWidget.innerText = `${user.returnUserTotalDataPerDay("sleepData", user.sleepData[user.sleepData.length-1].date, "sleepQuality")}`
-}
+// const renderQualityOfSleepWidget = () => {
+//   sleepQualityWidget.innerText = `${user.returnUserTotalDataPerDay("sleepData", user.sleepData[user.sleepData.length-1].date, "sleepQuality")}`
+// }
 
 const renderWeeklyWater = () => {
   const weeklyWaterArray = user.returnWeeklyConsumption();
@@ -190,10 +189,10 @@ const renderActivityInfo = () => {
 const renderSleepInfo = () => {
 //   let sleepInfo = new Sleep(sleepData);
   user.sleepData = sleep.retrieveSleepData(user.id);
-  renderHoursOfSleepWidget();
-  renderQualityOfSleepWidget();
+  domUpdates.renderHoursOfSleepWidget(user.returnUserTotalDataPerDay("sleepData",user.sleepData[user.sleepData.length-1].date, "hoursSlept"));
+  domUpdates.renderQualityOfSleepWidget(user.returnUserTotalDataPerDay("sleepData", user.sleepData[user.sleepData.length-1].date, "sleepQuality"));
   domUpdates.renderAverageSleepHours(user.returnUserAverageDataPerDay('sleepData', 'hoursSlept'));
-  renderAverageSleepQuality();
+  domUpdates.renderAverageSleepQuality(user.returnUserAverageDataPerDay('sleepData', 'sleepQuality'));
   renderWeeklySleepHours();
   renderWeeklyQualityOfSleep();
 }

@@ -4,6 +4,14 @@
 const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
 const averageSleepHours = document.getElementById('averageSleepHours');
+const averageSleepQuality = document.getElementById('averageSleepQuality');
+const waterWidget = document.getElementById('waterWidget');
+const hoursOfSleepWidget = document.getElementById('hoursOfSleepWidget');
+const sleepQualityWidget = document.getElementById('sleepQualityWidget');
+
+
+
+
 
 
 const domUpdates = {
@@ -28,10 +36,25 @@ const domUpdates = {
     stepComparison.innerText = `The average step goal amongst all users is: ${avgSteps}. Your step goal is ${user.dailyStepGoal}.`;
   },
 
-  renderAverageSleepHours(avgSleep) {
-    averageSleepHours.innerText = `You sleep an average of ${avgSleep} hours a day`;
+  renderAverageSleepHours(avgSleepHours) {
+    averageSleepHours.innerText = `You sleep an average of ${avgSleepHours} hours a day`;
   },
 
+  renderAverageSleepQuality(avgSleepQuality) {
+    averageSleepQuality.innerText = `Your sleep quality is an average of ${avgSleepQuality}`
+  },
+
+  renderWaterWidget(totalWaterPerDay) {
+    waterWidget.innerText = `${totalWaterPerDay}`
+  },
+
+  renderHoursOfSleepWidget(totalHoursSlept) {
+    hoursOfSleepWidget.innerText = `${totalHoursSlept}`
+  },
+
+  renderQualityOfSleepWidget(totalSleepQuality) {
+    sleepQualityWidget.innerText = `${totalSleepQuality}`
+  }
 }
 
 export default domUpdates;
