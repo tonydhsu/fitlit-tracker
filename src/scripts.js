@@ -16,6 +16,7 @@ const hoursOfSleepWidget = document.getElementById('hoursOfSleepWidget');
 const sleepQualityWidget = document.getElementById('sleepQualityWidget');
 const averageSleepHours = document.getElementById('averageSleepHours');
 const averageSleepQuality = document.getElementById('averageSleepQuality');
+const getUserNewData = document.getElementById("data-button").onclick = function () {location.href = "https://www.youtube.com"};
 
 let users;
 let user;
@@ -28,6 +29,7 @@ const getData = () => {
   const allPromise = Promise.all([fetchData('users'), fetchData('sleep'), fetchData('activity'), fetchData('hydration')])
     .then(data => {createInitialDashboard(data)})
 }
+
 
 const createInitialDashboard = (data) => {
   users = new UserRepository(data[0].userData);
@@ -79,8 +81,8 @@ const renderAverageSleepQuality = () => {
 }
 
 const renderWaterInfo = () => {
-  // let waterInfo = new Hydration(waterData);
-  user.hydrationData = hydration.retrieveWaterData(user.id);
+//   let waterInfo = new Hydration(waterData);
+  user.hydrationData = waterInfo.retrieveWaterData(user.id);
   renderWaterWidget();
   renderWeeklyWater();
 }
@@ -176,19 +178,21 @@ const renderWeeklyQualityOfSleep = () => {
   })
 }
 
+
 const renderActivityInfo = () => {
 
 }
 
 const renderSleepInfo = () => {
-  // let sleepInfo = new Sleep(sleepData);
-  user.sleepData = sleep.retrieveSleepData(user.id);
+//   let sleepInfo = new Sleep(sleepData);
+  user.sleepData = sleepInfo.retrieveSleepData(user.id);
   renderHoursOfSleepWidget();
   renderQualityOfSleepWidget();
   renderAverageSleepHours();
   renderAverageSleepQuality();
   renderWeeklySleepHours();
   renderWeeklyQualityOfSleep();
+  console.log('renderSleepInfo', user.returnWeeklySleepHours('2019/06/15'));
 }
 
 const onPageLoad = () => {
@@ -198,10 +202,3 @@ const onPageLoad = () => {
 
 window.addEventListener('load', onPageLoad);
 
-// export {
-//   renderInfoCard,
-//   renderSleepInfo,
-//   renderActivityInfo,
-//   renderWaterInfo,
-//   createInitialDashboard,
-// };
