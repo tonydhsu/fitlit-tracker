@@ -46,6 +46,6 @@ describe('Sleep', () => {
   });
 
   it('should return an empty array if no data is found', function() {
-    expect(sleep.retrieveSleepData(9)).to.deep.equal([])
+    expect(sleep.retrieveSleepData(5)).to.deep.equal([])
   })
 });
