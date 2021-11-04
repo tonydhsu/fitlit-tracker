@@ -203,6 +203,10 @@ describe('User', () => {
     expect(user.returnUserTotalDataPerDay("sleepData","2019/06/20","sleepQuality")).to.equal(5);
   });
 
+  it('should return something when an invalid date is entered', function() {
+    expect(user.returnUserAverageDataPerDay("sleepData", "2021/11/03")).to.deep.equal(NaN)
+  })
+
   it('should return the hours slept over a 7 day period given a specific date', function() {
     expect(user.returnWeeklySleepData("2019/06/16", "hoursSlept")).to.deep.equal([
       {
