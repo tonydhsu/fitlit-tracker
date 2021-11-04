@@ -19,16 +19,16 @@ const domUpdates = {
   renderInfoCard(user, firstName) {
     infoCard.innerHTML += `
     <h1>Hi ${firstName}!</h1>
-    <h3>User Information</h3>
-    <h4>Name:</h4>
+    <h2>User Information</h2>
+    <h2>Name:</h2>
     <p>${user.name}</p>
-    <h4>Email:</h4>
+    <h2>Email:</h2>
     <p>${user.email}</p>
-    <h4>Address:</h4>
+    <h2>Address:</h2>
     <p>${user.address}</p>
-    <h4>Stride Length</h4>
+    <h2>Stride Length</h2>
     <p>${user.strideLength}</p>
-    <h4>Daily Step Goal</h4>
+    <h2>Daily Step Goal</h2>
     <p>${user.dailyStepGoal}</p>`
   },
 
