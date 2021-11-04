@@ -7,6 +7,7 @@ class UserRepository {
     return this.data.find((user) => {
       return user.id === id;
     });
+
   };
 
   retrieveUsersAvgData(property) {
@@ -14,12 +15,13 @@ class UserRepository {
       avg += user[property];
       return avg;
     }, 0);
-    return totalAmount/ this.data.length;
+    return totalAmount / this.data.length;
   };
 
   retrieveRandomUser() {
     return Math.floor(Math.random() * this.data.length);
   };
 };
+ 
 
 module.exports = UserRepository;

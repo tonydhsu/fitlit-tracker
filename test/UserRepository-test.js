@@ -40,8 +40,13 @@ describe('User Repository', () => {
   });
 
   it('should retrieve user data', function () {
+    console.log(userRepo.retrieveUserData(10))
     expect(userRepo.retrieveUserData(1)).to.deep.equal(data[0]);
   });
+
+  it('should return undefined if no users', function() {
+    expect(userRepo.retrieveUserData(10)).to.equal(undefined)
+  })
 
   it('should retrieve average step goals of all users', function () {
     expect(userRepo.retrieveUsersAvgData('dailyStepGoal')).to.deep.equal(7.5);
