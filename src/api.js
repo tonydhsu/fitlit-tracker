@@ -25,7 +25,7 @@
 // };
 
 const fetchData = (param) => {
-    return fetch(`https://pacific-badlands-43237.herokuapp.com/api/v1/${param}`)
+    return fetch(`http://localhost:3001/api/v1/${param}`)
       .then(response => response.json())
 }
 
