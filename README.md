@@ -61,3 +61,8 @@ FitLit Tracker is an app that allows the user to track their health statistics. 
 ## Specs
 Project specs can be found here
 -  [FitLit](https://frontend.turing.edu/projects/Fitlit-part-one.html)
+
+## Artists 
+- Friends by Edwin PM from the Noun Project
+- Fitness by Guilhem from the Noun Project
+- Runner by b farias from the Noun Project
