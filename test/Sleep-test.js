@@ -44,4 +44,8 @@ describe('Sleep', () => {
       sleepQuality: 4.7
     }]);
   });
+
+  it('should return an empty array if no data is found', function() {
+    expect(sleep.retrieveSleepData(5)).to.deep.equal([])
+  })
 });
