@@ -302,25 +302,29 @@ describe('User', () => {
     ]);
   });
 
-  it.skip('should return the distance walked on a given date', function() {
-    expect(milesWalked("2019/06/15")).to.equal(3.39);
+  it('should return the distance walked on a given date', function() {
+    expect(user.milesWalked("2019/06/15")).to.equal(3.39);
   });
 
-  it.skip('should return a user\s average activity in a given week', function() {
-    expect(avgWeeklyActivity("2019/06/15")).to.equal(160);
+  it('should return how many minutes a user was active on a given date', function() {
+    expect(user.returnUserTotalDataPerDay('activityData', '2019/06/16', 'minutesActive')).to.equal(180);
+  })
+
+  it('should return a user\s average activity in a given week', function() {
+    expect(user.avgWeeklyActivity("2019/06/15")).to.equal(160);
   });
 
-  it.skip('should return a boolean value if a user meets their step goal on a given date', function() {
-    expect(meetsStepGoal("2019/06/15")).to.equal(false);
+  it('should return a boolean value if a user meets their step goal on a given date', function() {
+    expect(user.meetsStepGoal("2019/06/15")).to.equal(false);
 
-    expect(meetsStepGoal("2019/06/16")).to.equal(true);
+    expect(user.meetsStepGoal("2019/06/16")).to.equal(true);
   });
 
-  it.skip('should return an array of all days the user reached their step goal', function() {
-    expect(daysStepGoalAchieved()).to.equal(["2019/06/16", "2019/06/17"])
+  it('should return an array of all days the user reached their step goal', function() {
+    expect(user.daysStepGoalAchieved()).to.deep.equal(["2019/06/16", "2019/06/17"])
   });
 
-  it.skip('should return the user\s stair climbing record', function() {
-    expect(bestStairDay()).to.equal(22)
+  it('should return the user\s stair climbing record', function() {
+    expect(user.bestStairDay()).to.equal(22)
   });
 });
