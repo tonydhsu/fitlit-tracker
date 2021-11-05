@@ -15,7 +15,8 @@ describe('User Repository', () => {
       dailyStepGoal: 11,
       friends: [4, 9, 11],
       hydrationData: [],
-      sleepData: []
+      sleepData: [],
+      activityData: []
     },
     {
       id: 2,
@@ -26,7 +27,8 @@ describe('User Repository', () => {
       dailyStepGoal: 4,
       friends: [1, 9, 11],
       hydrationData: [],
-      sleepData: []
+      sleepData: [],
+      activityData: []
     }]
     userRepo = new UserRepository(data);
   })
@@ -88,4 +90,94 @@ describe('User Repository', () => {
 
     expect(userRepo.retrieveUsersAvgData('sleepQuality')).to.equal(3.38);
   });
+
+  it.skip('should return the average number of stairs climbed by all users on a given day', function() {
+    activityData = [
+      {
+        userID: 1,
+        date: "2019/06/15",
+        numSteps: 3577,
+        minutesActive: 140,
+        flightsOfStairs: 17
+      },
+      {
+        userID: 2,
+        date: "2019/06/15",
+        numSteps: 4307,
+        minutesActive: 180,
+        flightsOfStairs: 22
+      },
+      {
+        userID: 3,
+        date: "2019/06/15",
+        numSteps: 3701,
+        minutesActive: 160,
+        flightsOfStairs: 18
+      }
+    ]
+
+    userRepo = new UserRepository(activityData);
+
+    expect(userRepo.retrieveGivenDateAverage("2019/06/15", "flightsOfStairs")).to.equal(19);
+  });
+
+  it.skip('should return the average number of steps taken by all users on a given day', function() {
+    activityData = [
+      {
+        userID: 1,
+        date: "2019/06/15",
+        numSteps: 3577,
+        minutesActive: 140,
+        flightsOfStairs: 17
+      },
+      {
+        userID: 2,
+        date: "2019/06/15",
+        numSteps: 4307,
+        minutesActive: 180,
+        flightsOfStairs: 22
+      },
+      {
+        userID: 3,
+        date: "2019/06/15",
+        numSteps: 3701,
+        minutesActive: 160,
+        flightsOfStairs: 18
+      }
+    ]
+
+    userRepo = new UserRepository(activityData);
+
+    expect(userRepo.retrieveGivenDateAverage("2019/06/15", "numSteps")).to.equal(3861);
+  })
+
+  it.skip('should return the average number of minutes active by all users on a given day', function() {
+    activityData = [
+      {
+        userID: 1,
+        date: "2019/06/15",
+        numSteps: 3577,
+        minutesActive: 140,
+        flightsOfStairs: 17
+      },
+      {
+        userID: 2,
+        date: "2019/06/15",
+        numSteps: 4307,
+        minutesActive: 180,
+        flightsOfStairs: 22
+      },
+      {
+        userID: 3,
+        date: "2019/06/15",
+        numSteps: 3701,
+        minutesActive: 160,
+        flightsOfStairs: 18
+      }
+    ]
+
+    userRepo = new UserRepository(activityData);
+
+    expect(userRepo.retrieveGivenDateAverage("2019/06/15", "minutesActive")).to.equal(160);
+  })
 });
