@@ -91,7 +91,7 @@ describe('User Repository', () => {
     expect(userRepo.retrieveUsersAvgData('sleepQuality')).to.equal(3.38);
   });
 
-  it.skip('should return the average number of stairs climbed by all users on a given day', function() {
+  it('should return the average number of stairs climbed by all users on a given day', function() {
     activityData = [
       {
         userID: 1,
@@ -113,6 +113,27 @@ describe('User Repository', () => {
         numSteps: 3701,
         minutesActive: 160,
         flightsOfStairs: 18
+      },
+      {
+        userID: 1,
+        date: "2019/06/16",
+        numSteps: 4000,
+        minutesActive: 150,
+        flightsOfStairs: 12
+      },
+      {
+        userID: 2,
+        date: "2019/06/16",
+        numSteps: 3865,
+        minutesActive: 155,
+        flightsOfStairs: 14
+      },
+      {
+        userID: 3,
+        date: "2019/06/16",
+        numSteps: 5000,
+        minutesActive: 200,
+        flightsOfStairs: 20
       }
     ]
 
@@ -121,7 +142,7 @@ describe('User Repository', () => {
     expect(userRepo.retrieveGivenDateAverage("2019/06/15", "flightsOfStairs")).to.equal(19);
   });
 
-  it.skip('should return the average number of steps taken by all users on a given day', function() {
+  it('should return the average number of steps taken by all users on a given day', function() {
     activityData = [
       {
         userID: 1,
@@ -151,7 +172,7 @@ describe('User Repository', () => {
     expect(userRepo.retrieveGivenDateAverage("2019/06/15", "numSteps")).to.equal(3861);
   })
 
-  it.skip('should return the average number of minutes active by all users on a given day', function() {
+  it('should return the average number of minutes active by all users on a given day', function() {
     activityData = [
       {
         userID: 1,
