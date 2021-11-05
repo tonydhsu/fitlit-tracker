@@ -1,4 +1,4 @@
-import './css/styles.css';
+import './css/styles.scss';
 import './images/turing-logo.png'
 import UserRepository from './UserRepository';
 import User from './User';
