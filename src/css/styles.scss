@@ -1,3 +1,7 @@
+@use "variables";
+@use "mixins";
+@use "reset";
+
 * {
   font-family: 'Open Sans', sans-serif;
 }
@@ -53,7 +57,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-right: 2px solid black;
+  border-right: variables.$black-border;
   text-align: center;
   height: 96vh;
   width: 18vw;
@@ -69,12 +73,12 @@ p {
 
 .tracker-name,
 .friends-title {
-  border-bottom: 2px solid black;
+  border-bottom: variables.$black-border;
   width: 18vw;
 }
 
 .friends-title {
-  border-top: 2px solid black;
+  border-top: variables.$black-border;
 }
 
 .circles {
