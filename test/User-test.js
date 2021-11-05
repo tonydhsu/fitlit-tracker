@@ -314,5 +314,13 @@ describe('User', () => {
     expect(meetsStepGoal("2019/06/15")).to.equal(false);
 
     expect(meetsStepGoal("2019/06/16")).to.equal(true);
-  })
+  });
+
+  it.skip('should return an array of all days the user reached their step goal', function() {
+    expect(daysStepGoalAchieved()).to.equal(["2019/06/16", "2019/06/17"])
+  });
+
+  it.skip('should return the user\s stair climbing record', function() {
+    expect(bestStairDay()).to.equal(22)
+  });
 });
