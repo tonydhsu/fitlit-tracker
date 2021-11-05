@@ -9,6 +9,7 @@ class User {
     this.friends = userData.friends;
     this.hydrationData = userData.hydrationData;
     this.sleepData = userData.sleepData;
+    this.activityData = userData.activityData;
   };
 
   returnFirstName () {

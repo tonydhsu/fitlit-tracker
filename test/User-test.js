@@ -11,98 +11,123 @@ describe('User', () => {
       address: '1 North Pole',
       email: 'brian@northpole.com',
       strideLength: 5,
-      dailyStepGoal: 11,
+      dailyStepGoal: 3700,
       friends: [4, 9, 11],
       hydrationData: [
         {
-          "userID": 1,
-          "date": "2019/06/16",
-          "numOunces": 95
+          userID: 1,
+          date: "2019/06/16",
+          numOunces: 95
         },
         {
-          "userID": 1,
-          "date": "2019/06/17",
-          "numOunces": 79
+          userID: 1,
+          date: "2019/06/17",
+          numOunces: 79
         },
         {
-          "userID": 1,
-          "date": "2019/06/18",
-          "numOunces": 57
+          userID: 1,
+          date: "2019/06/18",
+          numOunces: 57
         },
         {
-          "userID": 1,
-          "date": "2019/06/19",
-          "numOunces": 90
+          userID: 1,
+          date: "2019/06/19",
+          numOunces: 90
         },
         {
-          "userID": 1,
-          "date": "2019/06/20",
-          "numOunces": 70
+          userID: 1,
+          date: "2019/06/20",
+          numOunces: 70
         },
         {
-          "userID": 1,
-          "date": "2019/06/21",
-          "numOunces": 59
+          userID: 1,
+          date: "2019/06/21",
+          numOunces: 59
         },
         {
-          "userID": 1,
-          "date": "2019/06/22",
-          "numOunces": 70
+          userID: 1,
+          date: "2019/06/22",
+          numOunces: 70
         },
         {
-          "userID": 1,
-          "date": "2019/06/23",
-          "numOunces": 66
+          userID: 1,
+          date: "2019/06/23",
+          numOunces: 66
         },
       ],
-      sleepData: [{
-        userID: 1,
-        date: "2019/06/16",
-        hoursSlept: 9.6,
-        sleepQuality: 4.7
-      },
-      {
-        userID: 1,
-        date: "2019/06/17",
-        hoursSlept: 9,
-        sleepQuality: 5
-      },
-      {
-        userID: 1,
-        date: "2019/06/18",
-        hoursSlept: 8.3,
-        sleepQuality: 6
-      },
-      {
-        userID: 1,
-        date: "2019/06/19",
-        hoursSlept: 10,
-        sleepQuality: 4.7
-      },
-      {
-        userID: 1,
-        date: "2019/06/20",
-        hoursSlept: 9.5,
-        sleepQuality: 5
-      },
-      {
-        userID: 1,
-        date: "2019/06/21",
-        hoursSlept: 8.3,
-        sleepQuality: 4.2
-      },
-      {
-        userID: 1,
-        date: "2019/06/22",
-        hoursSlept: 6,
-        sleepQuality: 3
-      },
-      {
-        userID: 1,
-        date: "2019/06/23",
-        hoursSlept: 7,
-        sleepQuality: 4
-      }]
+      sleepData: [
+        {
+          userID: 1,
+          date: "2019/06/16",
+          hoursSlept: 9.6,
+          sleepQuality: 4.7
+        },
+        {
+          userID: 1,
+          date: "2019/06/17",
+          hoursSlept: 9,
+          sleepQuality: 5
+        },
+        {
+          userID: 1,
+          date: "2019/06/18",
+          hoursSlept: 8.3,
+          sleepQuality: 6
+        },
+        {
+          userID: 1,
+          date: "2019/06/19",
+          hoursSlept: 10,
+          sleepQuality: 4.7
+        },
+        {
+          userID: 1,
+          date: "2019/06/20",
+          hoursSlept: 9.5,
+          sleepQuality: 5
+        },
+        {
+          userID: 1,
+          date: "2019/06/21",
+          hoursSlept: 8.3,
+          sleepQuality: 4.2
+        },
+        {
+          userID: 1,
+          date: "2019/06/22",
+          hoursSlept: 6,
+          sleepQuality: 3
+        },
+        {
+          userID: 1,
+          date: "2019/06/23",
+          hoursSlept: 7,
+          sleepQuality: 4
+        }
+      ],
+      activityData: [
+        {
+          userID: 1,
+          date: "2019/06/15",
+          numSteps: 3577,
+          minutesActive: 140,
+          flightsOfStairs: 16
+        },
+        {
+          userID: 1,
+          date: "2019/06/16",
+          numSteps: 4307,
+          minutesActive: 180,
+          flightsOfStairs: 22
+        },
+        {
+          userID: 1,
+          date: "2019/06/17",
+          numSteps: 3701,
+          minutesActive: 160,
+          flightsOfStairs: 18
+        }
+      ]
     })
   })
 
@@ -135,7 +160,7 @@ describe('User', () => {
   });
 
   it('should store a daily step goal', function() {
-    expect(user.dailyStepGoal).to.equal(11);
+    expect(user.dailyStepGoal).to.equal(3700);
   });
 
   it('should store an array of friends', function() {
@@ -202,6 +227,10 @@ describe('User', () => {
   it('should return the sleep quality on a given date', function() {
     expect(user.returnUserTotalDataPerDay("sleepData","2019/06/20","sleepQuality")).to.equal(5);
   });
+
+  it('should return minutes active on a given date', function() {
+    expect(user.returnUserTotalDataPerDay("activityData", "2019/06/15", "minutesActive")).to.equal(140);
+  })
 
   it('should return something when an invalid date is entered', function() {
     expect(user.returnUserAverageDataPerDay("sleepData", "2021/11/03")).to.deep.equal(NaN)
@@ -272,4 +301,18 @@ describe('User', () => {
       }
     ]);
   });
+
+  it.skip('should return the distance walked on a given date', function() {
+    expect(milesWalked("2019/06/15")).to.equal(3.39);
+  });
+
+  it.skip('should return a user\s average activity in a given week', function() {
+    expect(avgWeeklyActivity("2019/06/15")).to.equal(160);
+  });
+
+  it.skip('should return a boolean value if a user meets their step goal on a given date', function() {
+    expect(meetsStepGoal("2019/06/15")).to.equal(false);
+
+    expect(meetsStepGoal("2019/06/16")).to.equal(true);
+  })
 });

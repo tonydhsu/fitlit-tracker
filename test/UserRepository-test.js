@@ -40,7 +40,6 @@ describe('User Repository', () => {
   });
 
   it('should retrieve user data', function () {
-    console.log(userRepo.retrieveUserData(10))
     expect(userRepo.retrieveUserData(1)).to.deep.equal(data[0]);
   });
 
