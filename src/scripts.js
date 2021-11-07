@@ -9,14 +9,11 @@ import {fetchData} from './api'
 import domUpdates from './domUpdates';
 import charts from './charts';
 
-const getUserNewData = document.getElementById("data-button").onclick = function () {location.href = "https://www.youtube.com"};
-
 let users;
 let user;
 let hydration;
 let sleep;
 let activity;
-
 
 const getData = () => {
   const allPromise = Promise.all([fetchData('users'), fetchData('sleep'), fetchData('activity'), fetchData('hydration')])
