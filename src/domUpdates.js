@@ -14,6 +14,27 @@ const minsWidget = document.getElementById('minsWidget');
 const stepsPerDayComparison = document.getElementById('actualStepsComparison');
 const minsPerDayComparison = document.getElementById('minutesActiveComparison');
 const stairsPerDayComparison = document.getElementById('stairsComparison');
+//Drop down menu 
+const dropDownMenu = document.getElementById('dropDownMenu');
+const addNewBtn = document.getElementById('addNewBtn');
+//sleep selectors
+const sleepForm = document.getElementById('sleepForm');
+const SleepDateInput = document.getElementById('SleepDateInput');
+const sleepQualityInput = document.getElementById('sleepQualityInput');
+const sleepHoursInput = document.getElementById('sleepHoursInput')
+const sleepBtnForm = document.getElementById('sleepBtnForm')
+//hydration selectors
+const hydrationForm = document.getElementById('hydrationForm');
+const hydrationDateInput = document.getElementById('hydrationDateInput');
+const hydrationInput = document.getElementById('hydrationInput');
+const hydrationBtnForm = document.getElementById('hydrationBtnForm');
+//activity selectors
+const activityForm = document.getElementById('activityForm');
+const activityDateInput = document.getElementById('activityDateInput');
+const stepsInput = document.getElementById('stepsInput');
+const minutesInput = document.getElementById('minutesInput');
+const stairsInput = document.getElementById('stairsInput');
+const activityBtnForm = document.getElementById('activityBtnForm');
 
 const domUpdates = {
 
