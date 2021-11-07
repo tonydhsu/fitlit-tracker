@@ -1,6 +1,9 @@
 const weeklyWater = document.getElementById('weeklyWater').getContext('2d');
 const weeklySleepQuality = document.getElementById('weeklySleepQuality').getContext('2d');
 const weeklySleepHours = document.getElementById('weeklySleepHours').getContext('2d');
+const weeklyStepGraph = document.getElementById('weeklyWater').getContext('2d');
+const weeklyStairsClimbed = document.getElementById('weeklyStairsClimbed').getContext('2d');
+const weeklyActiveMins= document.getElementById('weeklyActiveMins').getContext('2d');
 
 const charts = {
 renderWeeklyWater(weeklyWaterConsumption){

@@ -48,6 +48,26 @@ class User {
     });
     return weeklySleepInfo;
   };
+
+returnWeeklyActivityData(dateEntered, property){
+  const dateEnteredIndex = this.activityData.indexOf(this.activityData.find(dateActive => {
+    return dateActive.date === dateEntered;
+  }));
+  const activityWeeklyData = this.activityData.slice(dateEnteredIndex, dateEnteredIndex + 7);
+  const weeklyActivityInfo = activityWeeklyData.map((day) => {
+    return {date: day.date, [property]: day[property]}
+  });
+  return weeklySleepInfo;
+};
+}
+
+returnWeeklyStairsData(dateEntered, property)
+
+
+
+
+
+
 };
 
 module.exports = User;

@@ -27,13 +27,13 @@ const createInitialDashboard = (data) => {
   users = new UserRepository(data[0].userData);
   user = new User(data[0].userData[users.retrieveRandomUser()]);
   sleep = new Sleep(data[1].sleepData);
-  // activity = new Activity(data[2].activityData);
+  activity = new Activity(data[2].activityData);
   hydration = new Hydration(data[3].hydrationData)
   domUpdates.renderInfoCard(user, user.returnFirstName());
   renderWaterInfo();
   renderSleepInfo();
   domUpdates.compareSteps(user, users.retrieveUsersAvgData('dailyStepGoal'));
-  // renderActivityInfo()
+  renderActivityInfo()
 }
 
 const renderWaterInfo = () => {
@@ -43,7 +43,16 @@ const renderWaterInfo = () => {
 }
 
 const renderActivityInfo = () => {
-
+  user.activityData = activity.retrieveActivityData(user.id);
+  domUpdates.renderStepsWidget(user.returnUserTotalDataPerDay("activityData", "2019/06/15", "numSteps");
+  domUpdates.renderMilesWidget(user.milesWalked("2019/06/15"));
+  domUpdates.renderMinsWidget(user.returnUserTotalDataPerDay("activityData", "2019/06/15", "minutesActive"));
+  domUpdates.compareActivitySteps(userRepo.retrieveGivenDateAverage("2019/06/15", "numSteps"));
+  domUpdates.compareActivityMins(userRepo.retrieveGivenDateAverage("2019/06/15", "minutesActive"));
+  domUpdates.compareActivityStairs(userRepo.retrieveGivenDateAverage("2019/06/15", "flightsOfStairs"));
+  // charts.renderWeeklySteps(user.returnWeeklyActivityData("2019/06/15", "numSteps"));
+  // charts.renderWeeklyStairs(user.returnWeeklyActivityData("2019/06/15", "flightsOfStairs"));
+  // charts.renderWeeklyMins(user.returnWeeklyActivityData("2019/06/15", "minutesActive"));
 }
 
 const renderSleepInfo = () => {
