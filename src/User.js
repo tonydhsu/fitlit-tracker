@@ -9,6 +9,7 @@ class User {
     this.friends = userData.friends;
     this.hydrationData = userData.hydrationData;
     this.sleepData = userData.sleepData;
+    this.activityData = userData.activityData;
   };
 
   returnFirstName () {
@@ -48,6 +49,60 @@ class User {
     });
     return weeklySleepInfo;
   };
+
+  milesWalked(date) {
+    const day = this.activityData.find((activityDate) => {
+      return activityDate.date === date;
+    });
+
+    const miles = day.numSteps * this.strideLength / 5280;
+    return Number(miles.toFixed(2));
+  };
+
+  avgWeeklyActivity(date) {
+    const dateEnteredIndex = this.activityData.indexOf(this.activityData.find(datesActive => {
+      return datesActive.date === date;
+    }));
+
+    const activeWeeklyData = this.activityData.slice(dateEnteredIndex, dateEnteredIndex + 7);
+
+    const activeMin = activeWeeklyData.reduce((avg, day) => {
+      avg += day.minutesActive;
+      return avg
+    }, 0);
+
+    return activeMin / activeWeeklyData.length;
+  }
+
+  meetsStepGoal(date) {
+    const stepGoalDay = this.activityData.find(day => {
+      return day.date === date;
+    })
+
+    if (stepGoalDay.numSteps >= this.dailyStepGoal) {
+      return true;
+    }else {
+      return false;
+    }
+  }
+
+  daysStepGoalAchieved() {
+    const daysAchievedSteps = this.activityData.filter((day) => {
+      return day.numSteps >= this.dailyStepGoal;
+    }).map((day) => {
+      return day.date;
+    })
+
+    return daysAchievedSteps;
+  }
+
+  bestStairDay() {
+    const bestDayEver = this.activityData.sort((a, b) => {
+      return a.flightsOfStairs - b.flightsOfStairs;
+    }).pop()
+
+    return bestDayEver.flightsOfStairs;
+  }
 };
 
 module.exports = User;
