@@ -137,6 +137,33 @@ renderWeeklyStairs (totalStairs) {
       }
     }
   })
+},
+
+renderWeeklyMins(totalMins) {
+  const weeklyMinsArray = totalMins;
+  const myWeeklyMinsChart = new Chart(weeklyActiveMinsGraph, {
+    type: 'bar',
+    data: {
+      labels: [weeklyMinsArray[0].date, weeklyMinsArray[1].date, weeklyMinsArray[2].date, weeklyMinsArray[3].date, weeklyMinsArray[4].date, weeklyMinsArray[5].date, weeklyMinsArray[6].date],
+      datasets: [{
+        label: 'Mins Active',
+        data: [weeklyMinsArray[0].minutesActive, weeklyMinsArray[1].minutesActive, weeklyMinsArray[2].minutesActive,
+        weeklyMinsArray[3].minutesActive,
+        weeklyMinsArray[4].minutesActive, weeklyMinsArray[5].minutesActive, weeklyMinsArray[6].minutesActive],
+        backgroundColor: 'rgba(160, 233, 198, 0.65)',
+      }],
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Minutes Active Over the Week',
+          fontSize: 25,
+        },
+
+      }
+    }
+  })
 }
 
 }

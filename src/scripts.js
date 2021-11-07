@@ -53,7 +53,7 @@ const renderActivityInfo = () => {
   // domUpdates.compareActivityStairs(users.retrieveGivenDateAverage("2019/06/15", "flightsOfStairs"));
   charts.renderWeeklySteps(user.returnWeeklyActivityData("2019/06/15", "numSteps"));
   charts.renderWeeklyStairs(user.returnWeeklyActivityData("2019/06/15", "flightsOfStairs"));
-  // charts.renderWeeklyMins(user.returnWeeklyActivityData("2019/06/15", "minutesActive"));
+  charts.renderWeeklyMins(user.returnWeeklyActivityData("2019/06/15", "minutesActive"));
 }
 
 const renderSleepInfo = () => {
