@@ -36,6 +36,8 @@ const minutesInput = document.getElementById('minutesInput');
 const stairsInput = document.getElementById('stairsInput');
 const activityBtnForm = document.getElementById('activityBtnForm');
 
+// addNewBtn.addEventListener('click', showForm)
+
 const domUpdates = {
 
   renderInfoCard(user, firstName) {
@@ -102,9 +104,30 @@ const domUpdates = {
     stairsPerDayComparison.innerText = `The average flights of stairs amongst all users is: ${avgStairsPerDay}.`;
   },
 
-
-
-
+  showForm() {
+    if (dropDownMenu.value === 'sleep') {
+      show(sleepForm)
+      hide(hydrationForm)
+      hide(activityForm)
+    } else if (dropDownMenu.value === 'hydration') {
+      show(hydrationForm)
+      hide(sleepForm)
+      hide(activityForm)
+    } else {
+      show(activityForm)
+      hide(sleepForm)
+      hide(hydrationForm)
+    }
+  }
+  
+  
 }
 
+const show = (element) => {
+  element.classList.remove('hidden')
+}
+
+const hide = (element) => {
+  element.classList.add('hidden')
+}
 export default domUpdates;

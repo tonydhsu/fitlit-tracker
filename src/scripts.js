@@ -14,6 +14,9 @@ let user;
 let hydration;
 let sleep;
 let activity;
+addNewBtn.addEventListener('click', domUpdates.showForm)
+
+
 
 const getData = () => {
   const allPromise = Promise.all([fetchData('users'), fetchData('sleep'), fetchData('activity'), fetchData('hydration')])
