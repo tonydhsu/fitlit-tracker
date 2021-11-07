@@ -44,15 +44,15 @@
       <section class="right-side">
         <section class="circles">
           <section class="steps-today">
-            <h1>6,785</h1>
+            <h1 id="stepsWidget"></h1>
             <h1>Steps Today</h1>
           </section>
           <section class="miles-walked">
-            <h1>2.2</h1>
+            <h1 id="milesWidget"></h1>
             <h1>Miles Walked Today</h1>
           </section>
           <section class="mins-active">
-            <h1>360</h1>
+            <h1 id="minsWidget"></h1>
             <h1>Minutes Active Today</h1>
           </section>
           <section class="water-today">
@@ -79,16 +79,13 @@
             <canvas id="weeklySleepHours" alt='weekly-sleep-hours-graph'></canvas>
           </section>
           <section class="steps-graph">
-            <canvas id="weeklyWater" alt="weekly-water-graph"></canvas>
-            <!-- <canvas id="weeklyStepGraph" alt='weekly-step-graph'></canvas> -->
+            <canvas id="weeklyStepsGraph" alt='weekly-steps-graph'></canvas>
           </section>
           <section class="stairs-graph">
-            <canvas id="weeklyWater" alt="weekly-water-graph"></canvas>
-            <!-- <canvas id="weeklyStairsClimbed" alt='weekly-stairs-climbed-graph'></canvas> -->
+            <canvas id="weeklyStairsClimbedGraph" alt='weekly-stairs-climbed-graph'></canvas>
           </section>
           <section class="active-mins-graph">
-            <canvas id="weeklyWater" alt="weekly-water-graph"></canvas>
-            <!-- <canvas id="weeklyActiveMins" alt='weekly-active-minutes-graph'></canvas> -->
+            <canvas id="weeklyActiveMinsGraph" alt='weekly-active-minutes-graph'></canvas>
           </section>
           <section class="runner-circle">
             <section class="average-data">
@@ -97,6 +94,12 @@
               <p id="averageSleepHours" class="averages"></p>
               <p>-------------------------------------------------------------</p>
               <p id="averageSleepQuality" class="averages"></p>
+              <p>-------------------------------------------------------------</p>
+              <p id="actualStepsComparison" class="averages"></p>
+              <p>-------------------------------------------------------------</p>
+              <p id="minutesActiveComparison" class="averages"></p>
+              <p>-------------------------------------------------------------</p>
+              <p id="stairsComparison" class="averages"></p>
             </section>
             <section class="runner-section">
               <img class="runner-image" src="https://www.pngfind.com/pngs/m/242-2423834_this-free-icons-png-design-of-running-icon.png" alt="runner icon"/>

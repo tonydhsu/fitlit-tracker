@@ -4,6 +4,7 @@ import UserRepository from './UserRepository';
 import User from './User';
 import Hydration from './Hydration';
 import Sleep from './Sleep';
+import Activity from './Activity';
 import {fetchData} from './api'
 import domUpdates from './domUpdates';
 import charts from './charts';
@@ -27,13 +28,13 @@ const createInitialDashboard = (data) => {
   users = new UserRepository(data[0].userData);
   user = new User(data[0].userData[users.retrieveRandomUser()]);
   sleep = new Sleep(data[1].sleepData);
-  // activity = new Activity(data[2].activityData);
+  activity = new Activity(data[2].activityData);
   hydration = new Hydration(data[3].hydrationData)
   domUpdates.renderInfoCard(user, user.returnFirstName());
   renderWaterInfo();
   renderSleepInfo();
   domUpdates.compareSteps(user, users.retrieveUsersAvgData('dailyStepGoal'));
-  // renderActivityInfo()
+  renderActivityInfo()
 }
 
 const renderWaterInfo = () => {
@@ -43,7 +44,17 @@ const renderWaterInfo = () => {
 }
 
 const renderActivityInfo = () => {
-
+  user.activityData = activity.retrieveActivityData(user.id);
+  domUpdates.renderStepsWidget(user.returnUserTotalDataPerDay("activityData", user.activityData[user.activityData.length-1].date, "numSteps"));
+  domUpdates.renderMilesWidget(user.milesWalked(user.activityData[user.activityData.length-1].date));
+  domUpdates.renderMinsWidget(user.returnUserTotalDataPerDay("activityData", user.activityData[user.activityData.length-1].date, "minutesActive"));
+  console.log(users.retrieveGivenDateAverage("2019/06/15", "minutesActive"),"retrieveMethod");
+  domUpdates.compareActivitySteps(users.retrieveGivenDateAverage(user.activityData[user.activityData.length-1].date, "numSteps"));
+  domUpdates.compareActivityMins(users.retrieveGivenDateAverage(user.activityData[user.activityData.length-1].date, "minutesActive"));
+  domUpdates.compareActivityStairs(users.retrieveGivenDateAverage(user.activityData[user.activityData.length-1].date, "flightsOfStairs"));
+  charts.renderWeeklySteps(user.returnWeeklyActivityData("2019/06/15", "numSteps"));
+  charts.renderWeeklyStairs(user.returnWeeklyActivityData("2019/06/15", "flightsOfStairs"));
+  charts.renderWeeklyMins(user.returnWeeklyActivityData("2019/06/15", "minutesActive"));
 }
 
 const renderSleepInfo = () => {

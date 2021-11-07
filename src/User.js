@@ -59,19 +59,21 @@ class User {
     return Number(miles.toFixed(2));
   };
 
-  avgWeeklyActivity(date) {
+  avgWeeklyActivity(date, property) {
     const dateEnteredIndex = this.activityData.indexOf(this.activityData.find(datesActive => {
       return datesActive.date === date;
     }));
 
-    const activeWeeklyData = this.activityData.slice(dateEnteredIndex, dateEnteredIndex + 7);
-
-    const activeMin = activeWeeklyData.reduce((avg, day) => {
-      avg += day.minutesActive;
+    const activeWeeklyData =
+    this.activityData.slice(dateEnteredIndex, dateEnteredIndex + 7);
+    console.log(activeWeeklyData)
+    const activeData = activeWeeklyData.reduce((avg, day) => {
+      avg += day[property];
       return avg
     }, 0);
+    console.log(activeData)
 
-    return activeMin / activeWeeklyData.length;
+    return activeData / activeWeeklyData.length;
   }
 
   meetsStepGoal(date) {
@@ -103,6 +105,17 @@ class User {
 
     return bestDayEver.flightsOfStairs;
   }
+
+  returnWeeklyActivityData(dateEntered, property) {
+    const dateEnteredIndex = this.activityData.indexOf(this.activityData.find(date => {
+      return date.date === dateEntered;
+    }));
+    const activityWeeklyData = this.activityData.slice(dateEnteredIndex, dateEnteredIndex + 7);
+    const weeklyActivityInfo = activityWeeklyData.map((day) => {
+      return {date: day.date, [property]: day[property]}
+    });
+    return weeklyActivityInfo;
+  };
 };
 
 module.exports = User;
