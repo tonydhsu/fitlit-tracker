@@ -4,6 +4,7 @@ import UserRepository from './UserRepository';
 import User from './User';
 import Hydration from './Hydration';
 import Sleep from './Sleep';
+import Activity from './Activity';
 import {fetchData} from './api'
 import domUpdates from './domUpdates';
 import charts from './charts';
@@ -44,14 +45,14 @@ const renderWaterInfo = () => {
 
 const renderActivityInfo = () => {
   user.activityData = activity.retrieveActivityData(user.id);
-  domUpdates.renderStepsWidget(user.returnUserTotalDataPerDay("activityData", "2019/06/15", "numSteps");
+  domUpdates.renderStepsWidget(user.returnUserTotalDataPerDay("activityData", "2019/06/15", "numSteps"));
   domUpdates.renderMilesWidget(user.milesWalked("2019/06/15"));
   domUpdates.renderMinsWidget(user.returnUserTotalDataPerDay("activityData", "2019/06/15", "minutesActive"));
-  domUpdates.compareActivitySteps(userRepo.retrieveGivenDateAverage("2019/06/15", "numSteps"));
-  domUpdates.compareActivityMins(userRepo.retrieveGivenDateAverage("2019/06/15", "minutesActive"));
-  domUpdates.compareActivityStairs(userRepo.retrieveGivenDateAverage("2019/06/15", "flightsOfStairs"));
-  // charts.renderWeeklySteps(user.returnWeeklyActivityData("2019/06/15", "numSteps"));
-  // charts.renderWeeklyStairs(user.returnWeeklyActivityData("2019/06/15", "flightsOfStairs"));
+  // domUpdates.compareActivitySteps(users.retrieveGivenDateAverage("2019/06/15", "numSteps"));
+  // domUpdates.compareActivityMins(users.retrieveGivenDateAverage("2019/06/15", "minutesActive"));
+  // domUpdates.compareActivityStairs(users.retrieveGivenDateAverage("2019/06/15", "flightsOfStairs"));
+  charts.renderWeeklySteps(user.returnWeeklyActivityData("2019/06/15", "numSteps"));
+  charts.renderWeeklyStairs(user.returnWeeklyActivityData("2019/06/15", "flightsOfStairs"));
   // charts.renderWeeklyMins(user.returnWeeklyActivityData("2019/06/15", "minutesActive"));
 }
 

@@ -1,9 +1,9 @@
 const weeklyWater = document.getElementById('weeklyWater').getContext('2d');
 const weeklySleepQuality = document.getElementById('weeklySleepQuality').getContext('2d');
 const weeklySleepHours = document.getElementById('weeklySleepHours').getContext('2d');
-const weeklyStepGraph = document.getElementById('weeklyWater').getContext('2d');
-const weeklyStairsClimbed = document.getElementById('weeklyStairsClimbed').getContext('2d');
-const weeklyActiveMins= document.getElementById('weeklyActiveMins').getContext('2d');
+const weeklyStepsGraph = document.getElementById('weeklyStepsGraph').getContext('2d');
+const weeklyStairsClimbedGraph = document.getElementById('weeklyStairsClimbedGraph').getContext('2d');
+const weeklyActiveMinsGraph= document.getElementById('weeklyActiveMinsGraph').getContext('2d');
 
 const charts = {
 renderWeeklyWater(weeklyWaterConsumption){
@@ -84,6 +84,60 @@ renderWeeklyQualityOfSleep (sleepQuality) {
     }
   })
 },
+
+renderWeeklySteps (totalSteps) {
+  const weeklyStepsArray = totalSteps;
+  const myWeeklyStepsChart = new Chart(weeklyStepsGraph, {
+    type: 'bar',
+    data: {
+      labels: [weeklyStepsArray[0].date, weeklyStepsArray[1].date, weeklyStepsArray[2].date, weeklyStepsArray[3].date, weeklyStepsArray[4].date, weeklyStepsArray[5].date, weeklyStepsArray[6].date],
+      datasets: [{
+        label: 'Numbers of Steps',
+        data: [weeklyStepsArray[0].numSteps, weeklyStepsArray[1].numSteps, weeklyStepsArray[2].numSteps,
+        weeklyStepsArray[3].numSteps,
+        weeklyStepsArray[4].numSteps, weeklyStepsArray[5].numSteps, weeklyStepsArray[6].numSteps],
+        backgroundColor: 'rgba(160, 233, 198, 0.65)',
+      }],
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Steps Walked Over the Week',
+          fontSize: 25,
+        },
+
+      }
+    }
+  })
+},
+
+renderWeeklyStairs (totalStairs) {
+  const weeklyStairsArray = totalStairs;
+  const myWeeklyStairsChart = new Chart(weeklyStairsClimbedGraph, {
+    type: 'bar',
+    data: {
+      labels: [weeklyStairsArray[0].date, weeklyStairsArray[1].date, weeklyStairsArray[2].date, weeklyStairsArray[3].date, weeklyStairsArray[4].date, weeklyStairsArray[5].date, weeklyStairsArray[6].date],
+      datasets: [{
+        label: 'Numbers of Stairs Climbed',
+        data: [weeklyStairsArray[0].flightsOfStairs, weeklyStairsArray[1].flightsOfStairs, weeklyStairsArray[2].flightsOfStairs,
+        weeklyStairsArray[3].flightsOfStairs,
+        weeklyStairsArray[4].flightsOfStairs, weeklyStairsArray[5].flightsOfStairs, weeklyStairsArray[6].flightsOfStairs],
+        backgroundColor: 'rgba(160, 233, 198, 0.65)',
+      }],
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Flights of Stairs Climbed Over the Week',
+          fontSize: 25,
+        },
+
+      }
+    }
+  })
+}
 
 }
 
