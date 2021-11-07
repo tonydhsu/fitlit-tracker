@@ -69,16 +69,16 @@ const domUpdates = {
     minsWidget.innerText = `${totalMinsPerDay}`
   },
 
-  compareActivitySteps(user, avgStepsPerDay) {
-    stepsPerDayComparison .innerText = `The average steps walked per all users is: ${avgStepsPerDay}. Your total steps per day is ${user.name}.`;
+  compareActivitySteps(avgStepsPerDay) {
+    stepsPerDayComparison.innerText = `The average steps walked per all users is: ${avgStepsPerDay}.`;
   },
 
-  compareActivityMins(user, avgMinsPerDay) {
-    compareActivityMins.innerText = `The average active minutes amongst all users is: ${avgMilesPerDay}. Your total active minutes per day is ${user.name}.`;
+  compareActivityMins(avgMinsPerDay) {
+    minsPerDayComparison.innerText = `The average active minutes amongst all users is: ${avgMinsPerDay}.`;
   },
 
-  compareActivityStairs(user, avgStairsPerDay) {
-    compareActivityStairs.innerText = `The average flights of stairs amongst all users is: ${avgStairsPerDay}. Your total flight of stairs per day is ${user.name}.`;
+  compareActivityStairs(avgStairsPerDay) {
+    stairsPerDayComparison.innerText = `The average flights of stairs amongst all users is: ${avgStairsPerDay}.`;
   },
 
 

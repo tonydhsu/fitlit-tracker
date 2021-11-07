@@ -64,12 +64,14 @@ class User {
       return datesActive.date === date;
     }));
 
-    const activeWeeklyData = this.activityData.slice(dateEnteredIndex, dateEnteredIndex + 7);
-
+    const activeWeeklyData =
+    this.activityData.slice(dateEnteredIndex, dateEnteredIndex + 7);
+    console.log(activeWeeklyData)
     const activeData = activeWeeklyData.reduce((avg, day) => {
       avg += day[property];
       return avg
     }, 0);
+    console.log(activeData)
 
     return activeData / activeWeeklyData.length;
   }

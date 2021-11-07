@@ -311,7 +311,7 @@ describe('User', () => {
   })
 
   it('should return a user\s average activity in a given week', function() {
-    expect(user.avgWeeklyActivity("2019/06/15")).to.equal(160);
+    expect(user.avgWeeklyActivity("2019/06/15", "minutesActive")).to.equal(160);
   });
 
   it('should return a boolean value if a user meets their step goal on a given date', function() {

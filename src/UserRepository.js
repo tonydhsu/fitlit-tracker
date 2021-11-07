@@ -22,11 +22,11 @@ class UserRepository {
     const filterDate = this.data.filter((day) => {
       return day.date === date;
     })
-    const stairs = filterDate.reduce((avg, user) => {
+    const activity = filterDate.reduce((avg, user) => {
       avg += user[property];
       return avg;
     }, 0);
-    return Math.floor(stairs / filterDate.length);
+    return Math.floor(activity / filterDate.length);
   }
 
   retrieveRandomUser() {
