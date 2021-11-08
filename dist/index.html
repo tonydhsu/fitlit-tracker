@@ -13,13 +13,45 @@
         <h1 class="tracker-name">FITLIT</h1>
         <section id="cardInfo" class="card-info">
         </section>
-        <section>
-          <button id="data-button">Add Today's Data</button>
-          <button>Add Sleep Data</button>
-          <button>Add Hydration Data</button>
-          <button>Add Activity Data</button>
-        </section>
+          <section>
+            <label for="drop-down-title">Add new:</label>
+              <select name="dropDown" id="dropDownMenu">
+                <option value="sleep">Sleep</option>
+                <option value="hydration">Hydration</option>
+                <option value="activity">Activity</option>
+              </select>
+              <button id="addNewBtn">Submit</button>
+          </section>
+      <section class="side-bottom-panel" id="sideBottomPanel">
+        <form class="sleep-form hidden" id="sleepForm">
+          <label for="date">Date</label>
+          <input type="text" id="SleepDateInput" name="sleep-data" placeholder="yyyy/mm/dd">
+          <label for="sleep-quality">Sleep Quality:</label>
+          <input type="text" id="sleepQualityInput" name="sleep-data" placeholder="Between 1-5">
+          <label for="sleep-hours">Sleep Hours:</label>
+          <input type="text" id="sleepHoursInput" name="sleep-data" placeholder="Enter a number">
+          <button class="sleep-btn-form" id="sleepBtnForm">Submit</button>
+        </form>
+        <form class="hydration-form hidden" id="hydrationForm">
+          <label for="date">Date</label>
+          <input type="text" id="hydrationDateInput" name="hydration-data" placeholder="yyyy/mm/dd">
+          <label for="hydration">Water oz:</label>
+          <input type="text" id="hydrationInput" name="hydration-data" placeholder="Enter oz of water">
+          <button class="hydration-btn-form" id="hydrationBtnForm">Submit</button>
+        </form>
+        <form class="activity-form hidden" id="activityForm">
+          <label for="date">Date</label>
+          <input type="text" id="activityDateInput" name="activity-data" placeholder="yyyy/mm/dd">
+          <label for="activity">Steps:</label>
+          <input type="text" id="stepsInput" name="activity-data" placeholder="Enter number of steps">
+          <label for="activity">Minutes:</label>
+          <input type="text" id="minutesInput" name="minutes-data" placeholder="Enter number of minutes">
+          <label for="activity">Stairs:</label>
+          <input type="text" id="stairsInput" name="stairs-data" placeholder="Enter flights of stairs climbed">
+          <button class="activity-btn-form" id="activityBtnForm">Submit</button>
+        </form>
         <h1 class="friends-title">Friends</h1>
+      <section class="friends-section" id="friendsSection">
         <section class="friends">
           <img src="https://www.pinclipart.com/picdir/big/226-2265707_drama-pictures-clip-art.png" alt="friend-icon"/>
           <h2>friend1</h4>
@@ -40,6 +72,8 @@
           <img src= "https://www.pinclipart.com/picdir/big/226-2265707_drama-pictures-clip-art.png" alt="friend-icon"/>
           <h2>friend5</h4>
         </section>
+      </section>
+      </section>
       </section>
       <section class="right-side">
         <section class="circles">

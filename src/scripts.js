@@ -5,11 +5,17 @@ import User from './User';
 import Hydration from './Hydration';
 import Sleep from './Sleep';
 import Activity from './Activity';
-import {fetchData} from './api'
+import {fetchData, addSleepData} from './api'
 import domUpdates from './domUpdates';
 import charts from './charts';
 
-const getUserNewData = document.getElementById("data-button").onclick = function () {location.href = "https://www.youtube.com"};
+const sleepForm = document.getElementById('sleepForm');
+const SleepDateInput = document.getElementById('SleepDateInput');
+const sleepQualityInput = document.getElementById('sleepQualityInput');
+const sleepHoursInput = document.getElementById('sleepHoursInput');
+const sleepBtnForm = document.getElementById('sleepBtnForm');
+const hydrationBtnForm = document.getElementById('hydrationBtnForm');
+const activityBtnForm = document.getElementById('activityBtnForm');
 
 let users;
 let user;
@@ -35,6 +41,23 @@ const createInitialDashboard = (data) => {
   renderSleepInfo();
   domUpdates.compareSteps(user, users.retrieveUsersAvgData('dailyStepGoal'));
   renderActivityInfo()
+}
+
+const addMySleepData = (event) => {
+  event.preventDefault()
+  const userSleepData = {
+    userID: user.id, 
+    date: SleepDateInput.value, 
+    hoursSlept: Number(sleepHoursInput.value), 
+    sleepQuality: Number(sleepQualityInput.value)
+  }
+  addSleepData(userSleepData)
+  updateUserData('sleepData', userSleepData)
+  console.log(user.sleepData, "user sleep data")
+}
+
+const updateUserData = (property, dataObject) => {
+  user[property].push(dataObject)
 }
 
 const renderWaterInfo = () => {
@@ -71,6 +94,13 @@ const onPageLoad = () => {
   getData();
 }
 
+addNewBtn.addEventListener('click', domUpdates.showForm)
+sleepBtnForm.addEventListener('click', addMySleepData)
+
+
 window.addEventListener('load', onPageLoad);
 
-export default user;
+export {
+   user,
+  addMySleepData
+}
