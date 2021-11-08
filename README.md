@@ -14,7 +14,7 @@
 - [Specs](#Specs)
 
 ## Abstract
-FitLit Tracker is an app that allows the user to track their health statistics.  The user can view their steps taken, water consumed, quantity and quality of their sleep, and steps climbed.  They can also compare their stats to their friend's stats and also the average of all users in the database.  
+FitLit Tracker is an app that allows the user to track their health statistics.  The user can view their steps taken, water consumed, quantity and quality of their sleep, and steps climbed.  They can also compare their stats to their friend's stats and also the average of all users in the database. A user can also add data to their profile 
 
 ## Technologies
 -  HTML
@@ -23,6 +23,9 @@ FitLit Tracker is an app that allows the user to track their health statistics. 
 -  Mocha/Chai
 -  Webpack
 -  Node.js
+-  Chart.js
+-  fetch API
+-  SCSS/SASS
 
 ## Illustrations
 <img width="1233" alt="Screen Shot 2021-10-25 at 3 41 11 PM" src="https://user-images.githubusercontent.com/70819338/138775340-d1f40cba-3eea-4dd1-89e0-b070d0785b89.png">
@@ -31,6 +34,8 @@ FitLit Tracker is an app that allows the user to track their health statistics. 
 
 
 ## Install
+
+
 -  Clone down this [repo](https://github.com/ccollums/fitlit-tracker) to your machine
 -  cd into the directory
 -  Run `npm install` in the terminal
