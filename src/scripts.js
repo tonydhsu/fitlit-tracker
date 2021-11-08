@@ -54,43 +54,49 @@ const createInitialDashboard = (data) => {
 
 const addMySleepData = (event) => {
   event.preventDefault()
-  const userSleepData = {
-    userID: user.id,
-    date: sleepDateInput.value,
-    hoursSlept: Number(sleepHoursInput.value),
-    sleepQuality: Number(sleepQualityInput.value)
+  if(domUpdates.resolveSleepForm()) {
+    const userSleepData = {
+      userID: user.id,
+      date: sleepDateInput.value,
+      hoursSlept: Number(sleepHoursInput.value),
+      sleepQuality: Number(sleepQualityInput.value)
+    }
+    addSleepData(userSleepData)
+    .then(data => updateUserData('sleepData', data))
+    .catch(err => console.log(err, "error"))
   }
-  addSleepData(userSleepData)
-  .then(data => updateUserData('sleepData', data))
-  .catch(err => console.log(err, "error"))
 }
 
 const addMyHydrationData = (event) => {
   event.preventDefault()
-  const userHydrationData = {
-    userID: user.id,
-    date: hydrationDateInput.value,
-    numOunces: Number(hydrationInput.value)
-  }
+  if(domUpdates.resolveHydrationForm()) {
+    const userHydrationData = {
+      userID: user.id,
+      date: hydrationDateInput.value,
+      numOunces: Number(hydrationInput.value)
+    }
 
-  addHydrationData(userHydrationData)
-  .then(data => updateUserData('hydrationData', data))
-  .catch(err => console.log(err, "error"))
+    addHydrationData(userHydrationData)
+    .then(data => updateUserData('hydrationData', data))
+    .catch(err => console.log(err, "error"))
+  }
 }
 
 const addMyActivityData = (event) => {
   event.preventDefault()
-  const userActivityData = {
-    userID: user.id,
-    date: activityDateInput.value,
-    flightsOfStairs: Number(stairsInput.value),
-    minutesActive: Number(minutesInput.value),
-    numSteps: Number(stepsInput.value)
-  }
+  if(domUpdates.resolveActivityForm()) {
+    const userActivityData = {
+      userID: user.id,
+      date: activityDateInput.value,
+      flightsOfStairs: Number(stairsInput.value),
+      minutesActive: Number(minutesInput.value),
+      numSteps: Number(stepsInput.value)
+    }
 
-  addActivityData(userActivityData)
-  .then(data => updateUserData('activityData', data))
-  .catch(err => console.log(err, "error"))
+    addActivityData(userActivityData)
+    .then(data => updateUserData('activityData', data))
+    .catch(err => console.log(err, "error"))
+  }
 }
 
 const updateUserData = (property, dataObject) => {

@@ -35,6 +35,10 @@ const stepsInput = document.getElementById('stepsInput');
 const minutesInput = document.getElementById('minutesInput');
 const stairsInput = document.getElementById('stairsInput');
 const activityBtnForm = document.getElementById('activityBtnForm');
+const sleepInputFeedback = document.getElementById('sleepInputFeedback');
+const waterInputFeedback = document.getElementById('waterInputFeedback');
+const activityInputFeedback = document.getElementById('activityInputFeedback');
+const correctInputFeedback = document.getElementById('correctInputFeedback');
 
 
 const domUpdates = {
@@ -105,6 +109,10 @@ const domUpdates = {
   },
 
   showForm() {
+    correctInputFeedback.innerText = '';
+    sleepInputFeedback.innerText = '';
+    waterInputFeedback.innerText = '';
+    activityInputFeedback.innerText = '';
     if (dropDownMenu.value === 'sleep') {
       show(sleepForm)
       hide(hydrationForm)
@@ -118,10 +126,43 @@ const domUpdates = {
       hide(sleepForm)
       hide(hydrationForm)
     }
+  },
+
+  resolveSleepForm() {
+    if (sleepDateInput.value && sleepQualityInput.value && sleepHoursInput.value) {
+      hide(sleepForm);
+      correctInputFeedback.innerText = 'Thanks for the data, yum yum yum.';
+    }
+    else {
+      sleepInputFeedback.innerText = 'Please fill out all fields.'
+    }
+  },
+
+  resolveHydrationForm() {
+    if (hydrationDateInput.value && hydrationInput.value) {
+      hide(hydrationForm);
+      correctInputFeedback.innerText = 'Thanks for the data, yum yum yum.';
+    }
+    else {
+      waterInputFeedback.innerText = 'Please fill out all fields.'
+    }
+  },
+
+  resolveActivityForm() {
+    if (activityDateInput.value && stairsInput.value && minutesInput.value && stepsInput) {
+      hide(activityForm);
+      correctInputFeedback.innerText = 'Thanks for the data, yum yum yum.';
+    }
+    else {
+      activityInputFeedback.innerText = 'Please fill out all fields.'
+    }
   }
-
-
 }
+
+
+//when submit button is clicked, run function to hide/reset form.
+//return a statement telling user that form data has been accepted.
+//show error is any of the fields are empty
 
 const show = (element) => {
   element.classList.remove('hidden')
