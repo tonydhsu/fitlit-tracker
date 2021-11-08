@@ -7,18 +7,15 @@
 }
 
 html {
-  background: rgba(130, 194, 240, 0.29);
-  background-color: #3A0CA3;
+  background: variables.$background;
+  background-color: variables.$violet;
   height: 100vh;
-  // width: 100vw;
 }
 
 body {
   background-color: white;
   border-radius: 50px;
   min-height: 100vh;
-  // height: 96vh;
-  // width: 96vw;
   margin: 3%;
 }
 
@@ -47,7 +44,6 @@ img {
   margin: 1% 10% 1% 6%;
   padding: 2%;
   width: 27%;
-  // height: 80%;
 }
 
 p {
@@ -64,7 +60,6 @@ form {
 
 input {
   margin: 3%;
-  // padding: 3%;
 }
 
 label {
@@ -72,6 +67,7 @@ label {
   margin: 1%;
   font-size: 150%;
 }
+
 select {
   font-size: 100%;
 }
@@ -79,7 +75,7 @@ select {
 button {
   border-radius: 5%;
   border: none;
-  background-color: rgba(67, 97, 238, 0.65);
+  background-color: variables.$blue;
   margin: 3%;
   height: 50%;
   width: 70%;
@@ -105,7 +101,11 @@ canvas {
   flex-direction: column;
   min-height: 100vh;
   width: 75vw;
+}
 
+.title {
+  display: flex;
+  justify-content: space-between;
 }
 
 .friends-title,
@@ -117,7 +117,7 @@ canvas {
 }
 
 .tracker-name {
-  color: #3A0CA3;
+  color: variables.$violet;
   width: 20vw;
   margin: 10% 0 8% 3%;
   font-size: 320%
@@ -165,27 +165,27 @@ canvas {
 }
 
 .miles-walked {
-  background: rgba(181, 23, 158, 0.65);
+  background: variables.$magenta;
 }
 
 .mins-active {
-  background: rgba(114, 9, 183, 0.65);
+  background: variables.$purple;
 }
 
 .steps-today {
-  background: rgba(247, 37, 133, 0.65);
+  background: variables.$bright-pink;
 }
 
 .water-today {
-  background: rgba(67, 97, 238, 0.65);
+  background: variables.$blue;
 }
 
 .hours-of-sleep {
-  background: rgba(72, 149, 239, 0.65);
+  background: variables.$light-blue;
 }
 
 .quality-of-sleep {
-  background: rgba(76, 201, 240, 0.65);
+  background: variables.$teal;
 }
 
 .friends {
@@ -219,14 +219,3 @@ canvas {
 .hidden {
   display: none !important;
 }
-
-.title {
-  display: flex;
-  justify-content: space-between;
-}
-
-// .friends-section,
-// .average-data,
-// .card-info, {
-//   margin: 8%;
-// }
