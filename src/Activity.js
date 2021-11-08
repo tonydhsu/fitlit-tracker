@@ -3,10 +3,21 @@ class Activity {
     this.data = data;
   }
 
-  retrieveActivityData(userId) {
+  retrieveActivityData(id) {
     return this.data.filter((user) => {
-      return user.userID === userId;
+      return user.userID === id;
     });
+  }
+
+  retrieveGivenDateAverage(date, property) {
+    const filterDate = this.data.filter((day) => {
+      return day.date === date;
+    })
+    const activity = filterDate.reduce((avg, user) => {
+      avg += user[property];
+      return avg;
+    }, 0);
+    return Math.floor(activity / filterDate.length);
   }
 }
 
