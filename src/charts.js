@@ -92,7 +92,7 @@ renderWeeklySteps (totalSteps) {
     data: {
       labels: [weeklyStepsArray[0].date, weeklyStepsArray[1].date, weeklyStepsArray[2].date, weeklyStepsArray[3].date, weeklyStepsArray[4].date, weeklyStepsArray[5].date, weeklyStepsArray[6].date],
       datasets: [{
-        label: 'Numbers of Steps',
+        label: 'Number of Steps',
         data: [weeklyStepsArray[0].numSteps, weeklyStepsArray[1].numSteps, weeklyStepsArray[2].numSteps,
         weeklyStepsArray[3].numSteps,
         weeklyStepsArray[4].numSteps, weeklyStepsArray[5].numSteps, weeklyStepsArray[6].numSteps],
@@ -103,7 +103,7 @@ renderWeeklySteps (totalSteps) {
       plugins: {
         title: {
           display: true,
-          text: 'Steps Walked Over the Week',
+          text: 'Steps Walked This Week',
           fontSize: 25,
         },
 
@@ -119,7 +119,7 @@ renderWeeklyStairs (totalStairs) {
     data: {
       labels: [weeklyStairsArray[0].date, weeklyStairsArray[1].date, weeklyStairsArray[2].date, weeklyStairsArray[3].date, weeklyStairsArray[4].date, weeklyStairsArray[5].date, weeklyStairsArray[6].date],
       datasets: [{
-        label: 'Numbers of Stairs Climbed',
+        label: 'Flights of Stairs Climbed',
         data: [weeklyStairsArray[0].flightsOfStairs, weeklyStairsArray[1].flightsOfStairs, weeklyStairsArray[2].flightsOfStairs,
         weeklyStairsArray[3].flightsOfStairs,
         weeklyStairsArray[4].flightsOfStairs, weeklyStairsArray[5].flightsOfStairs, weeklyStairsArray[6].flightsOfStairs],
@@ -130,7 +130,7 @@ renderWeeklyStairs (totalStairs) {
       plugins: {
         title: {
           display: true,
-          text: 'Flights of Stairs Climbed Over the Week',
+          text: 'Flights of Stairs Climbed This Week',
           fontSize: 25,
         },
 
@@ -157,7 +157,7 @@ renderWeeklyMins(totalMins) {
       plugins: {
         title: {
           display: true,
-          text: 'Minutes Active Over the Week',
+          text: 'Minutes Active This Week',
           fontSize: 25,
         },
 
