@@ -93,7 +93,7 @@ const domUpdates = {
   },
 
   compareActivitySteps(avgStepsPerDay) {
-    stepsPerDayComparison.innerText = `The average steps walked per all users is: ${avgStepsPerDay}.`;
+    stepsPerDayComparison.innerText = `The average steps walked for all users is: ${avgStepsPerDay}.`;
   },
 
   compareActivityMins(avgMinsPerDay) {
@@ -101,7 +101,7 @@ const domUpdates = {
   },
 
   compareActivityStairs(avgStairsPerDay) {
-    stairsPerDayComparison.innerText = `The average flights of stairs amongst all users is: ${avgStairsPerDay}.`;
+    stairsPerDayComparison.innerText = `The average flights of stairs climbed for all users is: ${avgStairsPerDay}.`;
   },
 
   showForm() {

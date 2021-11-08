@@ -10,96 +10,113 @@
   <body>
     <main>
       <section class="side-bar">
-        <h1 class="tracker-name">FITLIT</h1>
+        <section class="title">
+          <h1 class="tracker-name">FITLIT</h1>
+          <img class="activity-icon" src="images/activity-icon.svg" alt="activity-bar-icon"/>
+        </section>
         <section id="cardInfo" class="card-info">
         </section>
-          <section>
-            <label for="drop-down-title">Add new:</label>
-              <select name="dropDown" id="dropDownMenu">
-                <option value="sleep">Sleep</option>
-                <option value="hydration">Hydration</option>
-                <option value="activity">Activity</option>
-              </select>
-              <button id="addNewBtn">Submit</button>
+        <section class="drop-down">
+          <label for="drop-down-title">Add new:</label>
+            <select name="dropDown" id="dropDownMenu">
+              <option value="sleep">Sleep</option>
+              <option value="hydration">Hydration</option>
+              <option value="activity">Activity</option>
+            </select>
+            <button id="addNewBtn">Select</button>
+        </section>
+        <section class="side-bottom-panel" id="sideBottomPanel">
+          <form class="sleep-form hidden" id="sleepForm">
+            <label for="date">Date</label>
+            <input type="text" id="sleepDateInput" name="sleep-data" placeholder="yyyy/mm/dd">
+            <label for="sleep-quality">Sleep Quality:</label>
+            <input type="text" id="sleepQualityInput" name="sleep-data" placeholder="Between 1-5">
+            <label for="sleep-hours">Sleep Hours:</label>
+            <input type="text" id="sleepHoursInput" name="sleep-data" placeholder="Enter a number">
+            <button class="sleep-btn-form" id="sleepBtnForm">Submit</button>
+          </form>
+          <form class="hydration-form hidden" id="hydrationForm">
+            <label for="date">Date</label>
+            <input type="text" id="hydrationDateInput" name="hydration-data" placeholder="yyyy/mm/dd">
+            <label for="hydration">Water oz:</label>
+            <input type="text" id="hydrationInput" name="hydration-data" placeholder="Enter oz of water">
+            <button class="hydration-btn-form" id="hydrationBtnForm">Submit</button>
+          </form>
+          <form class="activity-form hidden" id="activityForm">
+            <label for="date">Date</label>
+            <input type="text" id="activityDateInput" name="activity-data" placeholder="yyyy/mm/dd">
+            <label for="activity">Steps:</label>
+            <input type="text" id="stepsInput" name="activity-data" placeholder="Enter number of steps">
+            <label for="activity">Minutes:</label>
+            <input type="text" id="minutesInput" name="minutes-data" placeholder="Enter number of minutes">
+            <label for="activity">Stairs:</label>
+            <input type="text" id="stairsInput" name="stairs-data" placeholder="Enter flights of stairs climbed">
+            <button class="activity-btn-form" id="activityBtnForm">Submit</button>
+          </form>
+          <h1 class="comparison-info">Activity Info</h1>
+          <section class="average-data">
+            <p id="stepComparison" class="averages"></p>
+            <p>----------------------------------------</p>
+            <p id="averageSleepHours" class="averages"></p>
+            <p>----------------------------------------</p>
+            <p id="averageSleepQuality" class="averages"></p>
+            <p>----------------------------------------</p>
+            <p id="actualStepsComparison" class="averages"></p>
+            <p>----------------------------------------</p>
+            <p id="minutesActiveComparison" class="averages"></p>
+            <p>----------------------------------------</p>
+            <p id="stairsComparison" class="averages"></p>
           </section>
-      <section class="side-bottom-panel" id="sideBottomPanel">
-        <form class="sleep-form hidden" id="sleepForm">
-          <label for="date">Date</label>
-          <input type="text" id="sleepDateInput" name="sleep-data" placeholder="yyyy/mm/dd">
-          <label for="sleep-quality">Sleep Quality:</label>
-          <input type="text" id="sleepQualityInput" name="sleep-data" placeholder="Between 1-5">
-          <label for="sleep-hours">Sleep Hours:</label>
-          <input type="text" id="sleepHoursInput" name="sleep-data" placeholder="Enter a number">
-          <button class="sleep-btn-form" id="sleepBtnForm">Submit</button>
-        </form>
-        <form class="hydration-form hidden" id="hydrationForm">
-          <label for="date">Date</label>
-          <input type="text" id="hydrationDateInput" name="hydration-data" placeholder="yyyy/mm/dd">
-          <label for="hydration">Water oz:</label>
-          <input type="text" id="hydrationInput" name="hydration-data" placeholder="Enter oz of water">
-          <button class="hydration-btn-form" id="hydrationBtnForm">Submit</button>
-        </form>
-        <form class="activity-form hidden" id="activityForm">
-          <label for="date">Date</label>
-          <input type="text" id="activityDateInput" name="activity-data" placeholder="yyyy/mm/dd">
-          <label for="activity">Steps:</label>
-          <input type="text" id="stepsInput" name="activity-data" placeholder="Enter number of steps">
-          <label for="activity">Minutes:</label>
-          <input type="text" id="minutesInput" name="minutes-data" placeholder="Enter number of minutes">
-          <label for="activity">Stairs:</label>
-          <input type="text" id="stairsInput" name="stairs-data" placeholder="Enter flights of stairs climbed">
-          <button class="activity-btn-form" id="activityBtnForm">Submit</button>
-        </form>
-        <h1 class="friends-title">Friends</h1>
-      <section class="friends-section" id="friendsSection">
-        <section class="friends">
-          <img src="https://www.pinclipart.com/picdir/big/226-2265707_drama-pictures-clip-art.png" alt="friend-icon"/>
-          <h2>friend1</h4>
+          <section class="friends-section" id="friendsSection">
+            <h1 class="friends-title">Friends</h1>
+            <section class="friends">
+              <img src="images/friends-icon.svg" alt="friend-icon"/>
+              <h2>friend1</h4>
+            </section>
+            <section class="friends">
+              <img src= "images/friends-icon.svg" alt="friend-icon"/>
+              <h2>friend2</h4>
+            </section>
+            <section class="friends">
+              <img src= "images/friends-icon.svg" alt="friend-icon"/>
+              <h2>friend3</h4>
+            </section>
+            <section class="friends">
+              <img src= "images/friends-icon.svg" alt="friend-icon"/>
+              <h2>friend4</h4>
+            </section>
+            <section class="friends">
+              <img src= "images/friends-icon.svg" alt="friend-icon"/>
+              <h2>friend5</h4>
+            </section>
+          </section>
         </section>
-        <section class="friends">
-          <img src= "https://www.pinclipart.com/picdir/big/226-2265707_drama-pictures-clip-art.png" alt="friend-icon"/>
-          <h2>friend2</h4>
-        </section>
-        <section class="friends">
-          <img src= "https://www.pinclipart.com/picdir/big/226-2265707_drama-pictures-clip-art.png" alt="friend-icon"/>
-          <h2>friend3</h4>
-        </section>
-        <section class="friends">
-          <img src= "https://www.pinclipart.com/picdir/big/226-2265707_drama-pictures-clip-art.png" alt="friend-icon"/>
-          <h2>friend4</h4>
-        </section>
-        <section class="friends">
-          <img src= "https://www.pinclipart.com/picdir/big/226-2265707_drama-pictures-clip-art.png" alt="friend-icon"/>
-          <h2>friend5</h4>
-        </section>
-      </section>
-      </section>
       </section>
       <section class="right-side">
         <section class="circles">
           <section class="steps-today">
             <h1 id="stepsWidget"></h1>
-            <h1>Steps Today</h1>
+            <h1 class="circle-font">Steps Today</h1>
           </section>
           <section class="miles-walked">
             <h1 id="milesWidget"></h1>
-            <h1>Miles Walked Today</h1>
+            <h1 class="circle-font">Miles Walked Today</h1>
           </section>
           <section class="mins-active">
             <h1 id="minsWidget"></h1>
-            <h1>Minutes Active Today</h1>
+            <h1 class="circle-font">Minutes Active Today</h1>
           </section>
           <section class="water-today">
             <h1 id="waterWidget"></h1>
-            <h1>Water Today</h1>
+            <h1 class="circle-font">Water Today</h1>
           </section>
           <section class="hours-of-sleep">
             <h1 id="hoursOfSleepWidget"></h1>
-            <h1>Hours of Sleep Today</h1>
+            <h1 class="circle-font">Hours of Sleep Today</h1>
           </section>
           <section class="quality-of-sleep">
             <h1 id="sleepQualityWidget"></h1>
-            <h1>Quality of Sleep Today</h1>
+            <h1 class="circle-font">Quality of Sleep Today</h1>
           </section>
         </section>
         <section class="graphs">
@@ -121,23 +138,6 @@
           <section class="active-mins-graph">
             <canvas id="weeklyActiveMinsGraph" alt='weekly-active-minutes-graph'></canvas>
           </section>
-          <section class="runner-circle">
-            <section class="average-data">
-              <p id="stepComparison" class="averages"></p>
-              <p>-------------------------------------------------------------</p>
-              <p id="averageSleepHours" class="averages"></p>
-              <p>-------------------------------------------------------------</p>
-              <p id="averageSleepQuality" class="averages"></p>
-              <p>-------------------------------------------------------------</p>
-              <p id="actualStepsComparison" class="averages"></p>
-              <p>-------------------------------------------------------------</p>
-              <p id="minutesActiveComparison" class="averages"></p>
-              <p>-------------------------------------------------------------</p>
-              <p id="stairsComparison" class="averages"></p>
-            </section>
-            <section class="runner-section">
-              <img class="runner-image" src="https://www.pngfind.com/pngs/m/242-2423834_this-free-icons-png-design-of-running-icon.png" alt="runner icon"/>
-            </section>
           </section>
         </section>
       </section>
