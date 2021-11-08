@@ -14,12 +14,12 @@ const minsWidget = document.getElementById('minsWidget');
 const stepsPerDayComparison = document.getElementById('actualStepsComparison');
 const minsPerDayComparison = document.getElementById('minutesActiveComparison');
 const stairsPerDayComparison = document.getElementById('stairsComparison');
-//Drop down menu 
+//Drop down menu
 const dropDownMenu = document.getElementById('dropDownMenu');
 const addNewBtn = document.getElementById('addNewBtn');
 //sleep selectors
 const sleepForm = document.getElementById('sleepForm');
-const SleepDateInput = document.getElementById('SleepDateInput');
+const sleepDateInput = document.getElementById('sleepDateInput');
 const sleepQualityInput = document.getElementById('sleepQualityInput');
 const sleepHoursInput = document.getElementById('sleepHoursInput')
 const sleepBtnForm = document.getElementById('sleepBtnForm')
@@ -40,6 +40,7 @@ const activityBtnForm = document.getElementById('activityBtnForm');
 const domUpdates = {
 
   renderInfoCard(user, firstName) {
+    infoCard.innerHTML = ''
     infoCard.innerHTML += `
     <h1>Hi ${firstName}!</h1>
     <h2>User Information</h2>
@@ -118,8 +119,8 @@ const domUpdates = {
       hide(hydrationForm)
     }
   }
-  
-  
+
+
 }
 
 const show = (element) => {

@@ -5,17 +5,26 @@ import User from './User';
 import Hydration from './Hydration';
 import Sleep from './Sleep';
 import Activity from './Activity';
-import {fetchData, addSleepData} from './api'
+import {fetchData, addSleepData, addHydrationData, addActivityData} from './api'
 import domUpdates from './domUpdates';
 import charts from './charts';
 
 const sleepForm = document.getElementById('sleepForm');
-const SleepDateInput = document.getElementById('SleepDateInput');
+const sleepDateInput = document.getElementById('sleepDateInput');
 const sleepQualityInput = document.getElementById('sleepQualityInput');
 const sleepHoursInput = document.getElementById('sleepHoursInput');
 const sleepBtnForm = document.getElementById('sleepBtnForm');
+const hydrationForm = document.getElementById('hydrationForm');
+const hydrationDateInput = document.getElementById('hydrationDateInput');
+const hydrationInput = document.getElementById('hydrationInput');
 const hydrationBtnForm = document.getElementById('hydrationBtnForm');
+const activityForm = document.getElementById('activityForm');
+const activityDateInput = document.getElementById('activityDateInput');
+const stepsInput = document.getElementById('stepsInput');
+const minutesInput = document.getElementById('minutesInput');
+const stairsInput = document.getElementById('stairsInput');
 const activityBtnForm = document.getElementById('activityBtnForm');
+
 
 let users;
 let user;
@@ -28,7 +37,6 @@ const getData = () => {
   const allPromise = Promise.all([fetchData('users'), fetchData('sleep'), fetchData('activity'), fetchData('hydration')])
     .then(data => {createInitialDashboard(data)})
 }
-
 
 const createInitialDashboard = (data) => {
   users = new UserRepository(data[0].userData);
@@ -46,18 +54,47 @@ const createInitialDashboard = (data) => {
 const addMySleepData = (event) => {
   event.preventDefault()
   const userSleepData = {
-    userID: user.id, 
-    date: SleepDateInput.value, 
-    hoursSlept: Number(sleepHoursInput.value), 
+    userID: user.id,
+    date: sleepDateInput.value,
+    hoursSlept: Number(sleepHoursInput.value),
     sleepQuality: Number(sleepQualityInput.value)
   }
   addSleepData(userSleepData)
-  updateUserData('sleepData', userSleepData)
-  console.log(user.sleepData, "user sleep data")
+  .then(data => updateUserData('sleepData', data))
+  .catch(err => console.log(err, "error"))
+}
+
+const addMyHydrationData = (event) => {
+  event.preventDefault()
+  const userHydrationData = {
+    userID: user.id,
+    date: hydrationDateInput.value,
+    numOunces: Number(hydrationInput.value)
+  }
+
+  addHydrationData(userHydrationData)
+  .then(data => updateUserData('hydrationData', data))
+  .catch(err => console.log(err, "error"))
+}
+
+const addMyActivityData = (event) => {
+  event.preventDefault()
+  const userActivityData = {
+    userID: user.id,
+    date: activityDateInput.value,
+    flightsOfStairs: Number(stairsInput.value),
+    minutesActive: Number(minutesInput.value),
+    numSteps: Number(stepsInput.value)
+  }
+
+  addActivityData(userActivityData)
+  .then(data => updateUserData('activityData', data))
+  .catch(err => console.log(err, "error"))
 }
 
 const updateUserData = (property, dataObject) => {
   user[property].push(dataObject)
+  console.log(user[property])
 }
 
 const renderWaterInfo = () => {
@@ -96,11 +133,11 @@ const onPageLoad = () => {
 
 addNewBtn.addEventListener('click', domUpdates.showForm)
 sleepBtnForm.addEventListener('click', addMySleepData)
-
+hydrationBtnForm.addEventListener('click', addMyHydrationData);
+activityBtnForm.addEventListener('click', addMyActivityData);
 
 window.addEventListener('load', onPageLoad);
 
 export {
-   user,
-  addMySleepData
+  user
 }
