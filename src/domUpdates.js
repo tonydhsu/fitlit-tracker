@@ -36,7 +36,6 @@ const minutesInput = document.getElementById('minutesInput');
 const stairsInput = document.getElementById('stairsInput');
 const activityBtnForm = document.getElementById('activityBtnForm');
 
-// addNewBtn.addEventListener('click', showForm)
 
 const domUpdates = {
 
