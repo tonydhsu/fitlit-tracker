@@ -50,6 +50,7 @@ const createInitialDashboard = (data) => {
   renderSleepInfo();
   domUpdates.compareSteps(user, users.retrieveUsersAvgData('dailyStepGoal'));
   renderActivityInfo()
+  domUpdates.renderFriends(user, users);
 }
 
 const addMySleepData = (event) => {
@@ -112,13 +113,14 @@ const renderWaterInfo = () => {
 
 const renderActivityInfo = () => {
   user.activityData = activity.retrieveActivityData(user.id);
+
   domUpdates.renderStepsWidget(user.returnUserTotalDataPerDay("activityData", user.activityData[user.activityData.length-1].date, "numSteps"));
   domUpdates.renderMilesWidget(user.milesWalked(user.activityData[user.activityData.length-1].date));
   domUpdates.renderMinsWidget(user.returnUserTotalDataPerDay("activityData", user.activityData[user.activityData.length-1].date, "minutesActive"));
-  console.log(users.retrieveGivenDateAverage("2019/06/15", "minutesActive"),"retrieveMethod");
-  domUpdates.compareActivitySteps(users.retrieveGivenDateAverage(user.activityData[user.activityData.length-1].date, "numSteps"));
-  domUpdates.compareActivityMins(users.retrieveGivenDateAverage(user.activityData[user.activityData.length-1].date, "minutesActive"));
-  domUpdates.compareActivityStairs(users.retrieveGivenDateAverage(user.activityData[user.activityData.length-1].date, "flightsOfStairs"));
+  domUpdates.compareActivitySteps(activity.retrieveGivenDateAverage(user.activityData[user.activityData.length-1].date, "numSteps"));
+  domUpdates.compareActivityMins(activity.retrieveGivenDateAverage(user.activityData[user.activityData.length-1].date, "minutesActive"));
+  domUpdates.compareActivityStairs(activity.retrieveGivenDateAverage(user.activityData[user.activityData.length-1].date, "flightsOfStairs"));
+
   charts.renderWeeklySteps(user.returnWeeklyActivityData("2019/06/15", "numSteps"));
   charts.renderWeeklyStairs(user.returnWeeklyActivityData("2019/06/15", "flightsOfStairs"));
   charts.renderWeeklyMins(user.returnWeeklyActivityData("2019/06/15", "minutesActive"));

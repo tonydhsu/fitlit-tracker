@@ -73,4 +73,16 @@ describe('Activity', () => {
       flightsOfStairs: 22
     }]);
   });
+
+  it('should return the average number of stairs climbed by all users on a given day', function() {
+    expect(activity.retrieveGivenDateAverage("2019/06/15", "flightsOfStairs")).to.equal(18);
+  });
+
+  it('should return the average number of steps taken by all users on a given day', function() {
+    expect(activity.retrieveGivenDateAverage("2019/06/15", "numSteps")).to.equal(3861);
+  })
+
+  it('should return the average number of minutes active by all users on a given day', function() {
+    expect(activity.retrieveGivenDateAverage("2019/06/15", "minutesActive")).to.equal(160);
+  })
 });

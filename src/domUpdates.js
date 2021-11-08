@@ -39,6 +39,7 @@ const sleepInputFeedback = document.getElementById('sleepInputFeedback');
 const waterInputFeedback = document.getElementById('waterInputFeedback');
 const activityInputFeedback = document.getElementById('activityInputFeedback');
 const correctInputFeedback = document.getElementById('correctInputFeedback');
+const friendsSection = document.getElementById('friendsSection');
 
 
 const domUpdates = {
@@ -156,13 +157,27 @@ const domUpdates = {
     else {
       activityInputFeedback.innerText = 'Please fill out all fields.'
     }
+  },
+
+  renderFriends(userObj, usersObj) {
+    const friends = [];
+    userObj.friends.forEach((id) => {
+      usersObj.data.filter((user) => {
+        return user.id === id
+      }).map((user) => {
+        console.log(user.name)
+        return friends.push(user.name)
+      })
+    })
+    friends.forEach(friend => {
+      friendsSection.innerHTML += `
+      <section class="friends">
+        <img src="images/friends-icon.svg" alt="friend-icon"/>
+        <h2>${friend}</h4>
+      </section>`
+    })
   }
 }
-
-
-//when submit button is clicked, run function to hide/reset form.
-//return a statement telling user that form data has been accepted.
-//show error is any of the fields are empty
 
 const show = (element) => {
   element.classList.remove('hidden')
