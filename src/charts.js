@@ -17,7 +17,7 @@ renderWeeklyWater(weeklyWaterConsumption){
         data: [weeklyWaterArray[0].numOunces, weeklyWaterArray[1].numOunces, weeklyWaterArray[2].numOunces,
         weeklyWaterArray[3].numOunces,
         weeklyWaterArray[4].numOunces, weeklyWaterArray[5].numOunces, weeklyWaterArray[6].numOunces],
-        backgroundColor: 'rgba(160, 193, 233, 0.65)',
+        backgroundColor: 'rgba(67, 97, 238, 0.65)',
       }],
     },
     options: {
@@ -43,7 +43,7 @@ renderWeeklySleepHours(weeklySleep) {
         data: [weeklySleepArray[0].hoursSlept, weeklySleepArray[1].hoursSlept, weeklySleepArray[2].hoursSlept,
         weeklySleepArray[3].hoursSlept,
         weeklySleepArray[4].hoursSlept, weeklySleepArray[5].hoursSlept, weeklySleepArray[6].hoursSlept],
-        backgroundColor: 'rgba(209, 233, 160, 0.65)',
+        backgroundColor: 'rgba(72, 149, 239, 0.65)',
       }],
     },
     options: {
@@ -69,7 +69,7 @@ renderWeeklyQualityOfSleep (sleepQuality) {
         data: [weeklySleepQualityArray[0].sleepQuality, weeklySleepQualityArray[1].sleepQuality, weeklySleepQualityArray[2].sleepQuality,
         weeklySleepQualityArray[3].sleepQuality,
         weeklySleepQualityArray[4].sleepQuality, weeklySleepQualityArray[5].sleepQuality, weeklySleepQualityArray[6].sleepQuality],
-        backgroundColor: 'rgba(160, 233, 198, 0.65)',
+        backgroundColor: 'rgba(76, 201, 240, 0.65)',
       }],
     },
     options: {
@@ -96,7 +96,7 @@ renderWeeklySteps (totalSteps) {
         data: [weeklyStepsArray[0].numSteps, weeklyStepsArray[1].numSteps, weeklyStepsArray[2].numSteps,
         weeklyStepsArray[3].numSteps,
         weeklyStepsArray[4].numSteps, weeklyStepsArray[5].numSteps, weeklyStepsArray[6].numSteps],
-        backgroundColor: 'rgba(160, 233, 198, 0.65)',
+        backgroundColor: 'rgba(247, 37, 133, 0.65)',
       }],
     },
     options: {
@@ -123,7 +123,7 @@ renderWeeklyStairs (totalStairs) {
         data: [weeklyStairsArray[0].flightsOfStairs, weeklyStairsArray[1].flightsOfStairs, weeklyStairsArray[2].flightsOfStairs,
         weeklyStairsArray[3].flightsOfStairs,
         weeklyStairsArray[4].flightsOfStairs, weeklyStairsArray[5].flightsOfStairs, weeklyStairsArray[6].flightsOfStairs],
-        backgroundColor: 'rgba(160, 233, 198, 0.65)',
+        backgroundColor: 'rgba(181, 23, 158, 0.65)',
       }],
     },
     options: {
@@ -150,7 +150,7 @@ renderWeeklyMins(totalMins) {
         data: [weeklyMinsArray[0].minutesActive, weeklyMinsArray[1].minutesActive, weeklyMinsArray[2].minutesActive,
         weeklyMinsArray[3].minutesActive,
         weeklyMinsArray[4].minutesActive, weeklyMinsArray[5].minutesActive, weeklyMinsArray[6].minutesActive],
-        backgroundColor: 'rgba(160, 233, 198, 0.65)',
+        backgroundColor: 'rgba(114, 9, 183, 0.65)',
       }],
     },
     options: {

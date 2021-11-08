@@ -1,5 +1,6 @@
 import './css/styles.scss';
-import './images/turing-logo.png'
+import './images/friends-icon.svg'
+import './images/activity-icon.svg'
 import UserRepository from './UserRepository';
 import User from './User';
 import Hydration from './Hydration';
