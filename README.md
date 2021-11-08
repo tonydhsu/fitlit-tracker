@@ -65,4 +65,3 @@ Project specs can be found here
 ## Artists 
 - Friends by Edwin PM from the Noun Project
 - Fitness by Guilhem from the Noun Project
-- Runner by b farias from the Noun Project
