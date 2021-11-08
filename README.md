@@ -29,7 +29,9 @@ FitLit Tracker is an app that allows the user to track their health statistics. 
 
 ## Illustrations
 
-![fitlitgif_small](https://user-images.githubusercontent.com/70819338/140833863-b19bfef8-f4b0-4d96-84af-796f630c5a7a.gif)![fitlit_input_gif](https://user-images.githubusercontent.com/70819338/140833938-28c56a28-7e96-43b6-94d4-b38fe90a5787.gif)
+![fitlitgif_small](https://user-images.githubusercontent.com/70819338/140833863-b19bfef8-f4b0-4d96-84af-796f630c5a7a.gif)   
+
+![fitlit_input_gif](https://user-images.githubusercontent.com/70819338/140833938-28c56a28-7e96-43b6-94d4-b38fe90a5787.gif)
 
 
 
@@ -37,9 +39,13 @@ FitLit Tracker is an app that allows the user to track their health statistics. 
 
 ## Install
 
+-  Clone this [repo](https://github.com/turingschool-examples/fitlit-api)
+-  cd into the directory `fitlit-api`
+-  Run `npm install`
+-  Run `npm start`
 
 -  Clone down this [repo](https://github.com/ccollums/fitlit-tracker) to your machine
--  cd into the directory
+-  cd into the directory `fitlit-tracker`
 -  Run `npm install` in the terminal
 -  Run `npm start` in the terminal
 -  In the browser go to `http://localhost:8080/`
@@ -52,6 +58,7 @@ FitLit Tracker is an app that allows the user to track their health statistics. 
 ## Challenges
 - Fetch API
 - Chart.js
+- Post method
 
 ## Additions
 ### Future Iterations
