@@ -12,6 +12,7 @@
 - [Additions](#Additions)
 - [Contributors](#Contributors)
 - [Specs](#Specs)
+- [Demo](#Demo)
 
 ## Abstract
 FitLit Tracker is an app that allows the user to track their health statistics.  The user can view their steps taken, water consumed, quantity and quality of their sleep, and steps climbed.  They can also compare their stats to their friend's stats and also the average of all users in the database. A user can also add data to their profile 
@@ -76,6 +77,9 @@ FitLit Tracker is an app that allows the user to track their health statistics. 
 ## Specs
 Project specs can be found here
 -  [FitLit](https://frontend.turing.edu/projects/Fitlit-part-one.html)
+
+## Demo
+-  Video demo can be found [here](https://youtu.be/fOZ8zeS0PSA)
 
 ## Artists 
 - Friends by Edwin PM from the Noun Project
