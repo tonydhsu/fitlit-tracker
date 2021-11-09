@@ -3,7 +3,6 @@ const UserRepository = require('../src/UserRepository.js');
 
 describe('User Repository', () => {
   let data;
-  let sleepData;
   let userRepo;
   beforeEach(function() {
     data = [{

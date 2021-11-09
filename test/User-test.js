@@ -172,11 +172,11 @@ describe('User', () => {
   });
 
   it('should return the average water', function() {
-    expect(user.returnUserAverageDataPerDay('hydrationData','numOunces')).to.equal(73)
+    expect(user.returnUserAverageDataPerDay('hydrationData', 'numOunces')).to.equal(73)
   })
 
   it('should return the total water of a specific day', function() {
-    expect(user.returnUserTotalDataPerDay('hydrationData','2019/06/16','numOunces')).to.equal(95)
+    expect(user.returnUserTotalDataPerDay('hydrationData', '2019/06/16', 'numOunces')).to.equal(95)
   })
 
   it('should return the total water consumed in a week', function() {
@@ -221,11 +221,11 @@ describe('User', () => {
   });
 
   it('should return the hours slept on a given date', function() {
-    expect(user.returnUserTotalDataPerDay("sleepData","2019/06/20","hoursSlept")).to.equal(9.5);
+    expect(user.returnUserTotalDataPerDay("sleepData", "2019/06/20", "hoursSlept")).to.equal(9.5);
   });
 
   it('should return the sleep quality on a given date', function() {
-    expect(user.returnUserTotalDataPerDay("sleepData","2019/06/20","sleepQuality")).to.equal(5);
+    expect(user.returnUserTotalDataPerDay("sleepData", "2019/06/20", "sleepQuality")).to.equal(5);
   });
 
   it('should return minutes active on a given date', function() {
@@ -310,7 +310,7 @@ describe('User', () => {
     expect(user.returnUserTotalDataPerDay('activityData', '2019/06/16', 'minutesActive')).to.equal(180);
   })
 
-  it('should return a user\s average activity in a given week', function() {
+  it('should return a users average activity in a given week', function() {
     expect(user.avgWeeklyActivity("2019/06/15", "minutesActive")).to.equal(160);
   });
 
@@ -324,7 +324,7 @@ describe('User', () => {
     expect(user.daysStepGoalAchieved()).to.deep.equal(["2019/06/16", "2019/06/17"])
   });
 
-  it('should return the user\s stair climbing record', function() {
+  it('should return the users stair climbing record', function() {
     expect(user.bestStairDay()).to.equal(22)
   });
 });
