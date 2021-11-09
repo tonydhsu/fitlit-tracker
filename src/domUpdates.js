@@ -1,6 +1,3 @@
-// import user from './scripts';
-// import User from './User'
-
 const infoCard = document.getElementById('cardInfo');
 const stepComparison = document.getElementById('stepComparison');
 const averageSleepHours = document.getElementById('averageSleepHours');
@@ -16,25 +13,21 @@ const minsPerDayComparison = document.getElementById('minutesActiveComparison');
 const stairsPerDayComparison = document.getElementById('stairsComparison');
 //Drop down menu
 const dropDownMenu = document.getElementById('dropDownMenu');
-const addNewBtn = document.getElementById('addNewBtn');
 //sleep selectors
 const sleepForm = document.getElementById('sleepForm');
 const sleepDateInput = document.getElementById('sleepDateInput');
 const sleepQualityInput = document.getElementById('sleepQualityInput');
-const sleepHoursInput = document.getElementById('sleepHoursInput')
-const sleepBtnForm = document.getElementById('sleepBtnForm')
+const sleepHoursInput = document.getElementById('sleepHoursInput');
 //hydration selectors
 const hydrationForm = document.getElementById('hydrationForm');
 const hydrationDateInput = document.getElementById('hydrationDateInput');
 const hydrationInput = document.getElementById('hydrationInput');
-const hydrationBtnForm = document.getElementById('hydrationBtnForm');
 //activity selectors
 const activityForm = document.getElementById('activityForm');
 const activityDateInput = document.getElementById('activityDateInput');
 const stepsInput = document.getElementById('stepsInput');
 const minutesInput = document.getElementById('minutesInput');
 const stairsInput = document.getElementById('stairsInput');
-const activityBtnForm = document.getElementById('activityBtnForm');
 const sleepInputFeedback = document.getElementById('sleepInputFeedback');
 const waterInputFeedback = document.getElementById('waterInputFeedback');
 const activityInputFeedback = document.getElementById('activityInputFeedback');
@@ -70,31 +63,31 @@ const domUpdates = {
   },
 
   renderAverageSleepQuality(avgSleepQuality) {
-    averageSleepQuality.innerText = `Your sleep quality is an average of ${avgSleepQuality}`
+    averageSleepQuality.innerText = `Your sleep quality is an average of ${avgSleepQuality}`;
   },
 
   renderWaterWidget(totalWaterPerDay) {
-    waterWidget.innerText = `${totalWaterPerDay}`
+    waterWidget.innerText = `${totalWaterPerDay}`;
   },
 
   renderHoursOfSleepWidget(totalHoursSlept) {
-    hoursOfSleepWidget.innerText = `${totalHoursSlept}`
+    hoursOfSleepWidget.innerText = `${totalHoursSlept}`;
   },
 
   renderQualityOfSleepWidget(totalSleepQuality) {
-    sleepQualityWidget.innerText = `${totalSleepQuality}`
+    sleepQualityWidget.innerText = `${totalSleepQuality}`;
   },
 
   renderStepsWidget(totalStepsPerDay) {
-    stepsWidget.innerText = `${totalStepsPerDay}`
+    stepsWidget.innerText = `${totalStepsPerDay}`;
   },
 
   renderMilesWidget(totalMilesPerDay) {
-    milesWidget.innerText = `${totalMilesPerDay}`
+    milesWidget.innerText = `${totalMilesPerDay}`;
   },
 
   renderMinsWidget(totalMinsPerDay) {
-    minsWidget.innerText = `${totalMinsPerDay}`
+    minsWidget.innerText = `${totalMinsPerDay}`;
   },
 
   compareActivitySteps(avgStepsPerDay) {
@@ -155,17 +148,16 @@ const domUpdates = {
       correctInputFeedback.innerText = 'Thanks for the data, yum yum yum.';
     }
     else {
-      activityInputFeedback.innerText = 'Please fill out all fields.'
+      activityInputFeedback.innerText = 'Please fill out all fields.';
     }
   },
 
-  renderFriends(userObj, usersObj) {
+  renderFriends(user, users) {
     const friends = [];
-    userObj.friends.forEach((id) => {
-      usersObj.data.filter((user) => {
+    user.friends.forEach((id) => {
+      users.data.filter((user) => {
         return user.id === id
       }).map((user) => {
-        console.log(user.name)
         return friends.push(user.name)
       })
     })

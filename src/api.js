@@ -3,45 +3,18 @@ const fetchData = (param) => {
     .then(response => response.json())
 }
 
-
-const addSleepData = (sleepObject) => {
-  return fetch("http://localhost:3001/api/v1/sleep", {
+const addData = (object, property) => {
+  return fetch(`http://localhost:3001/api/v1/${property}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(sleepObject)
+    body: JSON.stringify(object)
   })
-  .then(response => response.json())
+    .then(response => response.json())
 }
-
-const addHydrationData = (hydrationObject) => {
-  return fetch("http://localhost:3001/api/v1/hydration", {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(hydrationObject)
-  })
-  .then(response => response.json())
-}
-
-const addActivityData = (activityObject) => {
-  return fetch("http://localhost:3001/api/v1/activity", {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(activityObject)
-  })
-  .then(response => response.json())
-}
-
-
 
 export {
   fetchData,
-  addSleepData,
-  addHydrationData,
-  addActivityData
+  addData,
 };

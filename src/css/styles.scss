@@ -1,5 +1,5 @@
 @use "variables";
-@use "mixins";
+@use "mixins" ;
 @use "reset";
 
 * {
@@ -41,6 +41,7 @@ h3 {
 }
 
 img {
+  // @include our-margin(1% 10% 1% 6%);
   margin: 1% 10% 1% 6%;
   padding: 2%;
   width: 27%;
@@ -70,6 +71,7 @@ label {
 
 select {
   font-size: 100%;
+  cursor: pointer;
 }
 
 button {
@@ -80,6 +82,12 @@ button {
   height: 50%;
   width: 70%;
   font-size: 120%;
+  cursor: pointer
+}
+
+button:hover {
+  transition: .5s ease-in-out;
+  transform: scale(1.1);
 }
 
 canvas {
